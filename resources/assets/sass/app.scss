@@ -6,7 +6,13 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~sweetalert2/src/sweetalert2';
+
+@import '~admin-lte/dist/css/AdminLTE.min.css';
+@import '~admin-lte/dist/css/skins/_all-skins.min.css';
+@import '~admin-lte/bower_components/font-awesome/scss/font-awesome';
+@import '~admin-lte/bower_components/Ionicons/scss/ionicons';
 
 .navbar-laravel {
   background-color: #fff;
