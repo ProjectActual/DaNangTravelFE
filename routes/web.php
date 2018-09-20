@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
+    return view('layouts.master');
+});
+
+Route::get('/lte2', function () {
     return view('welcome');
 });
