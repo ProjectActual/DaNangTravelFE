@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.master');
+    return view('admin.layouts.master');
 });
 
 Route::get('/lte2', function () {
