@@ -12,13 +12,13 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini @yield('master.body')">
     <div class="wrapper">
-        @include('layouts.partials.header')
-        @include('layouts.partials.sidebar')
+        @include('admin.layouts.partials.header')
+        @include('admin.layouts.partials.sidebar')
         <main class="content-wrapper">
             {{-- @yield('master.content') --}}
             <button type="button" id="toastr-id" class="btn btn-primary"> click toastr</button>
         </main>
-        @include('layouts.partials.footer')
+        @include('admin.layouts.partials.footer')
     </div>
     <script src="{{ mix('bundled/app.js') }}"></script>
     <script src="template/toastr/toastr.min.js" type="text/javascript" charset="utf-8" async defer></script>
