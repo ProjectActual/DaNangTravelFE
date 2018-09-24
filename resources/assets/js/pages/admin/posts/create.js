@@ -124,7 +124,7 @@ $(function () {
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
       }
     }).then(res => {
-      displayMessages(res);
+      displayMessages(res, '/admin/posts');
     }).catch(err => {
       displayErrors(err);
     })

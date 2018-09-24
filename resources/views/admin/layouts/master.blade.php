@@ -7,8 +7,6 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>@yield('master.title') - DaNangTravel</title>
   <link rel="stylesheet" type="text/css" href="{{ mix('bundled/app.css') }}">
-  <link rel="stylesheet" type="text/css" href="/template/toastr/toastr.css">
-  <link rel="stylesheet" href="/template/sweetalert2/sweetalert2.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini @yield('master.body')">
   <div class="wrapper">
@@ -22,9 +20,7 @@
     @include('admin.layouts.partials.footer')
   </div>
   <script src="{{ mix('bundled/app.js') }}"></script>
-  <script src="/template/toastr/toastr.min.js" type="text/javascript" charset="utf-8" async defer></script>
-  <script src="/template/sweetalert2/sweetalert2.all.js"></script>
-  <script src="/template/cktemplate/ckeditor/ckeditor.js"></script>
+  {{-- <script src="/template/cktemplate/ckeditor/ckeditor.js"></script> --}}
   <script src="/template/cktemplate/ckfinder/ckfinder.js"></script>
 </body>
 </html>

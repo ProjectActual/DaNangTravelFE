@@ -9,9 +9,11 @@
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import '~sweetalert2/src/sweetalert2';
+@import '~toastr/toastr';
 @import '~dropify/src/sass/dropify';
 @import '~bootstrap-tagsinput/src/bootstrap-tagsinput.css';
 
+//admin-lte
 @import '~admin-lte/dist/css/AdminLTE.min.css';
 @import '~admin-lte/dist/css/skins/_all-skins.min.css';
 @import '~admin-lte/bower_components/font-awesome/scss/font-awesome';
