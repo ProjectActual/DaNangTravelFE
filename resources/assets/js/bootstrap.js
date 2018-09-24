@@ -13,9 +13,13 @@ try {
 
     require('bootstrap-sass');
     require('admin-lte');
-    require('ckeditor');
+    require('dropify/src/js/dropify');
+    require('bootstrap-tagsinput/src/bootstrap-tagsinput.js');
 } catch (e) {}
 
+window.Cookies = require('js-cookie/src/js.cookie');
+window.swal = require('sweetalert2/dist/sweetalert2.all.min.js');
+window.toastr = require('toastr');
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

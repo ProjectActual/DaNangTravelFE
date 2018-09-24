@@ -3,9 +3,18 @@ $(function () {
 
   const pathname = '/' + window.trimSlash(window.location.pathname);
 
-  // example
-  // if (/^\/admin\/gioi-thieu-lavion$/.test(pathname)) {
-  //   require('./admin/gioi_thieu_lavion/_index');
-  //   return;
-  // }
+  if (/^\/admin\/login$/.test(pathname)) {
+    require('./auth/login');
+    return;
+  }
+
+  if (/^\/admin\/posts$/.test(pathname)) {
+    require('./posts/index');
+    return;
+  }
+
+  if (/^\/admin\/posts\/create$/.test(pathname)) {
+    require('./posts/create');
+    return;
+  }
 });

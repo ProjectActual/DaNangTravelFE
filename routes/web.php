@@ -11,10 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/lte2', function () {
     return view('admin.layouts.master');
 });
 
-Route::get('/lte2', function () {
-    return view('welcome');
+Route::get('unauthentication', function () {
+    return view('errors.unauthentication');
+});
+
+Route::get('not-found', function () {
+    return view('errors.not_found');
 });

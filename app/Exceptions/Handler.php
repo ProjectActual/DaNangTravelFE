@@ -46,6 +46,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if($exception instanceof \GuzzleHttp\Exception\RequestException) {
+            return redirect()->route('admin.login');
+        }
+
         return parent::render($request, $exception);
     }
 }
