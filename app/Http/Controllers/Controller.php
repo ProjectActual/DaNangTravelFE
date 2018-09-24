@@ -12,12 +12,4 @@ use GuzzleHttp\Client;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    public $api_url = 'http://localhost:8000';
-    public $client;
-
-    public function __construct()
-    {
-        $this->client = new Client();
-    }
 }
