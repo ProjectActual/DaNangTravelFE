@@ -94,23 +94,32 @@ $(function () {
     }
   });
 
+  var files;
+
+  $('body').on('change', '#avt_post', function (e) {
+    files = e.target.files;
+  });
+
   $('body').on('click', '#btnSubmit', function () {
     console.log('click btnsubmit');
-    var file = $("#avt_post")[0].files[0];
 
-    const payload = {
-      'title'       : $('#title').val(),
-      'uri_post'    : $('#link').val(),
-      'content'     : CKEDITOR.instances.content.getData(),
-      'avatar_post' : file,
-      'status'      : $('#checkbox').prop('checked'),
-      'tag'         : $("#tag").tagsinput('items'),
-      'category_id' : $('#danh_muc').val()
-    }
+    var data = new FormData();
 
-    axios.post(url('/api/admin/posts'), payload, {
+    $.each(files, function(key, value)
+    {
+        data.append('avatar_post', value);
+    });
+
+    data.append('title', $('#title').val());
+    data.append('uri_post', $('#link').val());
+    data.append('content', CKEDITOR.instances.content.getData());
+    data.append('status', $('#checkbox').prop('checked'));
+    data.append('tag', $("#tag").tagsinput('items'));
+    data.append('category_id', $('#danh_muc').val());
+
+    axios.post(url('/api/admin/posts'), data, {
       headers : {
-        'Content-Type'  : 'application/json',
+        'Content-Type'  : false,
         'Accept'        : 'application/json',
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
       }
@@ -119,6 +128,7 @@ $(function () {
     }).catch(err => {
       displayErrors(err);
     })
+
   })
 
   $('body').on('click', '#btnCancel', function () {

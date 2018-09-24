@@ -22,8 +22,8 @@ window.displayMessages = function (message) {
     text: message.message,
     type: "success"
   }).then(function(){
-     window.location.replace('/admin/posts');
-  });
+   window.location.replace('/admin/posts');
+ });
 }
 
 window.url = function (uri) {
