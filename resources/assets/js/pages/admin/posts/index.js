@@ -42,5 +42,10 @@ $(function () {
         window.location.replace('/unauthentication');
       })
   }
-  console.log('page posts')
+
+  $('body').on('click', '.btnSua', function () {
+    const hash = $(this).attr('hash');
+
+    window.location.replace(`/admin/posts/update/${hash}`);
+  });
 });
