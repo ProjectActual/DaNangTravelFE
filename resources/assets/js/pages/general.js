@@ -11,12 +11,12 @@ window.displayErrors  = function (err) {
   } else if (err.response.data.message == "unauthentication") {
     window.location.href = window.location.origin + 'unauthentication';
   }
-   else {
+  else {
     swal('Oops...', err.response.data.message, 'error');
   }
 }
 
-window.displayMessages = function (message, redirect=null) {
+window.displayMessages = function (message, redirect='') {
   message = message.data;
   const time = 3000;
 
@@ -25,7 +25,9 @@ window.displayMessages = function (message, redirect=null) {
     text: message.message,
     type: "success"
   }).then(function(){
-    window.location.replace(redirect);
+    if(redirect != '') {
+      window.location.replace(redirect);
+    }
   });
 }
 
