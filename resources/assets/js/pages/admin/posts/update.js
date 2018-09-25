@@ -1,10 +1,7 @@
 $(function () {
   'use strict';
 
-  console.log('page create');
-
-  deleteImage();
-  loadCategories();
+  console.log('page update post');
 
   var link = '';
 
@@ -18,23 +15,7 @@ $(function () {
     height: '600px',
   });
 
-  function loadCategories()
-  {
-    axios.get(url('/api/admin/categories'), {
-      headers : {
-        'Content-Type'  : 'application/json',
-        'Accept'        : 'application/json',
-        'Authorization' : `Bearer ${Cookies.get('access_token')}`
-      }
-    }).then(res => {
-      const categories = res.data;
-      var str = '<option>Chọn ...</option>';
-      for(let index in categories) {
-        str = str + `<option value="${categories[index].id}">${categories[index].name_category}</option>`
-      }
-      $('#danh_muc').html(str);
-    })
-  }
+  deleteImage();
 
   function deleteImage() {
     var avt_post = $('#avt_post').dropify();
@@ -103,23 +84,46 @@ $(function () {
   $('body').on('click', '#btnSubmit', function () {
     console.log('click btnsubmit');
 
+    const hash = $(this).attr('hash');
+
     var data = new FormData();
 
     $.each(files, function(key, value)
     {
-        data.append('avatar_post', value);
+      data.append('avatar_post', value);
     });
 
-    data.append('title', $('#title').val());
-    data.append('uri_post', $('#link').val());
-    data.append('content', CKEDITOR.instances.content.getData());
-    data.append('status', $('#checkbox').prop('checked'));
-    data.append('tag', $("#tag").tagsinput('items'));
-    data.append('category_id', $('#danh_muc').val());
-
-    axios.post(url('/api/admin/posts'), data, {
+    axios.post(url('/api/admin/posts/uploadFile'), data, {
       headers : {
-        'Content-Type'  : 'multipart/form-data',
+        'Content-Type'  : false,
+        'Accept'        : 'application/json',
+        'Authorization' : `Bearer ${Cookies.get('access_token')}`
+      }
+    }).then(res => {
+        sendRequestUpdate(res.data);
+    }).catch(err => {
+        displayErrors(err);
+    })
+
+  })
+
+  function sendRequestUpdate(avatar_post)
+  {
+    const hash = $('#btnSubmit').attr('hash');
+
+    const payload = {
+      'title'         : $('#title').val(),
+      'uri_post'      : $('#link').val(),
+      'content'       : CKEDITOR.instances.content.getData(),
+      'status'        : $('#checkbox').prop('checked'),
+      'tag'           : $("#tag").tagsinput('items'),
+      'category_id'   : $('#danh_muc').val(),
+      'avatar_post'   : avatar_post
+    }
+
+    axios.put(url(`/api/admin/posts/${hash}`), payload, {
+      headers : {
+        'Content-Type'  : 'application/json',
         'Accept'        : 'application/json',
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
       }
@@ -128,10 +132,5 @@ $(function () {
     }).catch(err => {
       displayErrors(err);
     })
-
-  })
-
-  $('body').on('click', '#btnCancel', function () {
-    window.location = window.location.origin + '/admin/posts';
-  })
+  }
 });

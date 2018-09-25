@@ -38,9 +38,8 @@ class PostController extends Controller
                 'Content-Type'  => 'application/json',
             ],
         ]);
-        $posts = json_decode((string) $reponse_posts->getBody(), true);
-        dd($posts, $categories);
+        $post = json_decode((string) $reponse_posts->getBody(), true);
 
-        return view('admin.posts.update', compact('posts', 'categories'));
+        return view('admin.posts.update', compact('post', 'categories'));
     }
 }
