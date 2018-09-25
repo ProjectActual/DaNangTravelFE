@@ -46,6 +46,6 @@ $(function () {
   $('body').on('click', '.btnSua', function () {
     const hash = $(this).attr('hash');
 
-    window.location.replace(`/admin/posts/update/${hash}`);
+    window.location.href = window.location.origin + `/admin/posts/update/${hash}`;
   });
 });
