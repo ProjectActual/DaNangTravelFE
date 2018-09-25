@@ -4,9 +4,14 @@
 @section('master.content')
 <div class="container-posts">
   <div class="row">
-    <h2 class="heading-2 col-sm-12">
+    <h2 class="heading-2 col-sm-8">
       Sửa bài viết
     </h2>
+    <ol class="breadcrumb text-right col-sm-4">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="{{ route('admin.posts.index') }}"> Bài Viết</a></li>
+      <li class="active">Sửa Bài Viết</li>
+    </ol>
     <div class="col-sm-7">
       <div class="form-group col-sm-12">
         <label>Tiêu đề bài viết</label>
