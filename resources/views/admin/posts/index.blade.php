@@ -5,11 +5,13 @@
 
 <div class="container-posts">
   <div class="row ">
-    <h2 class="heading-2 col-sm-12">
+    <h2 class="heading-2 col-sm-8">
       Quản Lý Bài Viết
     </h2>
-    @php
-    @endphp
+    <ol class="breadcrumb text-right col-sm-4">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li class="active">Bài Viết</li>
+    </ol>
     <div class="col-sm-12 posts-header">
       <div class="input-group">
         <input type="text" class="form-control" id="input_search" placeholder="Tìm kiếm"/>
