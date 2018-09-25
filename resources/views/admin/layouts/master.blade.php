@@ -20,7 +20,7 @@
     @include('admin.layouts.partials.footer')
   </div>
   <script src="{{ mix('bundled/app.js') }}"></script>
-  {{-- <script src="/template/cktemplate/ckeditor/ckeditor.js"></script> --}}
+  <script src="/template/cktemplate/ckeditor/ckeditor.js"></script>
   <script src="/template/cktemplate/ckfinder/ckfinder.js"></script>
 </body>
 </html>

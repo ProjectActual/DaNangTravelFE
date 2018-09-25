@@ -12,4 +12,19 @@ use GuzzleHttp\Client;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    protected $client;
+
+    protected $url;
+
+    public function __construct()
+    {
+        $this->client = new Client();
+        $this->url    = 'http://127.0.0.1:8000';
+    }
+
+    public function url($uri)
+    {
+        return $this->url . $uri;
+    }
 }

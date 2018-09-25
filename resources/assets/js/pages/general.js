@@ -8,7 +8,10 @@ window.displayErrors  = function (err) {
     for (var key in errors) {
       window.toastr.error(errors[key][0]);
     }
-  } else {
+  } else if (err.response.data.message == "unauthentication") {
+    window.location.href = window.location.origin + 'unauthentication';
+  }
+   else {
     swal('Oops...', err.response.data.message, 'error');
   }
 }

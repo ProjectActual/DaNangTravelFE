@@ -17,4 +17,9 @@ $(function () {
     require('./posts/create');
     return;
   }
+
+    if (/^\/admin\/posts\/update\/(.*)$/.test(pathname)) {
+    require('./posts/update');
+    return;
+  }
 });

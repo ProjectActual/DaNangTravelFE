@@ -41,7 +41,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="{{ route('admin.posts.index') }}" title="">Danh sách</a></li>
-          <li><a href="#" title="">Tạo bài viết</a></li>
+          <li><a href="{{ route('admin.posts.create') }}" title="">Tạo bài viết</a></li>
         </ul>
       </li>
       <li><a href="#"><i class="fa fa-link"></i> <span>Quản lý danh mục</span></a></li>
