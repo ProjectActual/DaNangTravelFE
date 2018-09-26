@@ -5,45 +5,57 @@ $(function () {
 
   loadData();
 
-  function loadData()
+  function loadData(linkUrl = url('/api/admin/posts'))
   {
-    axios.get(url('/api/admin/posts'), {
+    axios.get(linkUrl, {
       headers: {
         'Content-Type'  : 'application/json',
         'Accept'        : 'application/json',
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
       }
     }).then(res => {
+      var index = res.data.from;
       var post = res.data.data;
       var str = '';
-      var key = 1;
-      for(var index in post) {
+      for(var value in post) {
         var str = str +
             `<tr>
-              <td>${key++}</td>
-              <td>${post[index].title}</td>
+              <td>${index++}</td>
+              <td>${post[value].title}</td>
               <td>anh</td>
-              <td>${post[index].uri_post}</td>`;
-        if(post[index].status == 'ACTIVE') {
-          str = str + `<td><a href="javascript:" class="btn btn-xs btn-success">${post[index].status} </a></td>`;
+              <td>${post[value].uri_post}</td>`;
+        if(post[value].status == 'ACTIVE') {
+          str = str + `<td><a href="javascript:" class="btn btn-xs btn-success">${post[value].status} </a></td>`;
         } else {
-          str = str + `<td><a href="javascript:" class="btn btn-xs btn-danger">${post[index].status} </a></td>`;
+          str = str + `<td><a href="javascript:" class="btn btn-xs btn-danger">${post[value].status} </a></td>`;
         }
         str = str +
-              `<td>${post[index].created_at}</td>
-              <td>${post[index].updated_at}</td>
+              `<td>${post[value].created_at}</td>
+              <td>${post[value].updated_at}</td>
               <td class="text-center text-nowrap">
-              <button class="btn btn-xs btn-info" hash="${post[index].id}">Xem trước</button>
-              <button class="btn btn-xs btn-danger btnXoa" hash="${post[index].id}">Xoá</button>
-              <button class="btn btn-xs btn-primary btnSua" hash="${post[index].id}">Sửa</button>
+              <button class="btn btn-xs btn-info" hash="${post[value].id}">Xem trước</button>
+              <button class="btn btn-xs btn-danger btnXoa" hash="${post[value].id}">Xoá</button>
+              <button class="btn btn-xs btn-primary btnSua" hash="${post[value].id}">Sửa</button>
               </td>
             </tr>`;
       }
       $('#table-body').html(str);
+
+      paginate(res.data);
+
     }).catch(err => {
       window.location.replace('/unauthentication');
     })
   }
+
+  $('body').on('click', '.page-link', function(e) {
+    e.preventDefault();
+    if ($(this).attr('href') == 'null') {
+      return;
+    }
+    var url = $(this).attr('href');
+    loadData(url);
+  });
 
   $('body').on('click', '.btnSua', function () {
     const hash = $(this).attr('hash');
