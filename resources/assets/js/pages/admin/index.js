@@ -8,6 +8,11 @@ $(function () {
     return;
   }
 
+  if (/^\/admin\/forget-password$/.test(pathname)) {
+    require('./auth/forget');
+    return;
+  }
+
   if (/^\/admin\/posts$/.test(pathname)) {
     require('./posts/index');
     return;
@@ -18,8 +23,13 @@ $(function () {
     return;
   }
 
-    if (/^\/admin\/posts\/update\/(.*)$/.test(pathname)) {
+  if (/^\/admin\/posts\/update\/(.*)$/.test(pathname)) {
     require('./posts/update');
+    return;
+  }
+
+  if (/^\/admin\/profile$/.test(pathname)) {
+    require('./profile/index');
     return;
   }
 });

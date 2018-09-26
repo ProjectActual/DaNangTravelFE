@@ -44,7 +44,7 @@ $(function () {
       paginate(res.data);
 
     }).catch(err => {
-      window.location.replace('/unauthentication');
+      displayErrors(err);
     })
   }
 

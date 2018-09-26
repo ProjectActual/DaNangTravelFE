@@ -107,7 +107,7 @@ $(function () {
 
     $.each(files, function(key, value)
     {
-        data.append('avatar_post', value);
+      data.append('avatar_post', value);
     });
 
     data.append('title', $('#title').val());
@@ -130,6 +130,12 @@ $(function () {
     })
 
   })
+
+  $('body').on('keyup', '#title', function(e) {
+    if (e.which == 13) {
+      $('#btnSubmit').click();
+    }
+  });
 
   $('body').on('click', '#btnCancel', function () {
     window.location = window.location.origin + '/admin/posts';

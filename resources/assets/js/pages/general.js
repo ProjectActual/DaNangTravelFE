@@ -10,7 +10,11 @@ window.displayErrors  = function (err)
     for (var key in errors) {
       window.toastr.error(errors[key][0]);
     }
-  }else {
+  } else if(err.response.data.message == 'Unauthorization') {
+    window.location.href = window.location.origin + '/unauthorization'
+  }
+
+  else {
     swal('Oops...', err.response.data.message, 'error');
   }
 }
