@@ -10,3 +10,7 @@ Route::group(['prefix' => 'posts', 'as' => 'posts.'], function() {
     Route::get('/create', 'PostController@create')->name('create');
     Route::get('/update/{id}', 'PostController@update')->name('update');
 });
+
+Route::group(['prefix' => 'profiles', 'as' => 'profiles.'], function() {
+    Route::get('/', 'ProfileController@index')->name('index');
+});
