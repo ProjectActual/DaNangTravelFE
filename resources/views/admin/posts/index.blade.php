@@ -40,6 +40,9 @@
           </tbody>
         </table>
       </div>
+      <div class="row pagination-js">
+
+      </div>
     </div>
   </div>
 </div>
