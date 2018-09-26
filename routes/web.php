@@ -17,7 +17,7 @@ Route::get('/lte2', function () {
 
 Route::get('unauthentication', function () {
     return view('errors.unauthentication');
-});
+})->name('errors.unauthentication');
 
 Route::get('not-found', function () {
     return view('errors.not_found');

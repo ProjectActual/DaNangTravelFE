@@ -10,10 +10,7 @@ window.displayErrors  = function (err)
     for (var key in errors) {
       window.toastr.error(errors[key][0]);
     }
-  } else if (err.response.data.message == "unauthentication") {
-    window.location.href = window.location.origin + 'unauthentication';
-  }
-  else {
+  }else {
     swal('Oops...', err.response.data.message, 'error');
   }
 }
@@ -29,7 +26,7 @@ window.displayMessages = function (message, redirect='')
     type: "success"
   }).then(function(){
     if(redirect != '') {
-      window.location.replace(redirect);
+      window.location.href = window.location.origin + redirect;
     }
   });
 }
