@@ -23,11 +23,11 @@ $(function () {
     var avatar = $('#avatar').dropify();
 
     avatar.on('dropify.afterClear', function (event, element) {
-      swal('Delete','Xóa thành công', 'success')
+      swal('Delete','Xóa thành công', 'success');
     });
 
     avatar.on('dropify.errors', function (event, element) {
-      swal('Oops...', 'Something went wrong!', 'error')
+      swal('Oops...', 'Something went wrong!', 'error');
     });
   }
 
@@ -70,7 +70,7 @@ $(function () {
       old_password              : $('#old_password').val(),
       new_password              : $('#new_password').val(),
       new_password_confirmation : $('#new_password_confirmation').val()
-    }
+    };
 
     axios.post(url('/api/admin/change-password'), payload, {
       headers: {
@@ -81,9 +81,9 @@ $(function () {
     }).then(res => {
       Cookies.set('access_token', res.data.data.access_token);
       displayMessages(res);
-      $('#old_password').val('')
-      $('#new_password').val('')
-      $('#new_password_confirmation').val('')
+      $('#old_password').val('');
+      $('#new_password').val('');
+      $('#new_password_confirmation').val('');
     }).catch(err => {
       displayErrors(err);
     })
@@ -96,8 +96,8 @@ $(function () {
   });
 
   $('body').on('click', '#btnCancel', function () {
-    $('#old_password').val('')
-    $('#new_password').val('')
-    $('#new_password_confirmation').val('')
+    $('#old_password').val('');
+    $('#new_password').val('');
+    $('#new_password_confirmation').val('');
   })
 })

@@ -53,8 +53,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="" title="">Danh sách</a></li>
-          <li><a href="" title="">Tạo danh mục</a></li>
+          <li><a href="{{ route('admin.categories.index') }}" title="">Danh sách</a></li>
         </ul>
       </li>
       <li class="treeview">

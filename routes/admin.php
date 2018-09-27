@@ -20,3 +20,7 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => 'authen
 Route::group(['prefix' => 'tags', 'as' => 'tags.', 'middleware' => 'authen'], function() {
     Route::get('/', 'TagController@index')->name('index');
 });
+
+Route::group(['prefix' => 'categories', 'as' => 'categories.', 'middleware' => 'authen'], function() {
+    Route::get('/', 'CategoryController@index')->name('index');
+});

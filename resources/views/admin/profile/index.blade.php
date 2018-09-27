@@ -2,6 +2,12 @@
 @section('master.title', 'Bài Viết')
 @section('master.body', 'profile')
 @section('master.content')
+
+<ol class="breadcrumb text-right">
+  <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+  <li class="active">Profile</li>
+</ol>
+
 <div class="container-profile">
   <div class="row">
     <div class="section profile-left col-md-5">
@@ -66,7 +72,7 @@
           <div class="col-md-12 text-right">
             <div class="col-md-12 form-button">
               <button type="submit" class="btn btn-info right" id="btnChange"><i class="fa fa-check"></i> Thay đổi mật khẩu</button>
-              <button type="button" class="btn btn-default btnCancel" id="btnCancel"> Hủy bỏ</button>
+              <button type="button" class="btn btn-default" id="btnCancel"> Hủy bỏ</button>
             </div>
           </div>
         </div>
