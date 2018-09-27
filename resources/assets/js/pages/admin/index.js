@@ -3,6 +3,7 @@ $(function () {
 
   const pathname = '/' + window.trimSlash(window.location.pathname);
 
+//auth
   if (/^\/admin\/login$/.test(pathname)) {
     require('./auth/login');
     return;
@@ -13,6 +14,7 @@ $(function () {
     return;
   }
 
+//posts
   if (/^\/admin\/posts$/.test(pathname)) {
     require('./posts/index');
     return;
@@ -28,8 +30,15 @@ $(function () {
     return;
   }
 
+// profile
   if (/^\/admin\/profile$/.test(pathname)) {
     require('./profile/index');
+    return;
+  }
+
+// tags
+  if (/^\/admin\/tags$/.test(pathname)) {
+    require('./tags/index');
     return;
   }
 });
