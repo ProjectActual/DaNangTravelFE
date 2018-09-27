@@ -1,0 +1,50 @@
+.container-profile {
+  margin: 20px;
+
+  .box-avatar {
+    margin-bottom: 20px;
+    .avatar_show {
+      object-fit: cover;
+      width: 200px;
+      max-height: 190px;
+      border-radius: 50%;
+    }
+  }
+
+  .list-group-item-heading {
+    color: #130c0c;
+    font-weight: 700;
+  }
+
+  .profile-right {
+    padding-left: 40px;
+  }
+
+  @media( max-width: 991.8px) {
+    .profile-right {
+      padding-left: 15px;
+
+      .section {
+        margin: {
+          top: 20px;
+        }
+      }
+    }
+    .margin-20 {
+      display: none;
+    }
+  }
+}
+
+.section {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 3px;
+}
+
+.margin-20 {
+  margin: {
+    top: 10px;
+    bottom: 10px;
+  }
+}

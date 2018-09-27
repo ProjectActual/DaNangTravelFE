@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Login - DaNangTravel</title>
+  <title>Quên mật khẩu - DaNangTravel</title>
   <link rel="stylesheet" type="text/css" href="{{ mix('bundled/app.css') }}">
 </head>
 <body class="hold-transition skin-blue sidebar-mini login">
@@ -13,23 +13,15 @@
     <div class="box-login">
       <div class="main-div">
         <div class="panel">
-          <h3 class="heading-3">Đăng nhập</h3>
-          <p class="sub-heading">Nhập email và mật khẩu ở ô bên dưới</p>
+          <h3 class="heading-3">Quên mật khẩu</h3>
+          <p class="sub-heading">Nhập email của bạn để lấy lại mật khẩu</p>
         </div>
 
         <div class="form-group">
           <input type="email" class="form-control" id="email" placeholder="Email Address">
         </div>
 
-        <div class="form-group">
-          <input type="password" class="form-control" id="password" placeholder="Password">
-        </div>
-
-        <div class="text-right">
-          <a href="{{ route('admin.forget_password') }}">Quên mật khẩu?</a>
-        </div>
-
-        <button type="submit" class="btn btn-primary d-inline-block" id="btnLogin">Login</button>
+        <button type="submit" class="btn btn-primary d-inline-block" id="btnForget">Gửi</button>
       </div>
     </div>
   </div>

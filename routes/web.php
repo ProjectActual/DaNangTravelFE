@@ -15,9 +15,9 @@ Route::get('/lte2', function () {
     return view('admin.layouts.master');
 });
 
-Route::get('unauthentication', function () {
-    return view('errors.unauthentication');
-})->name('errors.unauthentication');
+Route::get('unauthorization', function () {
+    return view('errors.unauthorization');
+})->name('errors.unauthorization');
 
 Route::get('not-found', function () {
     return view('errors.not_found');

@@ -19,13 +19,19 @@
         'Accept'      : 'application/json'
       }
     }).then(res => {
-        Cookies.set('access_token', res.data.access_token);
-        Cookies.set('refresh_token', res.data.refresh_token);
+      Cookies.set('access_token', res.data.access_token);
+      Cookies.set('refresh_token', res.data.refresh_token);
 
-        window.location.replace('/admin/posts');
+      window.location.replace('/admin/posts');
     }).catch(err => {
       displayErrors(err);
     })
   })
+
+  $('body').on('keyup', '#password,#email', function(e) {
+    if (e.which == 13) {
+      $('#btnLogin').click();
+    }
+  });
 
 });

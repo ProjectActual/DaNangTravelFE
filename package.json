@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "admin-lte": "^2.4.8",
+        "bootstrap-datepicker": "^1.8.0",
         "bootstrap-sass": "^3.3.7",
         "bootstrap-tagsinput": "^0.7.1",
         "dropify": "^0.2.2",

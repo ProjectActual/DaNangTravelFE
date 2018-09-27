@@ -12,7 +12,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini body-errors">
     <div class="error">
-      Error Unauthentication
+      Error Unauthorization
     </div>
     <script src="{{ mix('bundled/app.js') }}"></script>
     <script src="/template/toastr/toastr.min.js" type="text/javascript" charset="utf-8" async defer></script>
