@@ -16,3 +16,7 @@ Route::group(['prefix' => 'posts', 'as' => 'posts.', 'middleware' => 'authen'], 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => 'authen'], function() {
     Route::get('/', 'ProfileController@index')->name('index');
 });
+
+Route::group(['prefix' => 'tags', 'as' => 'tags.', 'middleware' => 'authen'], function() {
+    Route::get('/', 'TagController@index')->name('index');
+});

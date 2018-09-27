@@ -44,7 +44,43 @@
           <li><a href="{{ route('admin.posts.create') }}" title="">Tạo bài viết</a></li>
         </ul>
       </li>
-      <li><a href="#"><i class="fa fa-link"></i> <span>Quản lý danh mục</span></a></li>
+      <li class="treeview">
+        <a href="javascript:">
+          <i class="fa fa-link"></i>
+          <span>Quản lý danh mục</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="" title="">Danh sách</a></li>
+          <li><a href="" title="">Tạo danh mục</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="javascript:">
+          <i class="fa fa-link"></i>
+          <span>Quản lý tag</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{ route('admin.tags.index') }}" title="">Danh sách</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="javascript:">
+          <i class="fa fa-link"></i>
+          <span>Quản lý feedback</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="" title="">Danh sách</a></li>
+        </ul>
+      </li>
     </ul>
     <!-- /.sidebar-menu -->
   </section>
