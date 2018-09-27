@@ -36,18 +36,6 @@ $(function () {
 
   $('body').on('click','#btnAdd', function () {
 
-    location.queryString = {};
-    location.search.substr(1).split("&").forEach(function (pair) {
-    if (pair === "") {
-      return;
-    }
-    var parts = pair.split("=");
-
-    location.queryString[parts[0]] = parts[1] &&
-        decodeURIComponent(parts[1].replace(/\+/g, " "));
-    });
-    console.log(location.queryString);
-    return
     const payload = {
       'name_category'  : $('#name_category').val(),
       'uri_category'   : $('#link').val(),
@@ -120,6 +108,18 @@ $(function () {
     $('#description').val('');
   })
 
+  $('body').on('keyup', '#name_category', function(e) {
+    if (e.which == 13) {
+      $('#btnAdd').click();
+    }
+  });
+
+  $('body').on('keyup', '#link', function(e) {
+    if (e.which == 13) {
+      $('#edit_link').click();
+    }
+  });
+
 //update
 $('body').on('click', '.btnSua', function () {
   const hash = $(this).attr('hash');
@@ -162,48 +162,74 @@ $('body').on('click', '#updateModal', function () {
     displayErrors(err);
   })
 })
+  $('#name_category_update').on('keyup', function () {
+
+    var name_category = $('#name_category_update').val();
+
+    name_category = window.convertToSlug(name_category);
+
+    $('#link_update').val(name_category);
+  });
+
+  $('#edit_link_update').on('click', function() {
+    link_update = $('#link_update').val();
+
+    if ($(this).text() == 'Chỉnh sửa link bài viết') {
+      $(this).html('Xong');
+      $('#link_update').prop('disabled', false);
+      $('#cancel_link_update').css('display', 'inline');
+    } else {
+      var link_update = window.convertToSlug($('#link_update').val());
+
+      $('#link_update').val(link_update);
+      $(this).html('Chỉnh sửa link bài viết');
+
+      $('#link_update').prop('disabled', true);
+      $('#cancel_link_update').css('display', 'none');
+    }
+  });
+
+  $('#cancel_link_update').on('click', function () {
+    $('#link_update').val(link_update);
+    if ($('#edit_link_update').text() == 'Chỉnh sửa link bài viết') {
+      $('#edit_link_update').html('Xong');
+      $('#link_update').prop('disabled', false);
+      $('#cancel_link_update').css('display', 'inline');
+    } else {
+      var link_update = window.convertToSlug($('#name_category_update').val());
+
+      $('#edit_link_update').html('Chỉnh sửa link bài viết');
+      $('#link_update').prop('disabled', true);
+
+      $('#link_update').val(link_update);
+      $('#cancel_link_update').css('display', 'none');
+    }
+  });
+
+  $('body').on('keyup', '#name_category_update', function(e) {
+    if (e.which == 13) {
+      $('#updateModal').click();
+    }
+  });
+
+  $('body').on('keyup', '#link_update', function(e) {
+    if (e.which == 13) {
+      $('#edit_link_update').click();
+    }
+  });
 })
 
-$('#name_category_update').on('keyup', function () {
 
-  var name_category = $('#name_category_update').val();
 
-  name_category = window.convertToSlug(name_category);
+//GET PARAM URL
 
-  $('#link_update').val(name_category);
-});
+    // location.queryString = {};
+    // location.search.substr(1).split("&").forEach(function (pair) {
+    // if (pair === "") {
+    //   return;
+    // }
+    // var parts = pair.split("=");
 
-$('#edit_link_update').on('click', function() {
-  link_update = $('#link_update').val();
-
-  if ($(this).text() == 'Chỉnh sửa link bài viết') {
-    $(this).html('Xong');
-    $('#link_update').prop('disabled', false);
-    $('#cancel_link_update').css('display', 'inline');
-  } else {
-    var link_update = window.convertToSlug($('#link_update').val());
-
-    $('#link_update').val(link_update);
-    $(this).html('Chỉnh sửa link bài viết');
-
-    $('#link_update').prop('disabled', true);
-    $('#cancel_link_update').css('display', 'none');
-  }
-});
-
-$('#cancel_link_update').on('click', function () {
-  $('#link_update').val(link_update);
-  if ($('#edit_link_update').text() == 'Chỉnh sửa link bài viết') {
-    $('#edit_link_update').html('Xong');
-    $('#link_update').prop('disabled', false);
-    $('#cancel_link_update').css('display', 'inline');
-  } else {
-    var link_update = window.convertToSlug($('#name_category_update').val());
-
-    $('#edit_link_update').html('Chỉnh sửa link bài viết');
-    $('#link_update').prop('disabled', true);
-
-    $('#link_update').val(link_update);
-    $('#cancel_link_update').css('display', 'none');
-  }
-});
+    // location.queryString[parts[0]] = parts[1] &&
+    //     decodeURIComponent(parts[1].replace(/\+/g, " "));
+    // });
