@@ -5,16 +5,16 @@
 
 @include ('admin/tags/update')
 
+<ol class="breadcrumb text-right">
+  <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+  <li class="active">Tag</li>
+</ol>
 <div class="container-posts">
 
   <div class="row ">
     <h2 class="heading-2 col-sm-8">
       Quản Lý Tag
     </h2>
-    <ol class="breadcrumb text-right col-sm-4">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-      <li class="active">Tag</li>
-    </ol>
     <div class="col-sm-12 posts-header">
       <div class="input-group">
         <input type="text" class="form-control" id="input_search" placeholder="Tìm kiếm"/>

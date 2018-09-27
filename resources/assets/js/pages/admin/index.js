@@ -41,4 +41,10 @@ $(function () {
     require('./tags/index');
     return;
   }
+
+// categories
+  if (/^\/admin\/categories$/.test(pathname)) {
+    require('./categories/index');
+    return;
+  }
 });

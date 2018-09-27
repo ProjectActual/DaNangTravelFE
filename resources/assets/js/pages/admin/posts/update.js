@@ -1,8 +1,6 @@
 $(function () {
   'use strict';
 
-  console.log('page update post');
-
   var link = '';
 
   CKEDITOR.replace('content', {
@@ -30,7 +28,6 @@ $(function () {
   }
 
   $('#title').on('keyup', function () {
-    console.log('Đã tạo link bài viết');
 
     var title = $('#title').val();
 
@@ -41,7 +38,6 @@ $(function () {
 
   $('#edit_link').on('click', function() {
     link = $('#link').val();
-    console.log('click');
 
     if ($(this).text() == 'Chỉnh sửa link bài viết') {
       $(this).html('Xong');
@@ -82,7 +78,6 @@ $(function () {
   });
 
   $('body').on('click', '#btnSubmit', function () {
-    console.log('click btnsubmit');
 
     const hash = $(this).attr('hash');
 

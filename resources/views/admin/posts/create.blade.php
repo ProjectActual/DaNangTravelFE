@@ -2,16 +2,16 @@
 @section('master.title', 'Tạo Bài Viết')
 @section('master.body', 'posts-create')
 @section('master.content')
+<ol class="breadcrumb text-right">
+  <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+  <li><a href="{{ route('admin.posts.index') }}"> Bài Viết</a></li>
+  <li class="active">Tạo Bài Viết</li>
+</ol>
 <div class="container-posts">
   <div class="row">
     <h2 class="heading-2 col-sm-8">
       Tạo bài viết
     </h2>
-    <ol class="breadcrumb text-right col-sm-4">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-      <li><a href="{{ route('admin.posts.index') }}"> Bài Viết</a></li>
-      <li class="active">Tạo Bài Viết</li>
-    </ol>
     <div class="col-sm-7">
       <div class="form-group col-sm-12">
         <label>Tiêu đề bài viết</label>
