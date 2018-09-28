@@ -22,8 +22,10 @@ $(function () {
         <td>${categories[value].name_category}</td>
         <td>${categories[value].uri_category}</td>
         <td>${categories[value].description}</td>
+        <td>${categories[value].posts_count}</td>
         <td class="text-center text-nowrap">
         <button class="btn btn-xs btn-primary btnSua" hash="${categories[value].id}">Sửa</button>
+        <button class="btn btn-xs btn-danger btnXoa" hash="${categories[value].id}">Xóa</button>
         </td>
         </tr>`;
       }
@@ -217,19 +219,40 @@ $('body').on('click', '#updateModal', function () {
       $('#edit_link_update').click();
     }
   });
+
+  $('body').on('click', '.btnXoa', function () {
+    const hash = $(this).attr('hash');
+
+    swal({
+      title: 'Bạn chắc chắn muốn xóa?',
+      text: 'Nếu bạn xóa danh mục này, tất cả bài viết nằm trong danh mục sẽ bị xóa tất cả!',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Có, xóa nó!',
+      cancelButtonText: 'Không, giữ lại!'
+    }).then((result) => {
+      if (result.value) {
+        axios.delete(url(`/api/admin/categories/${hash}`), {
+          headers: {
+            'Content-Type'  : 'application/json',
+            'Accept'        : 'application/json',
+            'Authorization' : `Bearer ${Cookies.get('access_token')}`
+          }
+        }).then(res => {
+          displayMessages(res);
+          loadData();
+        }).catch(err => {
+          displayErrors(err);
+        })
+
+      } else if (result.dismiss === swal.DismissReason.cancel) {
+        swal(
+          'Hủy bỏ thao tác',
+          '',
+          'error'
+          )
+      }
+    })
+  });
 })
 
-
-
-//GET PARAM URL
-
-    // location.queryString = {};
-    // location.search.substr(1).split("&").forEach(function (pair) {
-    // if (pair === "") {
-    //   return;
-    // }
-    // var parts = pair.split("=");
-
-    // location.queryString[parts[0]] = parts[1] &&
-    //     decodeURIComponent(parts[1].replace(/\+/g, " "));
-    // });

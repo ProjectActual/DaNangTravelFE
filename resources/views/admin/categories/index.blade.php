@@ -15,15 +15,6 @@
       <h2 class="heading-2 col-sm-8">
         Quản Lý Danh Mục
       </h2>
-      <div class="col-sm-12 posts-header">
-        <div class="input-group">
-          <input type="text" class="form-control" id="input_search" placeholder="Tìm kiếm"/>
-          <span class="input-group-addon">
-            <a href="javascript:" id="btnSearch"><i class="fa fa-search"></i></a>
-          </span>
-        </div>
-      </div>
-
       <div class="col-sm-12">
         <div class="table-responsive">
           <table class="table table-bordered table-hover">
@@ -33,6 +24,7 @@
                 <th class="text-center">Tiêu đề</th>
                 <th class="text-center">Link</th>
                 <th class="text-center">Mô tả</th>
+                <th class="text-center text-nowrap">Tổng bài viết</th>
                 <th class="text-center text-nowrap">Hoạt động</th>
               </tr>
             </thead>

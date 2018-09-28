@@ -19,4 +19,10 @@ $(function () {
       displayErrors(err);
     })
   });
+
+  $('#input_search').on('keyup', function (e) {
+    if(e.which == 13) {
+      $('#btnSearch').click();
+    }
+  })
 });
