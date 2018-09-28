@@ -10,7 +10,7 @@ window.displayErrors  = function (err)
     for (var key in errors) {
       window.toastr.error(errors[key][0]);
     }
-  } else if(err.response.data.message == 'Unauthorization') {
+  } else if(err.response.data.message == 'Unauthorization' || err.response.data.message == 'You do not have access to the router') {
     window.location.href = window.location.origin + '/unauthorization'
   }
 
