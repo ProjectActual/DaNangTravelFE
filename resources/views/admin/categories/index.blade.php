@@ -24,6 +24,7 @@
                 <th class="text-center">Tiêu đề</th>
                 <th class="text-center">Link</th>
                 <th class="text-center">Mô tả</th>
+                <th class="text-center text-nowrap">Tổng bài viết</th>
                 <th class="text-center text-nowrap">Hoạt động</th>
               </tr>
             </thead>
