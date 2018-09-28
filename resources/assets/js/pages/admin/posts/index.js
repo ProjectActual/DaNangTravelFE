@@ -1,8 +1,6 @@
 $(function () {
   'use strict'
 
-  console.log('list data');
-
   loadData();
 
   function loadData(linkUrl = url('/api/admin/posts'))
@@ -41,7 +39,7 @@ $(function () {
       }
       $('#table-body').html(str);
 
-      paginate(res.data);
+      paginate(res.data, linkUrl);
 
     }).catch(err => {
       displayErrors(err);
@@ -50,9 +48,11 @@ $(function () {
 
   $('body').on('click', '.page-link', function(e) {
     e.preventDefault();
-    if ($(this).attr('href') == 'null') {
-      return;
+
+    if ($(this).attr('href').indexOf('null') == 0) {
+      return
     }
+
     var url = $(this).attr('href');
     loadData(url);
   });
@@ -97,5 +97,12 @@ $(function () {
           )
       }
     })
+  });
+
+  $('body').on('click', '#btnSearch', function (e) {
+
+    var search = $('#input_search').val();
+
+    loadData(url(`/api/admin/posts?search=${search}`));
   });
 });

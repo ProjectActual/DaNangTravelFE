@@ -77,48 +77,71 @@ window.nonAccentVietnamese = function (str)
 }
 
 
-window.paginate = function(data)
+window.paginate = function(data, linkUrl)
 {
+  var search = {
+    "&search=": getQuery('search', linkUrl),
+  };
+
+  var value = '';
+
+    for (var key in search){
+      value = value + key + '' + search[key]
+    }
+
   if(data.per_page >= data.total) {
+    $('.pagination-js').html('');
     return;
   }
-  var from  = data.from;
-  var to    = data.to;
-  var total = data.total;
+
   var str = '';
 
-   str = str + `
-      <div class="col-sm-6">
-        show ${from} to ${to} of ${total} entities
-      </div>
-      <nav aria-label="Page navigation example" class="col-sm-6 text-right">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link first_page_url" href="${data.first_page_url}" aria-label="Previous">
-              <span aria-hidden="true"><i class="fa fa-angle-double-left"></i></span>
-              <span class="sr-only">Previous</span>
-            </a>
-          </li>
-          <li class="page-item">
-            <a class="page-link prev_page_url" href="${data.prev_page_url}" aria-label="Previous">
-              <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
-              <span class="sr-only">Previous</span>
-            </a>
-          </li>
-          <li class="page-item">
-            <a class="page-link next_page_url" href="${data.next_page_url}" aria-label="Next">
-              <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </li>
-          <li class="page-item">
-            <a class="page-link last_page_url" href="${data.last_page_url}" aria-label="Next">
-              <span aria-hidden="true"><i class="fa fa-angle-double-right"></i></i></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </li>
-        </ul>
-      </nav>`
+       str = str + `
+          <div class="col-sm-6">
+            show ${data.from} to ${data.to} of ${data.total} entities
+          </div>
+          <nav aria-label="Page navigation example" class="col-sm-6 text-right">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link first_page_url" href="${data.first_page_url + value}" aria-label="Previous">
+                  <span aria-hidden="true"><i class="fa fa-angle-double-left"></i></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link prev_page_url" href="${data.prev_page_url + value}" aria-label="Previous">
+                  <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link next_page_url" href="${data.next_page_url + value}" aria-label="Next">
+                  <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link last_page_url" href="${data.last_page_url + value}" aria-label="Next">
+                  <span aria-hidden="true"><i class="fa fa-angle-double-right"></i></i></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>`
       $('.pagination-js').html(str);
 
 }
+
+// nhập key và lấy param từ url , ví dụ url/quy?phuong=5 , giá trị nhập vào là phuong thi sẽ get ra 5
+window.getQuery = function (query, linkUrl) {
+    query = query.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var expr = "[\\?&]"+query+"=([^&#]*)";
+    var regex = new RegExp( expr );
+    var results = regex.exec(linkUrl);
+    if( results !== null ) {
+        return results[1];
+        return decodeURIComponent(results[1].replace(/\+/g, " "));
+    } else {
+        return '';
+    }
+};
