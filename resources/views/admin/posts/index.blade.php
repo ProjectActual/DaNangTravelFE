@@ -26,14 +26,15 @@
         <table class="table table-bordered table-hover">
           <thead>
             <tr>
-              <th class="text-center">#</th>
-              <th class="text-center">Tiêu đề</th>
-              <th class="text-center">Ảnh</th>
-              <th class="text-center">Link</th>
-              <th class="text-center">Trạng thái</th>
-              <th class="text-center">Ngày tạo</th>
-              <th class="text-center">Ngày update</th>
-              <th class="text-center">Hoạt động</th>
+              <th class="text-center text-nowrap">#</th>
+              <th class="text-center text-nowrap">Tiêu đề</th>
+              <th class="text-center text-nowrap">Ảnh</th>
+              <th class="text-center text-nowrap">Link</th>
+              <th class="text-center text-nowrap">Trạng thái</th>
+              <th class="text-center text-nowrap">Hiển thị slider</th>
+              <th class="text-center text-nowrap">Nổi bật</th>
+              <th class="text-center text-nowrap">Ngày tạo</th>
+              <th class="text-center text-nowrap">Hoạt động</th>
             </tr>
           </thead>
           <tbody id="table-body">

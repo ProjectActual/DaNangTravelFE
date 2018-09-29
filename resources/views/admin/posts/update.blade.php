@@ -36,6 +36,19 @@
           @endforeach
         </select>
       </div>
+
+      <div class="form-group col-sm-12">
+        <label>Sơ lược bài viết</label>
+        <textarea id="summary" class="form-control" placeholder="Nhập sơ lược bài viết tại đây" rows="3">{{ $post['summary'] }}</textarea>
+      </div>
+
+    </div>
+    <div class="col-sm-5">
+      <label class="col-sm-12">Ảnh bài viết</label>
+      <div class="col-sm-12" style="padding: 5px 15px;">
+        <input type="file" id="avt_post" name="avatar_post" data-default-file="{{ env('APP_URL_API') . Storage::url($post['avatar_post']) }}" value="{{ old('avatar_post') }}">
+      </div>
+
       @php
         $arrTag = [];
 
@@ -51,12 +64,7 @@
           <input id="tag" class="form-control col-sm-12" placeholder="Nhập nội dung tiêu đề tại đây" value="{{ $tags }}" data-role="tagsinput">
         </div>
       </div>
-    </div>
-    <div class="col-sm-5">
-      <label class="col-sm-12">Ảnh bài viết</label>
-      <div class="col-sm-12" style="padding: 5px 15px;">
-        <input type="file" id="avt_post" name="avatar_post" data-default-file="{{ env('APP_URL_API') . Storage::url($post['avatar_post']) }}" value="{{ old('avatar_post') }}">
-      </div>
+
       <div class="form-group col-sm-12">
         <input id="checkbox" type="checkbox" class="checkboxes" {{ $post['status'] == "ACTIVE" ? 'checked' : '' }}>
         <label for="checkbox">Hiện bài viết</label>

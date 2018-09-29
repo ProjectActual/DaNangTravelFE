@@ -110,6 +110,7 @@ $(function () {
     data.append('status', $('#checkbox').prop('checked'));
     data.append('tag', $("#tag").tagsinput('items'));
     data.append('category_id', $('#danh_muc').val());
+    data.append('summary', $('#summary').val());
 
     axios.post(url('/api/admin/posts'), data, {
       headers : {

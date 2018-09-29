@@ -23,13 +23,22 @@ $(function () {
               <td>anh</td>
               <td>${post[value].uri_post}</td>`;
         if(post[value].status == 'ACTIVE') {
-          str = str + `<td><a href="javascript:" class="btn btn-xs btn-success">${post[value].status} </a></td>`;
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success">${post[value].status} </a></td>`;
         } else {
-          str = str + `<td><a href="javascript:" class="btn btn-xs btn-danger">${post[value].status} </a></td>`;
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger">${post[value].status} </a></td>`;
+        }
+        if(post[value].is_slider == 'YES') {
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success">${post[value].is_slider} </a></td>`;
+        } else {
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger">${post[value].is_slider} </a></td>`;
+        }
+        if(post[value].is_hot == 'YES') {
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success">${post[value].is_hot} </a></td>`;
+        } else {
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger">${post[value].is_hot} </a></td>`;
         }
         str = str +
               `<td>${post[value].created_at}</td>
-              <td>${post[value].updated_at}</td>
               <td class="text-center text-nowrap">
               <button class="btn btn-xs btn-info" hash="${post[value].id}">Xem trước</button>
               <button class="btn btn-xs btn-danger btnXoa" hash="${post[value].id}">Xoá</button>
