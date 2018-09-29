@@ -11,8 +11,6 @@ window.Popper = require('popper.js').default;
 try {
     window.$ = window.jQuery = require('jquery');
 
-    require('bootstrap-sass');
-    require('admin-lte');
     require('dropify/src/js/dropify');
     require('bootstrap-tagsinput/src/bootstrap-tagsinput.js');
     require('bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js');

@@ -12,5 +12,8 @@ let mix = require('laravel-mix');
  */
 
  mix.js('resources/assets/js/app.js', 'public/bundled/app.js')
+ .js('resources/assets/js/viewer.js', 'public/bundled/viewer.js')
  .sass('resources/assets/sass/app.scss', 'public/bundled/app.css')
- .version();;
+ .sass('resources/assets/sass/viewer.scss', 'public/bundled/viewer.css')
+ .version();
+

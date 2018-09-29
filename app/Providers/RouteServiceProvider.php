@@ -43,6 +43,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapAdminRoutes();
 
+        $this->mapViewerRoutes();
+
         //
     }
 
@@ -58,6 +60,14 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
+    }
+
+    protected function mapViewerRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace . '\Viewer')
+             ->name('viewer.')
+             ->group(base_path('routes/viewer.php'));
     }
 
     protected function mapCTVRoutes()
