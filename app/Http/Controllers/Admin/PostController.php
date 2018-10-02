@@ -30,7 +30,7 @@ class PostController extends Controller
     {
         $reponse_categories = $this->client->request('GET', $this->url('/api/admin/categories'), [
             'headers' => [
-                'Accept' => 'application/json',
+                'Accept'        => 'application/json',
                 'Authorization' => 'Bearer '.$_COOKIE['access_token'],
                 'Content-Type'  => 'application/json',
             ],
@@ -40,7 +40,7 @@ class PostController extends Controller
 
         $reponse_posts = $this->client->request('POST', $this->url("/api/admin/posts/edit/{$id}"), [
             'headers' => [
-                'Accept' => 'application/json',
+                'Accept'        => 'application/json',
                 'Authorization' => 'Bearer '.$_COOKIE['access_token'],
                 'Content-Type'  => 'application/json',
             ],

@@ -9,11 +9,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $url                = '/api';
+        $url     = '/api';
 
         $reponse = $this->client->request('GET', $this->url($url));
 
-        $data = json_decode((string) $reponse->getBody(), true);
+        $data    = json_decode((string) $reponse->getBody(), true);
 
         return view('viewer.home', compact('data'));
     }
