@@ -80,7 +80,7 @@
           <span class="text">
             <div class="post-meta">
               <span class="category">{{ $item['type_category'] }}</span>
-              <span class="mr-2">{{ Carbon\Carbon::parse($item['created_at']['date'])->format('d/m/Y') }} }}</span>
+              <span class="mr-2">{{ Carbon\Carbon::parse($item['created_at']['date'])->format('d/m/Y') }}</span>
             </div>
             <h2>{{ $item['title'] }}</h2>
           </span>
