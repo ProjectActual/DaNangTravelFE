@@ -19,4 +19,18 @@ class PostController extends Controller
 
         return view('viewer.posts.index', compact('data'));
     }
+
+    public function show(Request $request, $uri_category, $uri_post)
+    {
+        $url                = "/api/{$uri_category}/$uri_post";
+
+        $response = $this->client->request('GET', "{$this->url($url)}");
+
+        $data = json_decode((string) $response->getBody(), true);
+
+        $post         = $data['post'];
+        $relationPost = $data['relationPost'];
+
+        return view('viewer.posts.show', compact('post', 'relationPost'));
+    }
 }

@@ -5,7 +5,7 @@ $(function () {
 
   require('./balita/index');
 
-  if (/^\/posts\/(.*)$/.test(pathname)) {
+  if (/^\/(.*)$/.test(pathname)) {
     require('./posts/index');
     return;
   }
