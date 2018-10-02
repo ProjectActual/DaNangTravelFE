@@ -34,7 +34,7 @@
       <ul>
         @foreach($data['composerTravels']['data'] as $item)
         <li>
-          <a href="">
+          <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}">
             <img src="{{ env('APP_URL_API') . \Storage::url($item['avatar_post']) }}" alt="Image placeholder" class="mr-4">
             <div class="text">
               <h4>{{ $item['title'] }}</h4>
@@ -56,7 +56,7 @@
       <ul>
         @foreach($data['composerFoods']['data'] as $item)
         <li>
-          <a href="">
+          <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}">
             <img src="{{ env('APP_URL_API') . \Storage::url($item['avatar_post']) }}" alt="Image placeholder" class="mr-4">
             <div class="text">
               <h4>{{ $item['title'] }}</h4>
@@ -77,7 +77,7 @@
       <ul>
         @foreach($data['composerEvents']['data'] as $item)
         <li>
-          <a href="">
+          <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}">
             <img src="{{ env('APP_URL_API') . \Storage::url($item['avatar_post']) }}" alt="Image placeholder" class="mr-4">
             <div class="text">
               <h4>{{ $item['title'] }}</h4>
@@ -91,7 +91,6 @@
       </ul>
     </div>
   </div>
-
 
   <div class="sidebar-box">
     <h3 class="heading">Tags</h3>

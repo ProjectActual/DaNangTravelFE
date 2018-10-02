@@ -23,8 +23,11 @@
         </div>
       </div>
     </section>
+    @yield('master.viewer.relationship')
     @include('viewer.layouts.partials.footer')
   </div>
+  <script src="/template/cktemplate/ckeditor/ckeditor.js"></script>
+  <script src="/template/cktemplate/ckfinder/ckfinder.js"></script>
   <script src="{{ mix('bundled/viewer.js') }}"></script>
 </body>
 </html>
