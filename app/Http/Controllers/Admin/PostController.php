@@ -14,11 +14,18 @@ class PostController extends Controller
         return view('admin.posts.index');
     }
 
+/**
+ * @return [type]
+ */
     public function create()
     {
         return view('admin.posts.create');
     }
 
+/**
+ * @param  int $id
+ * @return view
+ */
     public function update($id)
     {
         $reponse_categories = $this->client->request('GET', $this->url('/api/admin/categories'), [

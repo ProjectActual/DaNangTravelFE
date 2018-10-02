@@ -113,7 +113,8 @@ $(function () {
       'status'        : $('#checkbox').prop('checked'),
       'tag'           : $("#tag").tagsinput('items'),
       'category_id'   : $('#danh_muc').val(),
-      'avatar_post'   : avatar_post
+      'avatar_post'   : avatar_post,
+      'summary'       : $('#summary').val()
     }
 
     axios.put(url(`/api/admin/posts/${hash}`), payload, {
