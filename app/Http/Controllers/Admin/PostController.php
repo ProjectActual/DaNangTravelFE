@@ -14,10 +14,14 @@ class PostController extends Controller
         return view('admin.posts.index');
     }
 
+/**
+ * @return [type]
+ */
     public function create()
     {
         return view('admin.posts.create');
     }
+
 /**
  * @param  int $id
  * @return view

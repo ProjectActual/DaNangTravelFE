@@ -10,7 +10,7 @@
 
   <div class="sidebar-box">
     <div class="bio text-center">
-      <img src="images/avatar.jpg" alt="Image Placeholder" class="img-fluid">
+      <img src="/images/avatar.jpg" alt="Image Placeholder" class="img-fluid">
       <div class="bio-body">
         <h2>Tran Truong Quy</h2>
         <p>
@@ -32,42 +32,19 @@
     <h3 class="heading"><i class="fa fa-fire"></i> Địa Điểm Thú Vị</h3>
     <div class="post-entry-sidebar">
       <ul>
+        @foreach($data['composerTravels']['data'] as $item)
         <li>
           <a href="">
-            <img src="images/img_2.jpg" alt="Image placeholder" class="mr-4">
+            <img src="{{ env('APP_URL_API') . \Storage::url($item['avatar_post']) }}" alt="Image placeholder" class="mr-4">
             <div class="text">
-              <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
+              <h4>{{ $item['title'] }}</h4>
               <div class="post-meta">
-                <span class="mr-2">March 15, 2018 </span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                <span class="mr-2">{{ Carbon\Carbon::parse($item['created_at']['date'])->format('d/m/Y') }}</span>
               </div>
             </div>
           </a>
         </li>
-        <li>
-          <a href="">
-            <img src="images/img_4.jpg" alt="Image placeholder" class="mr-4">
-            <div class="text">
-              <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-              <div class="post-meta">
-                <span class="mr-2">March 15, 2018 </span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <img src="images/img_12.jpg" alt="Image placeholder" class="mr-4">
-            <div class="text">
-              <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-              <div class="post-meta">
-                <span class="mr-2">March 15, 2018 </span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-              </div>
-            </div>
-          </a>
-        </li>
+        @endforeach
       </ul>
     </div>
   </div>
@@ -77,42 +54,19 @@
     <h3 class="heading"><i class="fa fa-fire"></i> Ẩm Thực Travel</h3>
     <div class="post-entry-sidebar">
       <ul>
+        @foreach($data['composerFoods']['data'] as $item)
         <li>
           <a href="">
-            <img src="images/img_2.jpg" alt="Image placeholder" class="mr-4">
+            <img src="{{ env('APP_URL_API') . \Storage::url($item['avatar_post']) }}" alt="Image placeholder" class="mr-4">
             <div class="text">
-              <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
+              <h4>{{ $item['title'] }}</h4>
               <div class="post-meta">
-                <span class="mr-2">March 15, 2018 </span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                <span class="mr-2">{{ Carbon\Carbon::parse($item['created_at']['date'])->format('d/m/Y') }}</span>
               </div>
             </div>
           </a>
         </li>
-        <li>
-          <a href="">
-            <img src="images/img_4.jpg" alt="Image placeholder" class="mr-4">
-            <div class="text">
-              <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-              <div class="post-meta">
-                <span class="mr-2">March 15, 2018 </span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <img src="images/img_12.jpg" alt="Image placeholder" class="mr-4">
-            <div class="text">
-              <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-              <div class="post-meta">
-                <span class="mr-2">March 15, 2018 </span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-              </div>
-            </div>
-          </a>
-        </li>
+        @endforeach
       </ul>
     </div>
   </div>
@@ -121,42 +75,19 @@
     <h3 class="heading"><i class="fa fa-fire"></i> Sự kiện nổi bật</h3>
     <div class="post-entry-sidebar">
       <ul>
+        @foreach($data['composerEvents']['data'] as $item)
         <li>
           <a href="">
-            <img src="images/img_2.jpg" alt="Image placeholder" class="mr-4">
+            <img src="{{ env('APP_URL_API') . \Storage::url($item['avatar_post']) }}" alt="Image placeholder" class="mr-4">
             <div class="text">
-              <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
+              <h4>{{ $item['title'] }}</h4>
               <div class="post-meta">
-                <span class="mr-2">March 15, 2018 </span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                <span class="mr-2">{{ Carbon\Carbon::parse($item['created_at']['date'])->format('d/m/Y') }}</span>
               </div>
             </div>
           </a>
         </li>
-        <li>
-          <a href="">
-            <img src="images/img_4.jpg" alt="Image placeholder" class="mr-4">
-            <div class="text">
-              <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-              <div class="post-meta">
-                <span class="mr-2">March 15, 2018 </span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <img src="images/img_12.jpg" alt="Image placeholder" class="mr-4">
-            <div class="text">
-              <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-              <div class="post-meta">
-                <span class="mr-2">March 15, 2018 </span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-              </div>
-            </div>
-          </a>
-        </li>
+        @endforeach
       </ul>
     </div>
   </div>
@@ -165,18 +96,9 @@
   <div class="sidebar-box">
     <h3 class="heading">Tags</h3>
     <ul class="tags">
-      <li><a href="#">Travel</a></li>
-      <li><a href="#">Adventure</a></li>
-      <li><a href="#">Food</a></li>
-      <li><a href="#">Lifestyle</a></li>
-      <li><a href="#">Business</a></li>
-      <li><a href="#">Freelancing</a></li>
-      <li><a href="#">Travel</a></li>
-      <li><a href="#">Adventure</a></li>
-      <li><a href="#">Food</a></li>
-      <li><a href="#">Lifestyle</a></li>
-      <li><a href="#">Business</a></li>
-      <li><a href="#">Freelancing</a></li>
+      @foreach($data['composerTags']['data'] as $item)
+        <li><a href="#">{{ $item['tag'] }}</a></li>
+      @endforeach
     </ul>
   </div>
 </div>
