@@ -4,6 +4,8 @@ Route::group(['namespace' => 'Auth\\'], function () {
     Route::get('/login', 'LoginController@formLogin')->name('formLogin');
 
     Route::get('/forget-password', 'LoginController@forgetPassword')->name('forget_password');
+
+    Route::get('/forget-password/change-password/{token}', 'LoginController@changePassword')->name('change_password');
 });
 
 Route::group(['prefix' => 'posts', 'as' => 'posts.', 'middleware' => 'authen'], function() {

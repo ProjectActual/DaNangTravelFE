@@ -17,7 +17,7 @@
   <div class="pt-5">
     Tags:
     @foreach($post['data'][0]['tag'] as $tag)
-      <a href="#">#{{$tag['tag']}} </a>
+      <a href="{{ route('viewer.tags.index', $tag['uri_tag']) }}">#{{$tag['tag']}} </a>
     @endforeach
   </div>
 </div>

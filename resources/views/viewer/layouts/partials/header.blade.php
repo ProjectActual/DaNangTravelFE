@@ -23,7 +23,7 @@
           </li>
           @endforeach
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Liên Hệ</a>
+            <a class="nav-link" href="{{ route('viewer.feedbacks') }}">Feedbacks</a>
           </li>
         </ul>
 

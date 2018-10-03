@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index(Request $request, $uri_category)
     {
-        $url                = "/api/{$uri_category}";
+        $url                = "/api/posts/{$uri_category}";
 
         $page = empty($request->page) ? '' : $request->page;
 
@@ -22,7 +22,7 @@ class PostController extends Controller
 
     public function show(Request $request, $uri_category, $uri_post)
     {
-        $url                = "/api/{$uri_category}/$uri_post";
+        $url                = "/api/posts/{$uri_category}/$uri_post";
 
         $response = $this->client->request('GET', "{$this->url($url)}");
 
