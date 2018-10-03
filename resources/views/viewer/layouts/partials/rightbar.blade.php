@@ -96,7 +96,7 @@
     <h3 class="heading">Tags</h3>
     <ul class="tags">
       @foreach($data['composerTags']['data'] as $item)
-        <li><a href="#">{{ $item['tag'] }}</a></li>
+        <li><a href="{{ route('viewer.tags.index', $item['uri_tag']) }}">{{ $item['tag'] }}</a></li>
       @endforeach
     </ul>
   </div>

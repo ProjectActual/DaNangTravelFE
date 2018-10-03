@@ -16,4 +16,15 @@ class LoginController extends Controller
     {
         return view('admin.auth.forget');
     }
+
+    public function changePassword($token)
+    {
+        $url                = "/api/admin/forget-password/{$token}";
+
+        $response = $this->client->request('POST', $this->url($url));
+
+        $data = json_decode((string) $response->getBody(), true);
+
+        return view('admin.auth.change', compact('data'));
+    }
 }

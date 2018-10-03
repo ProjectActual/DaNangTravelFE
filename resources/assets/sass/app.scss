@@ -6,6 +6,7 @@
 // @import 'variables';
 
 // Bootstrap
+@import './variables';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import '~sweetalert2/src/sweetalert2';
 @import '~toastr/toastr';
@@ -24,8 +25,3 @@
 @import './admin/index';
 @import './errors/index';
 @import './general';
-
-
-html, body.master {
-  font-family: 'Roboto', Helvetica, 'Helvetica Neue', Arial, sans-serif;
-}

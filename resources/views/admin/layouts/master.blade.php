@@ -10,6 +10,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini @yield('master.body')">
   <div class="wrapper">
+    <div class="lds-dual-ring" id="loading">loading</div>
     @include('admin.layouts.partials.header')
     @include('admin.layouts.partials.sidebar')
     <main class="content-wrapper">

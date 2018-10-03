@@ -11,6 +11,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini @yield('master.viewer.body')">
   <div class="wrapper">
+    <div class="lds-dual-ring" id="loading">loading</div>
     @include('viewer.layouts.partials.header')
     @yield('master.viewer.slider')
 

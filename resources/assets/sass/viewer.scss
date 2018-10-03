@@ -13,7 +13,4 @@
 @import '~admin-lte/bower_components/Ionicons/scss/ionicons';
 
 @import './viewer/index';
-
-html, body.master {
-  font-family: 'Roboto', Helvetica, 'Helvetica Neue', Arial, sans-serif;
-}
+@import './general';

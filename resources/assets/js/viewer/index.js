@@ -4,9 +4,7 @@ $(function () {
   const pathname = '/' + window.trimSlash(window.location.pathname);
 
   require('./balita/index');
+  require('./general');
 
-  if (/^\/(.*)$/.test(pathname)) {
-    require('./posts/index');
-    return;
-  }
+   $('#loading').hide();
 })

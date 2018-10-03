@@ -14,6 +14,11 @@ $(function () {
     return;
   }
 
+  if (/^\/admin\/forget-password\/change-password\/(.*)$/.test(pathname)) {
+    require('./auth/change_password');
+    return;
+  }
+
 //posts
   if (/^\/admin\/posts$/.test(pathname)) {
     require('./posts/index');
