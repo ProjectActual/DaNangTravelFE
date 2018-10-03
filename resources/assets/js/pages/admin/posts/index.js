@@ -12,8 +12,8 @@ $(function () {
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
       }
     }).then(res => {
-      var index = res.data.from;
-      var post = res.data.data;
+      var index = 1;
+      var post = res.data.data.posts.data;
       var str = '';
       for(var value in post) {
         var str = str +
@@ -38,7 +38,7 @@ $(function () {
           str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger">${post[value].is_hot} </a></td>`;
         }
         str = str +
-              `<td>${post[value].created_at}</td>
+              `<td>${post[value].created_at.date}</td>
               <td class="text-center text-nowrap">
               <button class="btn btn-xs btn-info" hash="${post[value].id}">Xem trước</button>
               <button class="btn btn-xs btn-danger btnXoa" hash="${post[value].id}">Xoá</button>
@@ -47,8 +47,8 @@ $(function () {
             </tr>`;
       }
       $('#table-body').html(str);
-
-      paginate(res.data, linkUrl);
+      var $paginate = res.data.data.posts.meta;
+      paginate($paginate, linkUrl);
 
     }).catch(err => {
       displayErrors(err);
@@ -57,8 +57,7 @@ $(function () {
 
   $('body').on('click', '.page-link', function(e) {
     e.preventDefault();
-
-    if ($(this).attr('href').indexOf('null') == 0) {
+    if ($(this).attr('href').indexOf('undefined') == 0) {
       return
     }
 

@@ -88,7 +88,7 @@ $(function () {
       data.append('avatar_post', value);
     });
 
-    axios.post(url('/api/admin/posts/uploadFile'), data, {
+    axios.post(url('/api/uploadFile'), data, {
       headers : {
         'Content-Type'  : false,
         'Accept'        : 'application/json',
@@ -110,7 +110,7 @@ $(function () {
       'title'         : $('#title').val(),
       'uri_post'      : $('#link').val(),
       'content'       : CKEDITOR.instances.content.getData(),
-      'status'        : $('#checkbox').prop('checked'),
+      'status'        : $('#checkbox').prop('checked') ? 'ACTIVE' : 'INACTIVE',
       'tag'           : $("#tag").tagsinput('items'),
       'category_id'   : $('#danh_muc').val(),
       'avatar_post'   : avatar_post,

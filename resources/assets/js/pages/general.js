@@ -79,50 +79,31 @@ window.nonAccentVietnamese = function (str)
 
 window.paginate = function(data, linkUrl)
 {
-  var search = {
-    "&search=": getQuery('search', linkUrl),
-  };
-
-  var value = '';
-
-    for (var key in search){
-      value = value + key + '' + search[key]
-    }
-
-  if(data.per_page >= data.total) {
+  if(data.pagination.per_page >= data.pagination.total) {
     $('.pagination-js').html('');
     return;
   }
 
+  var count = (data.pagination.per_page == data.pagination.count) ? 0 : (data.pagination.per_page - data.pagination.count)
+  var to = data.pagination.per_page * (data.pagination.current_page) - count;
+  var from = to - data.pagination.count + 1;
   var str = '';
 
        str = str + `
           <div class="col-sm-6">
-            show ${data.from} to ${data.to} of ${data.total} entities
+            show ${from} to ${to} of ${data.pagination.total} entities
           </div>
           <nav aria-label="Page navigation example" class="col-sm-6 text-right">
             <ul class="pagination">
               <li class="page-item">
-                <a class="page-link first_page_url" href="${data.first_page_url + value}" aria-label="Previous">
-                  <span aria-hidden="true"><i class="fa fa-angle-double-left"></i></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link prev_page_url" href="${data.prev_page_url + value}" aria-label="Previous">
+                <a class="page-link prev_page_url" href="${data.pagination.links.previous}" aria-label="Previous">
                   <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
                   <span class="sr-only">Previous</span>
                 </a>
               </li>
               <li class="page-item">
-                <a class="page-link next_page_url" href="${data.next_page_url + value}" aria-label="Next">
+                <a class="page-link next_page_url" href="${data.pagination.links.next}" aria-label="Next">
                   <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link last_page_url" href="${data.last_page_url + value}" aria-label="Next">
-                  <span aria-hidden="true"><i class="fa fa-angle-double-right"></i></i></span>
                   <span class="sr-only">Next</span>
                 </a>
               </li>
