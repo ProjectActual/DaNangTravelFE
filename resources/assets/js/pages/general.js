@@ -79,7 +79,7 @@ window.nonAccentVietnamese = function (str)
 
 window.paginate = function(data, linkUrl)
 {
-  if(data.pagination.per_page >= data.pagination.total) {
+  if(data.pagination.total_pages == 1) {
     $('.pagination-js').html('');
     return;
   }

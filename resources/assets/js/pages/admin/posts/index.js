@@ -47,8 +47,8 @@ $(function () {
             </tr>`;
       }
       $('#table-body').html(str);
-      var $paginate = res.data.data.posts.meta;
-      paginate($paginate, linkUrl);
+      var pagination = res.data.data.posts.meta;
+      paginate(pagination, linkUrl);
 
     }).catch(err => {
       displayErrors(err);
