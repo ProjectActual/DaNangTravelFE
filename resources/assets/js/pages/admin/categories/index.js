@@ -13,7 +13,7 @@ $(function () {
       }
     }).then(res => {
       var index = 1;
-      var categories = res.data;
+      var categories = res.data.data.categories.data;
       var str = '';
       for(var value in categories) {
         var str = str +
@@ -21,8 +21,9 @@ $(function () {
         <td>${index++}</td>
         <td>${categories[value].name_category}</td>
         <td>${categories[value].uri_category}</td>
+        <td>${categories[value].type_category}</td>
         <td>${categories[value].description}</td>
-        <td>${categories[value].posts_count}</td>
+        <td>${categories[value].count_posts}</td>
         <td class="text-center text-nowrap">
         <button class="btn btn-xs btn-primary btnSua" hash="${categories[value].id}">Sửa</button>
         <button class="btn btn-xs btn-danger btnXoa" hash="${categories[value].id}">Xóa</button>
@@ -41,6 +42,7 @@ $(function () {
     const payload = {
       'name_category'  : $('#name_category').val(),
       'uri_category'   : $('#link').val(),
+      'type_category'  : $('#type_category').val(),
       'description'    : $('#description').val()
     };
 
@@ -133,10 +135,11 @@ $('body').on('click', '.btnSua', function () {
       'Authorization' : `Bearer ${Cookies.get('access_token')}`
     }
   }).then(res => {
-    $('#name_category_update').val(res.data.name_category);
-    $('#link_update').val(res.data.uri_category);
-    $('#description_update').val(res.data.description);
-    $('#updateModal').attr('hash', res.data.id);
+    $('#name_category_update').val(res.data.data.category.data.name_category);
+    $('#link_update').val(res.data.data.category.data.uri_category);
+    $('#type_category_update').val(res.data.data.category.data.type_category);
+    $('#description_update').val(res.data.data.category.data.description);
+    $('#updateModal').attr('hash', res.data.data.category.data.id);
 
     $('#myUpdate').modal('show');
   })
@@ -148,6 +151,7 @@ $('body').on('click', '#updateModal', function () {
   const payload = {
     'name_category' : $('#name_category_update').val(),
     'uri_category'  :  $('#link_update').val(),
+    'type_category' :  $('#type_category_update').val(),
     'description'   : $('#description_update').val(),
   }
 

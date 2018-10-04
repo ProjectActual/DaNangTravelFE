@@ -14,6 +14,10 @@
           <input type="text" id="name_category_update" class="form-control" placeholder="tên danh mục ...">
         </div>
         <div class="form-group">
+          <label>Loại danh mục</label>
+          <input type="text" id="type_category_update" class="form-control" placeholder="tên loại danh mục ...">
+        </div>
+        <div class="form-group">
           <label>Link bài viết</label>
           <div class="input-group">
             <input id="link_update" class="form-control" placeholder="Dữ liệu được sinh từ tiêu đề" disabled>

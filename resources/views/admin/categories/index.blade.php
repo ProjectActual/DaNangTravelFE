@@ -20,10 +20,11 @@
           <table class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th class="text-center">#</th>
-                <th class="text-center">Tiêu đề</th>
-                <th class="text-center">Link</th>
-                <th class="text-center">Mô tả</th>
+                <th class="text-center text-nowrap">#</th>
+                <th class="text-center text-nowrap">Tiêu đề</th>
+                <th class="text-center text-nowrap">Link</th>
+                <th class="text-center text-nowrap">Loại danh mục</th>
+                <th class="text-center text-nowrap">Mô tả</th>
                 <th class="text-center text-nowrap">Tổng bài viết</th>
                 <th class="text-center text-nowrap">Hoạt động</th>
               </tr>
@@ -42,6 +43,10 @@
         <div class="form-group col-sm-12">
           <label>Tên danh mục</label>
           <input type="text" id="name_category" class="form-control" placeholder="tên danh mục ...">
+        </div>
+        <div class="form-group col-sm-12">
+          <label>Loại danh mục</label>
+          <input type="text" id="type_category" class="form-control" placeholder="tên loại danh mục ...">
         </div>
         <div class="form-group col-sm-12">
           <label>Link bài viết</label>
