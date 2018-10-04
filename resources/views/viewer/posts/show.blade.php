@@ -33,7 +33,7 @@
         <div class="row">
           @foreach($relationPost['data'] as $item)
           <div class="col-md-6 col-lg-3">
-            <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}" class="a-block d-flex align-items-center" style="background-image: url('{{ env('APP_URL_API') . \Storage::url($item['avatar_post']) }}'); ">
+            <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}" class="a-block d-flex align-items-center" style="background-image: url('{{ $item['avatar_post'] }}'); ">
               <div class="text">
                 <div class="post-meta">
                   <span class="category">{{ $item['type_category'] }}</span>

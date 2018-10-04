@@ -12,7 +12,7 @@
       @foreach($data['data'] as $item)
       <div class="post-entry-horzontal element-animate">
         <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}">
-          <div class="image" data-animate-effect="fadeIn" style="background-image: url({{ env('APP_URL_API') . \Storage::url($item['avatar_post']) }});">
+          <div class="image" data-animate-effect="fadeIn" style="background-image: url({{ $item['avatar_post'] }});">
           </div>
           <span class="text">
             <div class="post-meta">
