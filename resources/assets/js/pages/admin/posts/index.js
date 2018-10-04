@@ -28,14 +28,14 @@ $(function () {
           str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger">${post[value].status} </a></td>`;
         }
         if(post[value].is_slider == 'YES') {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success">${post[value].is_slider} </a></td>`;
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success" id="is_slider" hash="${post[value].id}">${post[value].is_slider} </a></td>`;
         } else {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger">${post[value].is_slider} </a></td>`;
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger" id="is_slider" hash="${post[value].id}">${post[value].is_slider} </a></td>`;
         }
         if(post[value].is_hot == 'YES') {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success">${post[value].is_hot} </a></td>`;
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success" id="is_hot" hash="${post[value].id}">${post[value].is_hot} </a></td>`;
         } else {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger">${post[value].is_hot} </a></td>`;
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger" id="is_hot" hash="${post[value].id}">${post[value].is_hot} </a></td>`;
         }
         str = str +
               `<td>${post[value].created_at.date}</td>
@@ -113,4 +113,44 @@ $(function () {
 
     loadData(url(`/api/admin/posts?search=${search}`));
   });
+
+  $('body').on('click', '#is_slider', function () {
+    const hash = $(this).attr('hash');
+    const payload = {
+      'is_slider' : $(this).text(),
+    }
+
+    axios.put(url(`/api/admin/posts/slider/${hash}`), payload, {
+      headers: {
+        'Content-Type'  : 'application/json',
+        'Accept'        : 'application/json',
+        'Authorization' : `Bearer ${Cookies.get('access_token')}`
+      }
+    }).then(res => {
+      displayMessages(res);
+      loadData();
+    }).catch(err => {
+      displayErrors(err);
+    })
+  })
+
+  $('body').on('click', '#is_hot', function () {
+    const hash = $(this).attr('hash');
+    const payload = {
+      'is_hot' : $(this).text(),
+    }
+
+    axios.put(url(`/api/admin/posts/hot/${hash}`), payload, {
+      headers: {
+        'Content-Type'  : 'application/json',
+        'Accept'        : 'application/json',
+        'Authorization' : `Bearer ${Cookies.get('access_token')}`
+      }
+    }).then(res => {
+      displayMessages(res);
+      loadData();
+    }).catch(err => {
+      displayErrors(err);
+    })
+  })
 });
