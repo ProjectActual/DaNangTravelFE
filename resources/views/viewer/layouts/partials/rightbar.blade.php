@@ -32,10 +32,10 @@
     <h3 class="heading"><i class="fa fa-fire"></i> Địa Điểm Thú Vị</h3>
     <div class="post-entry-sidebar">
       <ul>
-        @foreach($data['composerTravels']['data'] as $item)
+        @foreach($data['data']['composerTravels']['data'] as $item)
         <li>
           <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}">
-            <img src="{{ env('APP_URL_API') . \Storage::url($item['avatar_post']) }}" alt="Image placeholder" class="mr-4">
+            <img src="{{ $item['avatar_post'] }}" alt="Image placeholder" class="mr-4">
             <div class="text">
               <h4>{{ $item['title'] }}</h4>
               <div class="post-meta">
@@ -54,10 +54,10 @@
     <h3 class="heading"><i class="fa fa-fire"></i> Ẩm Thực Travel</h3>
     <div class="post-entry-sidebar">
       <ul>
-        @foreach($data['composerFoods']['data'] as $item)
+        @foreach($data['data']['composerFoods']['data'] as $item)
         <li>
           <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}">
-            <img src="{{ env('APP_URL_API') . \Storage::url($item['avatar_post']) }}" alt="Image placeholder" class="mr-4">
+            <img src="{{ $item['avatar_post'] }}" alt="Image placeholder" class="mr-4">
             <div class="text">
               <h4>{{ $item['title'] }}</h4>
               <div class="post-meta">
@@ -75,10 +75,10 @@
     <h3 class="heading"><i class="fa fa-fire"></i> Sự kiện nổi bật</h3>
     <div class="post-entry-sidebar">
       <ul>
-        @foreach($data['composerEvents']['data'] as $item)
+        @foreach($data['data']['composerEvents']['data'] as $item)
         <li>
           <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}">
-            <img src="{{ env('APP_URL_API') . \Storage::url($item['avatar_post']) }}" alt="Image placeholder" class="mr-4">
+            <img src="{{ $item['avatar_post'] }}" alt="Image placeholder" class="mr-4">
             <div class="text">
               <h4>{{ $item['title'] }}</h4>
               <div class="post-meta">
@@ -95,7 +95,7 @@
   <div class="sidebar-box">
     <h3 class="heading">Tags</h3>
     <ul class="tags">
-      @foreach($data['composerTags']['data'] as $item)
+      @foreach($data['data']['composerTags']['data'] as $item)
         <li><a href="{{ route('viewer.tags.index', $item['uri_tag']) }}">{{ $item['tag'] }}</a></li>
       @endforeach
     </ul>

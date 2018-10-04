@@ -25,7 +25,7 @@ $(function () {
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
       }
     }).then(res => {
-      const categories = res.data;
+      const categories = res.data.data.categories.data;
       var str = '<option>Chọn ...</option>';
       for(let index in categories) {
         str = str + `<option value="${categories[index].id}">${categories[index].name_category}</option>`
@@ -97,24 +97,48 @@ $(function () {
 
   $('body').on('click', '#btnSubmit', function () {
 
+    const hash = $(this).attr('hash');
+
     var data = new FormData();
 
     $.each(files, function(key, value)
     {
-      data.append('avatar_post', value);
+      data.append('fileUpload', value);
     });
 
-    data.append('title', $('#title').val());
-    data.append('uri_post', $('#link').val());
-    data.append('content', CKEDITOR.instances.content.getData());
-    data.append('status', $('#checkbox').prop('checked'));
-    data.append('tag', $("#tag").tagsinput('items'));
-    data.append('category_id', $('#danh_muc').val());
-    data.append('summary', $('#summary').val());
-
-    axios.post(url('/api/admin/posts'), data, {
+    axios.post(url('/api/uploadFile'), data, {
       headers : {
-        'Content-Type'  : 'multipart/form-data',
+        'Content-Type'  : false,
+        'Accept'        : 'application/json',
+        'Authorization' : `Bearer ${Cookies.get('access_token')}`
+      }
+    }).then(res => {
+        sendRequestCreate(res.data);
+    }).catch(err => {
+        displayErrors(err);
+    })
+  })
+
+
+  function sendRequestCreate(avatar_post)
+  {
+    const hash = $('#btnSubmit').attr('hash');
+    const tags = JSON.stringify($("#tag").tagsinput('items'));
+
+    const payload = {
+      'title'         : $('#title').val(),
+      'uri_post'      : $('#link').val(),
+      'content'       : CKEDITOR.instances.content.getData(),
+      'status'        : $('#checkbox').prop('checked') ? 'ACTIVE' : 'INACTIVE',
+      'tag'           : tags,
+      'category_id'   : $('#danh_muc').val(),
+      'avatar_post'   : avatar_post,
+      'summary'       : $('#summary').val()
+    }
+
+    axios.post(url('/api/admin/posts'), payload, {
+      headers : {
+        'Content-Type'  : 'application/json',
         'Accept'        : 'application/json',
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
       }
@@ -123,8 +147,7 @@ $(function () {
     }).catch(err => {
       displayErrors(err);
     })
-
-  })
+  }
 
   $('body').on('keyup', '#title', function(e) {
     if (e.which == 13) {
