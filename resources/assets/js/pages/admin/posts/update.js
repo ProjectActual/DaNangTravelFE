@@ -85,10 +85,10 @@ $(function () {
 
     $.each(files, function(key, value)
     {
-      data.append('avatar_post', value);
+      data.append('fileUpload', value);
     });
 
-    axios.post(url('/api/admin/posts/uploadFile'), data, {
+    axios.post(url('/api/uploadFile'), data, {
       headers : {
         'Content-Type'  : false,
         'Accept'        : 'application/json',
@@ -105,13 +105,14 @@ $(function () {
   function sendRequestUpdate(avatar_post)
   {
     const hash = $('#btnSubmit').attr('hash');
+    const tags = JSON.stringify($("#tag").tagsinput('items'));
 
     const payload = {
       'title'         : $('#title').val(),
       'uri_post'      : $('#link').val(),
       'content'       : CKEDITOR.instances.content.getData(),
-      'status'        : $('#checkbox').prop('checked'),
-      'tag'           : $("#tag").tagsinput('items'),
+      'status'        : $('#checkbox').prop('checked') ? 'ACTIVE' : 'INACTIVE',
+      'tag'           : tags,
       'category_id'   : $('#danh_muc').val(),
       'avatar_post'   : avatar_post,
       'summary'       : $('#summary').val()

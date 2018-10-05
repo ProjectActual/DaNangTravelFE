@@ -12,8 +12,8 @@ $(function () {
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
       }
     }).then(res => {
-      var index = res.data.from;
-      var post = res.data.data;
+      var index = 1;
+      var post = res.data.data.posts.data;
       var str = '';
       for(var value in post) {
         var str = str +
@@ -28,17 +28,17 @@ $(function () {
           str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger">${post[value].status} </a></td>`;
         }
         if(post[value].is_slider == 'YES') {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success">${post[value].is_slider} </a></td>`;
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success" id="is_slider" hash="${post[value].id}">${post[value].is_slider} </a></td>`;
         } else {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger">${post[value].is_slider} </a></td>`;
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger" id="is_slider" hash="${post[value].id}">${post[value].is_slider} </a></td>`;
         }
         if(post[value].is_hot == 'YES') {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success">${post[value].is_hot} </a></td>`;
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success" id="is_hot" hash="${post[value].id}">${post[value].is_hot} </a></td>`;
         } else {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger">${post[value].is_hot} </a></td>`;
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger" id="is_hot" hash="${post[value].id}">${post[value].is_hot} </a></td>`;
         }
         str = str +
-              `<td>${post[value].created_at}</td>
+              `<td>${post[value].created_at.date}</td>
               <td class="text-center text-nowrap">
               <button class="btn btn-xs btn-info" hash="${post[value].id}">Xem trước</button>
               <button class="btn btn-xs btn-danger btnXoa" hash="${post[value].id}">Xoá</button>
@@ -47,8 +47,8 @@ $(function () {
             </tr>`;
       }
       $('#table-body').html(str);
-
-      paginate(res.data, linkUrl);
+      var pagination = res.data.data.posts.meta;
+      paginate(pagination, linkUrl);
 
     }).catch(err => {
       displayErrors(err);
@@ -57,8 +57,7 @@ $(function () {
 
   $('body').on('click', '.page-link', function(e) {
     e.preventDefault();
-
-    if ($(this).attr('href').indexOf('null') == 0) {
+    if ($(this).attr('href').indexOf('undefined') == 0) {
       return
     }
 
@@ -114,4 +113,44 @@ $(function () {
 
     loadData(url(`/api/admin/posts?search=${search}`));
   });
+
+  $('body').on('click', '#is_slider', function () {
+    const hash = $(this).attr('hash');
+    const payload = {
+      'is_slider' : $(this).text(),
+    }
+
+    axios.put(url(`/api/admin/posts/slider/${hash}`), payload, {
+      headers: {
+        'Content-Type'  : 'application/json',
+        'Accept'        : 'application/json',
+        'Authorization' : `Bearer ${Cookies.get('access_token')}`
+      }
+    }).then(res => {
+      displayMessages(res);
+      loadData();
+    }).catch(err => {
+      displayErrors(err);
+    })
+  })
+
+  $('body').on('click', '#is_hot', function () {
+    const hash = $(this).attr('hash');
+    const payload = {
+      'is_hot' : $(this).text(),
+    }
+
+    axios.put(url(`/api/admin/posts/hot/${hash}`), payload, {
+      headers: {
+        'Content-Type'  : 'application/json',
+        'Accept'        : 'application/json',
+        'Authorization' : `Bearer ${Cookies.get('access_token')}`
+      }
+    }).then(res => {
+      displayMessages(res);
+      loadData();
+    }).catch(err => {
+      displayErrors(err);
+    })
+  })
 });

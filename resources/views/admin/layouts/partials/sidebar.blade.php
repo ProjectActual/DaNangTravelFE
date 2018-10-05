@@ -6,12 +6,12 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="{{ env('APP_URL_API') }}/images/users/default-avatar.png" class="img-circle" alt="User Image">
+        <img src="{{ $data['data']['profile']['data']['avatar'] }}" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
-        <p>Alexander Pierce</p>
+        <p>{{ $data['data']['profile']['data']['full_name'] }}</p>
         <!-- Status -->
-        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        <a href="javascript:"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
 

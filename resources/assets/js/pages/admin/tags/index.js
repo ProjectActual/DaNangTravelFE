@@ -12,16 +12,16 @@ $(function () {
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
       }
     }).then(res => {
-      var index = res.data.from;
-      var tags = res.data.data;
+      var index = 1;
+      var tags = res.data.data.tags.data;
       var str = '';
       for(var value in tags) {
         var str = str +
             `<tr>
               <td class="text-center">${index++}</td>
               <td>${tags[value].tag}</td>
-              <td class="text-right"><a class="posts_count" href="javascript:">${tags[value].posts_count}</a></td>
-              <td>${tags[value].created_at}</td>
+              <td class="text-right"><a class="posts_count" href="javascript:">${tags[value].count_posts}</a></td>
+              <td>${tags[value].created_at.date}</td>
               <td class="text-center text-nowrap">
               <button class="btn btn-xs btn-info" hash="${tags[value].id}">Xem trước</button>
               <button class="btn btn-xs btn-danger btnXoa" hash="${tags[value].id}">Xoá</button>
@@ -30,10 +30,12 @@ $(function () {
             </tr>`;
       }
       $('#table-body').html(str);
+      var pagination = res.data.data.tags.meta
 
-      paginate(res.data, linkUrl);
-
+      paginate(pagination, linkUrl);
     }).catch(err => {
+      console.log(err);
+      return
       displayErrors(err);
     })
   }
@@ -41,7 +43,7 @@ $(function () {
   $('body').on('click', '.page-link', function(e) {
     e.preventDefault();
 
-    if ($(this).attr('href').indexOf('null') == 0) {
+    if ($(this).attr('href').indexOf('undefined') == 0) {
       return
     }
 

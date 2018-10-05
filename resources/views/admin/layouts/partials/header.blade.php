@@ -1,11 +1,10 @@
 <header class="main-header">
-
   <!-- Logo -->
   <a href="index2.html" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>A</b>LT</span>
+    <span class="logo-mini"><b>DN</b>T</span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>Admin</b>LTE</span>
+    <span class="logo-lg"><b>DaNang</b>Travel</span>
   </a>
 
   <!-- Header Navbar -->
@@ -22,35 +21,21 @@
           <!-- Menu Toggle Button -->
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <!-- The user image in the navbar-->
-            <img src="{{ env('APP_URL_API') }}/images/users/default-avatar.png" class="user-image" alt="User Image">
+            <img src="{{ $data['data']['profile']['data']['avatar'] }}" class="user-image" alt="User Image">
             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-            <span class="hidden-xs">Alexander Pierce</span>
+            <span class="hidden-xs">{{ $data['data']['profile']['data']['full_name'] }}</span>
           </a>
           <ul class="dropdown-menu">
             <!-- The user image in the menu -->
             <li class="user-header">
-              <img src="{{ env('APP_URL_API') }}/images/users/default-avatar.png" class="img-circle" alt="User Image">
+              <img src="{{ $data['data']['profile']['data']['avatar'] }}" class="img-circle" alt="User Image">
 
               <p>
-                Alexander Pierce - Web Developer
-                <small>Member since Nov. 2012</small>
+                {{ $data['data']['profile']['data']['full_name'] }} - {{ $data['data']['profile']['data']['roles'][0]['display_name'] }}
               </p>
             </li>
             <!-- Menu Body -->
-            <li class="user-body">
-              <div class="row">
-                <div class="col-xs-4 text-center">
-                  <a href="#">Followers</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                  <a href="#">Sales</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                  <a href="#">Friends</a>
-                </div>
-              </div>
-              <!-- /.row -->
-            </li>
+
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">

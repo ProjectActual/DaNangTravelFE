@@ -38,3 +38,24 @@ html, body.master {
     transform: rotate(360deg);
   }
 }
+
+
+.return-top {
+  position: relative;
+}
+
+.return-top .fa-angle-up {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 60%;
+  right: 1px;
+  font-size: 55px;
+  padding-right: 8px;
+  padding-left: 8px;
+  padding-bottom: 4px;
+  color: $main-page;
+  border-radius:5px;
+  border: 3px solid;
+  cursor: pointer;
+}

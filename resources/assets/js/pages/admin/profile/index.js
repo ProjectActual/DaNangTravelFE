@@ -39,31 +39,28 @@ $(function () {
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
       }
     }).then(res => {
-      birthday.datepicker('setDate', res.data.birthday);
-      $('#full_name').html(res.data.full_name);
-      $('#phone_show').html(res.data.phone);
-      $('#gender_show').html(res.data.gender);
-      $('#birthday_show').html(res.data.birthday);
-      $('#posts_count').html(res.data.posts_count);
-      $('#role_name').html(res.data.roles[0].display_name);
-      $('.avatar_show').attr('src', url(res.data.avatar));
+      const data = res.data.data.profile.data;
+      birthday.datepicker('setDate', data.birthday);
+      $('#full_name').html(data.full_name);
+      $('#phone_show').html(data.phone);
+      $('#gender_show').html((data.gender == 'MALE') ? 'Nam' : 'Nữ');
+      $('#birthday_show').html(data.birthday);
+      $('#posts_count').html(data.count_posts);
+      $('#role_name').html(data.roles[0].display_name);
+      $('.avatar_show').attr('src', data.avatar);
 
-      $('#first_name').val(res.data.first_name);
-      $('#last_name').val(res.data.last_name);
-      $('#phone').val(res.data.phone);
-      $('#birthday').val(res.data.birthday);
+      $('#first_name').val(data.first_name);
+      $('#last_name').val(data.last_name);
+      $('#phone').val(data.phone);
+      $('#birthday').val(data.birthday);
 
       $( ".gender" ).each(function( index ) {
-        $(this).val() == res.data.gender ? $(this).attr( 'checked', true ) : '';
+        $(this).val() == data.gender ? $(this).attr( 'checked', true ) : '';
       });
     }).catch(err => {
       displayErrors(err);
     })
   }
-
-  $('#btnUpdate').on('click', function () {
-    swal(`Xin lỗi ${$('#full_name').text()}`, 'Chức năng này đang được cập nhật', 'error');
-  })
 
   $('#btnChange').on('click', function () {
     const payload = {
@@ -100,4 +97,59 @@ $(function () {
     $('#new_password').val('');
     $('#new_password_confirmation').val('');
   })
+
+  //update profile
+
+  var files;
+
+  $('body').on('change', '#avatar', function (e) {
+    files = e.target.files;
+  });
+
+  $('body').on('click', '#btnUpdate', function () {
+    var data = new FormData();
+
+    $.each(files, function(key, value)
+    {
+      data.append('fileUpload', value);
+    });
+
+    axios.post(url('/api/uploadFile'), data, {
+      headers : {
+        'Content-Type'  : false,
+        'Accept'        : 'application/json',
+        'Authorization' : `Bearer ${Cookies.get('access_token')}`
+      }
+    }).then(res => {
+        updateProfile(res.data);
+    }).catch(err => {
+        displayErrors(err);
+    })
+  })
+
+
+  function updateProfile(avatar) {
+    const payload = {
+      'first_name': $('#first_name').val(),
+      'last_name' : $('#last_name').val(),
+      'phone'     : $('#phone').val(),
+      'gender'    : $('input[name=gender]:checked').val(),
+      'birthday'  : $('#birthday').val(),
+      'avatar'    : avatar,
+    };
+
+    console.log(payload);
+
+    axios.put(url('/api/admin/user'), payload, {
+      headers : {
+        'Content-Type'  : 'application/json',
+        'Accept'        : 'application/json',
+        'Authorization' : `Bearer ${Cookies.get('access_token')}`
+      }
+    }).then(res => {
+      displayMessages(res, '/admin/profile');
+    }).catch(err => {
+      displayErrors(err);
+    });
+  }
 })

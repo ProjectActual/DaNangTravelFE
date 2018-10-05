@@ -26,6 +26,9 @@
     </section>
     @yield('master.viewer.relationship')
     @include('viewer.layouts.partials.footer')
+    <div class="return-top">
+      <i class="fa fa-angle-up back-top"></i>
+    </div>
   </div>
   <script src="/template/cktemplate/ckeditor/ckeditor.js"></script>
   <script src="/template/cktemplate/ckfinder/ckfinder.js"></script>

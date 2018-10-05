@@ -17,7 +17,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('viewer.home') }}">Trang Chủ</a>
           </li>
-          @foreach($data['composerCategories']['data'] as $item)
+          @foreach($data['data']['composerCategories']['data'] as $item)
           <li class="nav-item">
             <a class="nav-link" href="{{ route('viewer.posts.index', $item['uri_category']) }}">{{ $item['name_category'] }}</a>
           </li>

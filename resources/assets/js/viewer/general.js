@@ -28,3 +28,18 @@ $('.page-item .page-link').each(function (index) {
     $(this).parent().attr("class","page-item");
   }
 })
+
+  $('body').on('click', '.back-top', function() {
+    $('html, body').animate({
+      scrollTop: 0
+    }, 1100);
+  })
+
+$(window).scroll(function () {
+  let top = $(this).scrollTop();
+    if (top > 400) {
+      $('.back-top').fadeIn(400);
+    } else {
+      $('.back-top').fadeOut(400);
+    }
+  });
