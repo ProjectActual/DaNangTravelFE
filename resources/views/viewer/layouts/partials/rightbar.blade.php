@@ -1,9 +1,9 @@
 <div class="col-md-12 col-lg-4 sidebar">
   <div class="sidebar-box search-form-wrap">
-    <form action="#" class="search-form">
+    <form action="{{ route('viewer.search') }}" class="search-form">
       <div class="form-group">
         <span class="icon fa fa-search"></span>
-        <input type="text" class="form-control" id="s" placeholder="Nhập từ khóa và enter">
+        <input type="text" class="form-control" name="search" id="s" placeholder="Nhập từ khóa và enter">
       </div>
     </form>
   </div>

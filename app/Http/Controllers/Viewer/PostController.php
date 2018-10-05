@@ -11,9 +11,15 @@ class PostController extends Controller
     {
         $url                = "/api/posts/{$uri_category}";
 
-        $page = empty($request->page) ? '' : $request->page;
+        $page   = empty($request->page) ? '' : $request->page;
+        $search = empty($request->search) ? '' : $request->search;
 
-        $response = $this->client->request('GET', "{$this->url($url)}?page={$page}");
+        $response = $this->client->request('GET', "{$this->url($url)}", [
+                'query' => [
+                    'page'     => $page,
+                    'search'   => $request->search,
+                ],
+            ]);
 
         $data = json_decode((string) $response->getBody(), true);
 
@@ -32,5 +38,23 @@ class PostController extends Controller
         $relationPost = $data['relationPost'];
 
         return view('viewer.posts.show', compact('post', 'relationPost'));
+    }
+
+    public function search(Request $request)
+    {
+            $page = empty($request->page) ? '' : $request->page;
+
+            $url                = "/api/search";
+            $response = $this->client->request('GET', "{$this->url($url)}", [
+                'query' => [
+                    'search' => $request->search,
+                    'page'   => $page,
+                ],
+            ]);
+            $data   = json_decode((string) $response->getBody(), true);
+
+            $search = $request->search;
+
+            return view('viewer.search', compact('data', 'search'));
     }
 }

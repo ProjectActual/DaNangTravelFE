@@ -13,3 +13,5 @@ Route::group(['prefix' => 'tags/{uri_tag}', 'as' => 'tags.'], function () {
 });
 
 Route::get('/feedbacks', 'FeedbackController@index')->name('feedbacks');
+
+Route::get('/search', 'PostController@search')->name('search');
