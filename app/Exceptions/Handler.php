@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Response;
 
 class Handler extends ExceptionHandler
 {
@@ -46,8 +47,8 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if($exception instanceof \GuzzleHttp\Exception\RequestException) {
-            return redirect()->route('admin.login');
+        if($exception->getCode() == Response::HTTP_UNAUTHORIZED) {
+            return redirect()->route('errors.unauthorization');
         }
 
         return parent::render($request, $exception);
