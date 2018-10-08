@@ -3,22 +3,12 @@
 @section('master.viewer.body', 'viewer-posts')
 @section('master.viewer.content')
 <div class="col-md-6">
-  <h2 class="mb-4">Category: Food</h2>
+  <h2 class="mb-4">Kêt quả tìm kiếm cho: {{ $search }}</h2>
 </div>
-@if(!empty($data['data']))
-  <div class="col-md-12 col-lg-8">
-    <form action="{{ route('viewer.posts.index', $data['data'][0]['uri_category']) }}" class="search-form">
-      <div class="form-group">
-        <span class="icon fa fa-search"></span>
-        <input type="text" class="form-control" name="search" id="s" placeholder="Nhập tiêu đề bài viết">
-      </div>
-    </form>
-  </div>
-@endif
 <div class="col-md-12 col-lg-8 main-content">
   <div class="row mb-5 mt-5">
     <div class="col-md-12">
-      @forelse($data['data'] as $item)
+      @foreach($data['data']['posts']['data'] as $item)
       <div class="post-entry-horzontal element-animate">
         <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}">
           <div class="image" data-animate-effect="fadeIn" style="background-image: url({{ $item['avatar_post'] }});">
@@ -33,9 +23,7 @@
           </span>
         </a>
       </div>
-      @empty
-        <p>Không có bài viết nào</p>
-      @endforelse
+      @endforeach
     </div>
   </div>
 
@@ -43,21 +31,21 @@
     <div class="col-md-12 text-center">
       <nav aria-label="Page navigation" class="text-center">
         @php
-          $total_page   = $data['meta']['pagination']['total_pages'];
+          $total_page   = $data['data']['posts']['meta']['pagination']['total_pages'];
         @endphp
         @if($total_page > 1)
         @php
-          empty($_SERVER['QUERY_STRING']) ? '' : parse_str($_SERVER['QUERY_STRING'], $array_query); // array of query string
+          parse_str($_SERVER['QUERY_STRING'], $array_query); // array of query string
 
-          $current_page = $data['meta']['pagination']['current_page'];
+          $current_page = $data['data']['posts']['meta']['pagination']['current_page'];
           $actual_link  = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PATH_INFO'];
           $prev         = ($current_page == 1)
               ? 'javascript:'
-              : ($actual_link . '?' . trim(parse_url($data['meta']['pagination']['links']['previous'], PHP_URL_QUERY), '"'));
+              : ($actual_link . '?' . trim(parse_url($data['data']['posts']['meta']['pagination']['links']['previous'], PHP_URL_QUERY), '"'));
 
           $next         = ($current_page == $total_page)
               ? 'javascript:'
-              : ($actual_link . '?' . trim(parse_url($data['meta']['pagination']['links']['next'], PHP_URL_QUERY), '"'))
+              : ($actual_link . '?' . trim(parse_url($data['data']['posts']['meta']['pagination']['links']['next'], PHP_URL_QUERY), '"'))
 
         @endphp
         <ul class="pagination">
