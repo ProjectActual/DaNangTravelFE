@@ -20,6 +20,6 @@ class RegisterController extends Controller
 
         $data = json_decode((string) $response->getBody(), true);
 
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.login');
     }
 }
