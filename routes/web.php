@@ -21,4 +21,8 @@ Route::get('unauthorization', function () {
 
 Route::get('not-found', function () {
     return view('errors.not_found');
-});
+})->name('errors.not_found');
+
+Route::get('credential', function () {
+    return view('errors.credential');
+})->name('errors.credential');

@@ -28,6 +28,9 @@
         <div class="text-right">
           <a href="{{ route('admin.forget_password') }}">Quên mật khẩu?</a>
         </div>
+        <div class="text-right">
+          <a href="{{ route('admin.register') }}">Đăng ký cộng tác viên?</a>
+        </div>
 
         <button type="submit" class="btn btn-primary d-inline-block" id="btnLogin">Login</button>
       </div>
