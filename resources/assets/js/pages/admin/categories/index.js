@@ -142,6 +142,8 @@ $('body').on('click', '.btnSua', function () {
     $('#updateModal').attr('hash', res.data.data.category.data.id);
 
     $('#myUpdate').modal('show');
+  }).catch(err => {
+    displayErrors(err);
   })
 })
 
