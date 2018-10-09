@@ -47,6 +47,8 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        $errors = json_decode((string) $exception->getResponse()->getBody()->getContents());
+
         if($exception->getCode() == Response::HTTP_UNAUTHORIZED) {
             return redirect()->route('errors.unauthorization');
         }
@@ -55,6 +57,13 @@ class Handler extends ExceptionHandler
             return redirect()->route('errors.not_found');
         }
 
+        if($errors->message == 'Tài Khoản của bạn cần được xác thực qua email.') {
+            return redirect()->route('errors.credential.email');
+        }
+
+        if($errors->message == 'Tài khoản của bạn chưa được Quản Trị Viên duyệt.') {
+            return redirect()->route('errors.credential.admin');
+        }
         return parent::render($request, $exception);
     }
 }

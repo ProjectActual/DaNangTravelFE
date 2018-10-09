@@ -4,6 +4,7 @@ namespace App\Http\ViewComposers;
 
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Exception\ClientException;
 
 class ProfileComposer extends Controller
 {
@@ -15,7 +16,6 @@ class ProfileComposer extends Controller
     public function compose(View $view)
     {
         $url     = '/api/admin/user';
-
         $reponse = $this->client->request('GET', $this->url($url),[
             'headers' => [
                 'Accept'        => 'application/json',
