@@ -23,6 +23,10 @@ Route::get('not-found', function () {
     return view('errors.not_found');
 })->name('errors.not_found');
 
-Route::get('credential', function () {
-    return view('errors.credential');
-})->name('errors.credential');
+Route::get('credential/email', function () {
+    return view('errors.credential.email');
+})->name('errors.credential.email');
+
+Route::get('credential/admin', function () {
+    return view('errors.credential.admin');
+})->name('errors.credential.admin');

@@ -31,7 +31,11 @@ class CredentialMiddleware
         $data = json_decode((string) $response->getBody(), true);
 
         if($data['data']['profile']['data']['active'] == 'NO' && $data['data']['profile']['data']['roles'][0]['name'] == 'CONGTACVIEN') {
-            return redirect()->route('errors.credential');
+            return redirect()->route('errors.credential.email');
+        }
+
+        if($data['data']['profile']['data']['admin_active'] == 'NO' && $data['data']['profile']['data']['roles'][0]['name'] == 'CONGTACVIEN') {
+            return redirect()->route('errors.credential.admin');
         }
 
         return $next($request);

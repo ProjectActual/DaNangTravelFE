@@ -29,3 +29,7 @@ Route::group(['prefix' => 'tags', 'as' => 'tags.', 'middleware' => ['authen', 'c
 Route::group(['prefix' => 'categories', 'as' => 'categories.', 'middleware' => ['authen', 'credential']], function() {
     Route::get('/', 'CategoryController@index')->name('index');
 });
+
+Route::group(['prefix' => 'congtacvien', 'as' => 'ctv.', 'middleware' => ['authen', 'credential']], function() {
+    Route::get('/', 'CongTacVienController@index')->name('index');
+});

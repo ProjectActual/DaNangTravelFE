@@ -21,7 +21,7 @@ $(function () {
               <td class="text-center">${index++}</td>
               <td>${tags[value].tag}</td>
               <td class="text-right"><a class="posts_count" href="javascript:">${tags[value].count_posts}</a></td>
-              <td>${tags[value].created_at.date}</td>
+              <td class="text-center text-nowrap">${convertDate(tags[value].created_at.date)}</td>
               <td class="text-center text-nowrap">
               <button class="btn btn-xs btn-info" hash="${tags[value].id}">Xem trước</button>
               <button class="btn btn-xs btn-danger btnXoa" hash="${tags[value].id}">Xoá</button>
