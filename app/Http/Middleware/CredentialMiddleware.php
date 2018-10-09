@@ -17,7 +17,6 @@ class CredentialMiddleware
     public function handle($request, Closure $next)
     {
         $client = new Client();
-
         $url                = env('APP_URL_API') . "/api/admin/user";
 
         $response = $client->request('GET', $url, [
@@ -27,12 +26,6 @@ class CredentialMiddleware
                 'Content-Type'  => 'application/json',
             ],
         ]);
-
-        $data = json_decode((string) $response->getBody(), true);
-
-        if($data['data']['profile']['data']['active'] == 'NO' && $data['data']['profile']['data']['roles'][0]['name'] == 'CONGTACVIEN') {
-            return redirect()->route('errors.credential');
-        }
 
         return $next($request);
     }

@@ -38,7 +38,7 @@ $(function () {
           str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger" id="is_hot" hash="${post[value].id}">${post[value].is_hot} </a></td>`;
         }
         str = str +
-              `<td>${post[value].created_at.date}</td>
+              `<td class="text-center text-nowrap">${convertDate(post[value].created_at.date)}</td>
               <td class="text-center text-nowrap">
               <button class="btn btn-xs btn-info" hash="${post[value].id}">Xem trước</button>
               <button class="btn btn-xs btn-danger btnXoa" hash="${post[value].id}">Xoá</button>
@@ -77,11 +77,13 @@ $(function () {
 
     swal({
       title: 'Bạn chắc chắn?',
-      text: 'Bạn có chắc chắn muốn xóa bài viết không?!',
+      text: 'Bạn có chắc chắn muốn xóa cộng tác viên này không?!',
       type: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Có, xóa nó!',
-      cancelButtonText: 'Không, giữ lại!'
+      confirmButtonColor: '#3085d6',
+      cancelButtonText: 'Không, giữ lại!',
+      cancelButtonColor: '#d33'
     }).then((result) => {
       if (result.value) {
         axios.delete(url(`/api/admin/posts/${hash}`), {

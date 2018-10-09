@@ -11,10 +11,13 @@ window.displayErrors  = function (err)
       window.toastr.error(errors[key][0]);
     }
   } else if(err.response.data.message == 'Unauthorization' || err.response.data.message == 'You do not have access to the router') {
-    window.location.href = window.location.origin + '/unauthorization'
+    window.location.href = window.location.origin + '/unauthorization';
   }
 
   else {
+    if(err.response.data.message == 'Tài khoản của bạn đã bị vô hiệu hóa') {
+      return window.location.href = window.location.origin + '/block';
+    }
     swal('Oops...', err.response.data.message, 'error');
   }
 }
@@ -89,40 +92,60 @@ window.paginate = function(data, linkUrl)
   var from = to - data.pagination.count + 1;
   var str = '';
 
-       str = str + `
-          <div class="col-sm-6">
-            show ${from} to ${to} of ${data.pagination.total} entities
-          </div>
-          <nav aria-label="Page navigation example" class="col-sm-6 text-right">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link prev_page_url" href="${data.pagination.links.previous}" aria-label="Previous">
-                  <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link next_page_url" href="${data.pagination.links.next}" aria-label="Next">
-                  <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>`
-      $('.pagination-js').html(str);
+  str = str + `
+  <div class="col-sm-6">
+  show ${from} to ${to} of ${data.pagination.total} entities
+  </div>
+  <nav aria-label="Page navigation example" class="col-sm-6 text-right">
+  <ul class="pagination">
+  <li class="page-item">
+  <a class="page-link prev_page_url" href="${data.pagination.links.previous}" aria-label="Previous">
+  <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
+  <span class="sr-only">Previous</span>
+  </a>
+  </li>
+  <li class="page-item">
+  <a class="page-link next_page_url" href="${data.pagination.links.next}" aria-label="Next">
+  <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
+  <span class="sr-only">Next</span>
+  </a>
+  </li>
+  </ul>
+  </nav>`
+  $('.pagination-js').html(str);
 
 }
 
 // nhập key và lấy param từ url , ví dụ url/quy?phuong=5 , giá trị nhập vào là phuong thi sẽ get ra 5
 window.getQuery = function (query, linkUrl) {
-    query = query.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-    var expr = "[\\?&]"+query+"=([^&#]*)";
-    var regex = new RegExp( expr );
-    var results = regex.exec(linkUrl);
-    if( results !== null ) {
-        return results[1];
-        return decodeURIComponent(results[1].replace(/\+/g, " "));
-    } else {
-        return '';
-    }
+  query = query.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var expr = "[\\?&]"+query+"=([^&#]*)";
+  var regex = new RegExp( expr );
+  var results = regex.exec(linkUrl);
+  if( results !== null ) {
+    return results[1];
+    return decodeURIComponent(results[1].replace(/\+/g, " "));
+  } else {
+    return '';
+  }
+};
+
+window.convertDate = function(date = '') {
+  var today = new Date(date);
+  var dd = today.getDate();
+
+  var mm = today.getMonth()+1;
+  var yyyy = today.getFullYear();
+  if(dd<10)
+  {
+    dd='0'+dd;
+  }
+
+  if(mm<10)
+  {
+    mm='0'+mm;
+  }
+  today = dd+'-'+mm+'-'+yyyy;
+
+  return today;
 };
