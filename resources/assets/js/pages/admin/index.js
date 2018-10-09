@@ -9,6 +9,11 @@ $(function () {
     return;
   }
 
+  if (/^\/admin\/register$/.test(pathname)) {
+    require('./auth/register');
+    return;
+  }
+
   if (/^\/admin\/forget-password$/.test(pathname)) {
     require('./auth/forget');
     return;

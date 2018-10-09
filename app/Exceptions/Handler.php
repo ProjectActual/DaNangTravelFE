@@ -51,6 +51,10 @@ class Handler extends ExceptionHandler
             return redirect()->route('errors.unauthorization');
         }
 
+        if($exception->getCode() == Response::HTTP_NOT_FOUND) {
+            return redirect()->route('errors.not_found');
+        }
+
         return parent::render($request, $exception);
     }
 }

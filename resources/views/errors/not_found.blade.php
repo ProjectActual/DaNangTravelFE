@@ -10,7 +10,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini body-errors">
     <div class="error">
-        Error 404 Not found
+        Error 404 not found
     </div>
     <script src="{{ mix('bundled/app.js') }}"></script>
 </body>
