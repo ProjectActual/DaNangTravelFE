@@ -30,3 +30,7 @@ Route::get('credential/email', function () {
 Route::get('credential/admin', function () {
     return view('errors.credential.admin');
 })->name('errors.credential.admin');
+
+Route::get('block', function () {
+    return view('errors.block');
+})->name('errors.block');

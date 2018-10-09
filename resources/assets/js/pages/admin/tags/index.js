@@ -34,8 +34,6 @@ $(function () {
 
       paginate(pagination, linkUrl);
     }).catch(err => {
-      console.log(err);
-      return
       displayErrors(err);
     })
   }

@@ -77,11 +77,13 @@ $(function () {
 
     swal({
       title: 'Bạn chắc chắn?',
-      text: 'Bạn có chắc chắn muốn xóa bài viết không?!',
+      text: 'Bạn có chắc chắn muốn xóa cộng tác viên này không?!',
       type: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Có, xóa nó!',
-      cancelButtonText: 'Không, giữ lại!'
+      confirmButtonColor: '#3085d6',
+      cancelButtonText: 'Không, giữ lại!',
+      cancelButtonColor: '#d33'
     }).then((result) => {
       if (result.value) {
         axios.delete(url(`/api/admin/posts/${hash}`), {

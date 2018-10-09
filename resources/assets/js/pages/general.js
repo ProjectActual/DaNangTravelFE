@@ -11,10 +11,13 @@ window.displayErrors  = function (err)
       window.toastr.error(errors[key][0]);
     }
   } else if(err.response.data.message == 'Unauthorization' || err.response.data.message == 'You do not have access to the router') {
-    window.location.href = window.location.origin + '/unauthorization'
+    window.location.href = window.location.origin + '/unauthorization';
   }
 
   else {
+    if(err.response.data.message == 'Tài khoản của bạn đã bị vô hiệu hóa') {
+      return window.location.href = window.location.origin + '/block';
+    }
     swal('Oops...', err.response.data.message, 'error');
   }
 }
