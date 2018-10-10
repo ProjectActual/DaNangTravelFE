@@ -2,21 +2,21 @@
 @section('master.viewer.title', 'chi tiết')
 @section('master.viewer.body', 'viewer-posts-show')
 @section('master.viewer.content')
-<div class="col-md-12 col-lg-8 main-content" id="show-post-id" uri_category="{{ $post['data'][0]['uri_category'] }}">
-  <h1 class="mb-4">{{ $post['data'][0]['title'] }}</h1>
+<div class="col-md-12 col-lg-8 main-content" id="show-post-id" uri_category="{{ $post['data']['uri_category'] }}">
+  <h1 class="mb-4">{{ $post['data']['title'] }}</h1>
   <div class="post-meta">
-    <span class="category">{{ $post['data'][0]['type_category'] }}</span>
-    <span class="mr-2">{{ \Carbon\Carbon::parse($post['data'][0]['created_at']['date'])->format('d/m/Y') }} </span>
-    <span class="ml-2"><span class="fa fa-eye"></span> {{ $post['data'][0]['count_view'] }}</span>
+    <span class="category">{{ $post['data']['type_category'] }}</span>
+    <span class="mr-2">{{ \Carbon\Carbon::parse($post['data']['created_at']['date'])->format('d/m/Y') }} </span>
+    <span class="ml-2"><span class="fa fa-eye"></span> {{ $post['data']['count_view'] }}</span>
   </div>
 
   <div class="post-content-body">
-    {!! $post['data'][0]['content'] !!}
+    {!! $post['data']['content'] !!}
   </div>
 
   <div class="pt-5">
     Tags:
-    @foreach($post['data'][0]['tag'] as $tag)
+    @foreach($post['data']['tag'] as $tag)
       <a href="{{ route('viewer.tags.index', $tag['uri_tag']) }}">#{{$tag['tag']}} </a>
     @endforeach
   </div>

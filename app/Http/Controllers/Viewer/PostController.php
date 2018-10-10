@@ -31,7 +31,6 @@ class PostController extends Controller
         $url                = "/api/posts/{$uri_category}/$uri_post";
 
         $response = $this->client->request('GET', "{$this->url($url)}");
-
         $data = json_decode((string) $response->getBody(), true);
 
         $post         = $data['post'];
