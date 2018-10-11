@@ -20,7 +20,7 @@ $(function () {
             `<tr>
               <td>${index++}</td>
               <td>${post[value].title}</td>
-              <td>anh</td>
+              <td class="text-center"><img style="width: 200px" src="${post[value].avatar_post}" alt=""></td>
               <td>${post[value].uri_post}</td>`;
         if(post[value].status == 'ACTIVE') {
           str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success">${post[value].status} </a></td>`;

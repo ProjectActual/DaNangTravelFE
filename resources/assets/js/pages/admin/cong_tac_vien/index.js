@@ -13,7 +13,7 @@ $(function () {
       }
     }).then(res => {
       var index = 1;
-      var ctv = res.data.data.cong_tac_vien.data;
+      var ctv = res.data.data.congTacVien.data;
       var str = '';
 
       for(var value in ctv) {
@@ -45,7 +45,7 @@ $(function () {
         </tr>`;
       }
       $('#table-body').html(str);
-      var pagination = res.data.data.cong_tac_vien.meta;
+      var pagination = res.data.data.congTacVien.meta;
       paginate(pagination, linkUrl);
 
     }).catch(err => {
@@ -94,12 +94,12 @@ $('body').on('click', '.btnDuyet', function () {
     }
   }).then(res => {
     $('input[name=admin_active]').each(function (index) {
-      $(this).val() == res.data.data.cong_tac_vien.data.admin_active
+      $(this).val() == res.data.data.congTacVien.data.admin_active
         ? $(this).attr('checked', true)
         : $(this).attr('checked', false);
     })
 
-    $('#updateModal').attr('hash', res.data.data.cong_tac_vien.data.id)
+    $('#updateModal').attr('hash', res.data.data.congTacVien.data.id)
 
     $('#myUpdate').modal('show');
   }).catch(err => {
@@ -139,12 +139,12 @@ $('body').on('click', '.btnBlock', function () {
     }
   }).then(res => {
     $('input[name=is_block]').each(function (index) {
-      $(this).val() == res.data.data.cong_tac_vien.data.is_block
+      $(this).val() == res.data.data.congTacVien.data.is_block
         ? $(this).attr('checked', true)
         : $(this).attr('checked', false);
     })
 
-    $('#blockModal').attr('hash', res.data.data.cong_tac_vien.data.id)
+    $('#blockModal').attr('hash', res.data.data.congTacVien.data.id)
 
     $('#block').modal('show');
   }).catch(err => {

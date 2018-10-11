@@ -129,7 +129,6 @@ $(function () {
       'title'         : $('#title').val(),
       'uri_post'      : $('#link').val(),
       'content'       : CKEDITOR.instances.content.getData(),
-      'status'        : $('#checkbox').prop('checked') ? 'ACTIVE' : 'INACTIVE',
       'tag'           : tags,
       'category_id'   : $('#danh_muc').val(),
       'avatar_post'   : avatar_post,

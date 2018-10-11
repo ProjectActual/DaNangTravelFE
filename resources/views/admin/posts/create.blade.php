@@ -39,7 +39,6 @@
         <label>Sơ lược bài viết</label>
         <textarea id="summary" class="form-control" placeholder="Nhập sơ lược bài viết tại đây" rows="3"></textarea>
       </div>
-
     </div>
     <div class="col-sm-5">
       <label class="col-sm-12">Ảnh bài viết</label>
@@ -52,11 +51,6 @@
         <div>
           <input id="tag" class="form-control col-sm-12" placeholder="Nhập tag tại đây" data-role="tagsinput">
         </div>
-      </div>
-
-      <div class="form-group col-sm-12">
-        <input id="checkbox" type="checkbox" class="checkboxes" checked>
-        <label for="checkbox">Hiện bài viết</label>
       </div>
     </div>
 
