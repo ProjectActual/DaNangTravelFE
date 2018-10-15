@@ -2,6 +2,7 @@
 @section('master.viewer.title', 'chi tiết')
 @section('master.viewer.body', 'viewer-posts-show')
 @section('master.viewer.content')
+
 <div class="col-md-12 col-lg-8 main-content" id="show-post-id" uri_category="{{ $post['data']['attributes']['uri_category'] }}">
   <h1 class="mb-4">{{ $post['data']['attributes']['title'] }}</h1>
   <div class="post-meta">
