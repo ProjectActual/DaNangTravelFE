@@ -4,7 +4,6 @@
 @section('master.content')
 
 @include('admin.cong_tac_vien.update')
-@include('admin.cong_tac_vien.block')
 
 <ol class="breadcrumb text-right">
   <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
@@ -31,9 +30,7 @@
             <tr>
               <th class="text-center text-nowrap">#</th>
               <th class="text-center text-nowrap">Họ và tên</th>
-              <th class="text-center text-nowrap">Xác thực email</th>
               <th class="text-center text-nowrap">Trạng thái</th>
-              <th class="text-center text-nowrap">Khóa Tài Khoản</th>
               <th class="text-center text-nowrap">Ngày đăng kí</th>
               <th class="text-center text-nowrap">Hoạt động</th>
             </tr>

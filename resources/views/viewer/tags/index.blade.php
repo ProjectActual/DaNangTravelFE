@@ -10,16 +10,16 @@
     <div class="col-md-12">
       @forelse($data['posts']['data'] as $item)
       <div class="post-entry-horzontal">
-        <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}">
-          <div class="image" data-animate-effect="fadeIn" style="background-image: url({{ env('APP_URL_API') . \Storage::url($item['avatar_post']) }});">
+        <a href="{{ route('viewer.posts.show', ['uri_category' => $item['attributes']['uri_category'], 'uri_post' => $item['attributes']['uri_post']]) }}">
+          <div class="image" data-animate-effect="fadeIn" style="background-image: url({{ ($item['attributes']['avatar_post']) }});">
           </div>
           <span class="text">
             <div class="post-meta">
-              <span class="category">{{ $item['type_category'] }}</span>
-              <span class="mr-2">{{ Carbon\Carbon::parse($item['created_at']['date'])->format('d/m/Y') }} </span> &bullet;
-              <span class="ml-2"><span class="fa fa-eye"></span> {{ $item['count_view'] }}</span>
+              <span class="category">{{ $item['attributes']['type_category'] }}</span>
+              <span class="mr-2">{{ Carbon\Carbon::parse($item['attributes']['created_at']['date'])->format('d/m/Y') }} </span> &bullet;
+              <span class="ml-2"><span class="fa fa-eye"></span> {{ $item['attributes']['count_view'] }}</span>
             </div>
-            <h2>{{ $item['title'] }}</h2>
+            <h2>{{ $item['attributes']['title'] }}</h2>
           </span>
         </a>
       </div>

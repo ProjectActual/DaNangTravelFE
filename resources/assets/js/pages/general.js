@@ -10,14 +10,7 @@ window.displayErrors  = function (err)
     for (var key in errors) {
       window.toastr.error(errors[key][0]);
     }
-  } else if(err.response.data.message == 'Unauthorization' || err.response.data.message == 'You do not have access to the router') {
-    window.location.href = window.location.origin + '/unauthorization';
-  }
-
-  else {
-    if(err.response.data.message == 'Tài khoản của bạn đã bị vô hiệu hóa') {
-      return window.location.href = window.location.origin + '/block';
-    }
+  } else {
     swal('Oops...', err.response.data.message, 'error');
   }
 }
@@ -82,32 +75,42 @@ window.nonAccentVietnamese = function (str)
 
 window.paginate = function(data, linkUrl)
 {
-  if(data.pagination.total_pages == 1) {
+  var meta = data.meta.pagination;
+  var links = data.links;
+
+  if(meta.total_pages == 1) {
     $('.pagination-js').html('');
     return;
   }
 
-  var count = (data.pagination.per_page == data.pagination.count) ? 0 : (data.pagination.per_page - data.pagination.count)
-  var to = data.pagination.per_page * (data.pagination.current_page) - count;
-  var from = to - data.pagination.count + 1;
+  var count = (meta.per_page == meta.count) ? 0 : (meta.per_page - meta.count)
+  var to = meta.per_page * (meta.current_page) - count;
+  var from = to - meta.count + 1;
   var str = '';
 
   str = str + `
   <div class="col-sm-6">
-  show ${from} to ${to} of ${data.pagination.total} entities
+  show ${from} to ${to} of ${meta.total} entities
   </div>
   <nav aria-label="Page navigation example" class="col-sm-6 text-right">
   <ul class="pagination">
   <li class="page-item">
-  <a class="page-link prev_page_url" href="${data.pagination.links.previous}" aria-label="Previous">
-  <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
-  <span class="sr-only">Previous</span>
+  <a class="page-link prev_page_url" href="${links.first}" aria-label="Previous">
+    <span aria-hidden="true"><i class="fa fa-angle-double-left"></i></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="page-link prev_page_url" href="${links.prev}" aria-label="Previous">
+    <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
+    <span class="sr-only">Previous</span>
   </a>
   </li>
   <li class="page-item">
-  <a class="page-link next_page_url" href="${data.pagination.links.next}" aria-label="Next">
-  <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
-  <span class="sr-only">Next</span>
+  <a class="page-link next_page_url" href="${links.next}" aria-label="Next">
+    <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <a class="page-link prev_page_url" href="${links.last}" aria-label="Previous">
+    <span aria-hidden="true"><i class="fa fa-angle-double-right"></i></span>
   </a>
   </li>
   </ul>

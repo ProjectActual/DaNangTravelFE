@@ -2,23 +2,23 @@
 @section('master.viewer.title', 'chi tiết')
 @section('master.viewer.body', 'viewer-posts-show')
 @section('master.viewer.content')
-<div class="col-md-12 col-lg-8 main-content" id="show-post-id" uri_category="{{ $post['data']['uri_category'] }}">
-  <h1 class="mb-4">{{ $post['data']['title'] }}</h1>
+<div class="col-md-12 col-lg-8 main-content" id="show-post-id" uri_category="{{ $post['data']['attributes']['uri_category'] }}">
+  <h1 class="mb-4">{{ $post['data']['attributes']['title'] }}</h1>
   <div class="post-meta">
-    <span class="category">{{ $post['data']['type_category'] }}</span>
-    <span class="mr-2">{{ \Carbon\Carbon::parse($post['data']['created_at']['date'])->format('d/m/Y') }} </span>
-    <span class="ml-2"><span class="fa fa-eye"></span> {{ $post['data']['count_view'] }}</span>
+    <span class="category">{{ $post['data']['attributes']['type_category'] }}</span>
+    <span class="mr-2">{{ \Carbon\Carbon::parse($post['data']['attributes']['created_at']['date'])->format('d/m/Y') }} </span>
+    <span class="ml-2"><span class="fa fa-eye"></span> {{ $post['data']['attributes']['count_view'] }}</span>
   </div>
-
   <div class="post-content-body">
-    {!! $post['data']['content'] !!}
+    {!! $post['data']['attributes']['content'] !!}
   </div>
-
   <div class="pt-5">
     Tags:
-    @foreach($post['data']['tag'] as $tag)
+    @forelse($post['data']['attributes']['tag'] as $tag)
       <a href="{{ route('viewer.tags.index', $tag['uri_tag']) }}">#{{$tag['tag']}} </a>
-    @endforeach
+    @empty
+       <p>Không có tag</p>
+    @endforelse
   </div>
 </div>
 @endsection
@@ -33,14 +33,14 @@
         <div class="row">
           @foreach($relationPost['data'] as $item)
           <div class="col-md-6 col-lg-3">
-            <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}" class="a-block d-flex align-items-center" style="background-image: url('{{ $item['avatar_post'] }}'); ">
+            <a href="{{ route('viewer.posts.show', ['uri_category' => $item['attributes']['uri_category'], 'uri_post' => $item['attributes']['uri_post']]) }}" class="a-block d-flex align-items-center" style="background-image: url('{{ $item['attributes']['avatar_post'] }}'); ">
               <div class="text">
                 <div class="post-meta">
-                  <span class="category">{{ $item['type_category'] }}</span>
-                  <span class="mr-2">{{ \Carbon\Carbon::parse($item['created_at']['date'])->format('d/m/Y') }} </span>
-                  <span class="ml-2"><span class="fa fa-eye"></span> {{ $item['count_view'] }}</span>
+                  <span class="category">{{ $item['attributes']['type_category'] }}</span>
+                  <span class="mr-2">{{ \Carbon\Carbon::parse($item['attributes']['created_at']['date'])->format('d/m/Y') }} </span>
+                  <span class="ml-2"><span class="fa fa-eye"></span> {{ $item['attributes']['count_view'] }}</span>
                 </div>
-                <h5 class="show-title">{{ $item['title'] }}</h5>
+                <h5 class="show-title">{{ $item['attributes']['title'] }}</h5>
               </div>
             </a>
           </div>

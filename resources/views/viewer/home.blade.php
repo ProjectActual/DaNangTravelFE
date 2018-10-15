@@ -10,14 +10,14 @@
         <div class="owl-carousel owl-theme home-slider">
           @foreach($data['data']['sliders']['data'] as $item)
           <div>
-            <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}" class="a-block d-flex align-items-center height-lg" style="background-image: url({{ $item['avatar_post'] }}); ">
+            <a href="{{ route('viewer.posts.show', ['uri_category' => $item['attributes']['uri_category'], 'uri_post' => $item['attributes']['uri_post']]) }}" class="a-block d-flex align-items-center height-lg" style="background-image: url({{ $item['attributes']['avatar_post'] }}); ">
               <div class="text half-to-full">
                 <div class="post-meta">
-                  <span class="category">{{ $item['type_category'] }}</span>
-                  <span class="mr-2">{{ Carbon\Carbon::parse($item['created_at']['date'])->format('d/m/Y') }} </span>
+                  <span class="category">{{ $item['attributes']['type_category'] }}</span>
+                  <span class="mr-2">{{ Carbon\Carbon::parse($item['attributes']['created_at']['date'])->format('d/m/Y') }} </span>
                 </div>
-                <h3>{{ $item['title'] }}</h3>
-                <p> {{ substr($item['summary'], 0, 100) }}... </p>
+                <h3>{{ $item['attributes']['title'] }}</h3>
+                <p> {{ substr($item['attributes']['summary'], 0, 100) }}... </p>
               </div>
             </a>
           </div>
@@ -29,13 +29,13 @@
     <div class="row">
       @foreach($data['data']['hots']['data'] as $item)
       <div class="col-md-6 col-lg-4">
-        <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}" class="a-block d-flex align-items-center height-md" style="background-image: url({{ $item['avatar_post'] }}); ">
+        <a href="{{ route('viewer.posts.show', ['uri_category' => $item['attributes']['uri_category'], 'uri_post' => $item['attributes']['uri_post']]) }}" class="a-block d-flex align-items-center height-md" style="background-image: url({{ $item['attributes']['avatar_post'] }}); ">
           <div class="text">
             <div class="post-meta">
-              <span class="category">{{ $item['type_category'] }}</span>
-              <span class="mr-2">{{ Carbon\Carbon::parse($item['created_at']['date'])->format('d/m/Y') }}</span>
+              <span class="category">{{ $item['attributes']['type_category'] }}</span>
+              <span class="mr-2">{{ Carbon\Carbon::parse($item['attributes']['created_at']['date'])->format('d/m/Y') }}</span>
             </div>
-            <h3>{{ $item['title'] }}</h3>
+            <h3>{{ $item['attributes']['title'] }}</h3>
           </div>
         </a>
       </div>
@@ -54,14 +54,14 @@
     </div>
     @foreach($data['data']['posts']['data'] as $item)
     <div class="col-md-6">
-      <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}" class="blog-entry element-animate" data-animate-effect="fadeIn">
-        <img src="{{ $item['avatar_post'] }}" alt="Image placeholder">
+      <a href="{{ route('viewer.posts.show', ['uri_category' => $item['attributes']['uri_category'], 'uri_post' => $item['attributes']['uri_post']]) }}" class="blog-entry element-animate" data-animate-effect="fadeIn">
+        <img src="{{ $item['attributes']['avatar_post'] }}" alt="Image placeholder">
         <div class="blog-content-body">
           <div class="post-meta">
-            <span class="category">{{ $item['type_category'] }}</span>
-            <span class="mr-2">{{ Carbon\Carbon::parse($item['created_at']['date'])->format('d/m/Y') }}</span>
+            <span class="category">{{ $item['attributes']['type_category'] }}</span>
+            <span class="mr-2">{{ Carbon\Carbon::parse($item['attributes']['created_at']['date'])->format('d/m/Y') }}</span>
           </div>
-          <h2>{{ $item['title'] }}</h2>
+          <h2>{{ $item['attributes']['title'] }}</h2>
         </div>
       </a>
     </div>
@@ -75,14 +75,14 @@
     <div class="col-md-12">
       @foreach($data['data']['foods']['data'] as $item)
       <div class="post-entry-horzontal">
-        <a href="{{ route('viewer.posts.show', ['uri_category' => $item['uri_category'], 'uri_post' => $item['uri_post']]) }}">
-          <div class="image element-animate"  data-animate-effect="fadeIn" style="background-image: url({{ $item['avatar_post'] }});"></div>
+        <a href="{{ route('viewer.posts.show', ['uri_category' => $item['attributes']['uri_category'], 'uri_post' => $item['attributes']['uri_post']]) }}">
+          <div class="image element-animate"  data-animate-effect="fadeIn" style="background-image: url({{ $item['attributes']['avatar_post'] }});"></div>
           <span class="text">
             <div class="post-meta">
-              <span class="category">{{ $item['type_category'] }}</span>
-              <span class="mr-2">{{ Carbon\Carbon::parse($item['created_at']['date'])->format('d/m/Y') }}</span>
+              <span class="category">{{ $item['attributes']['type_category'] }}</span>
+              <span class="mr-2">{{ Carbon\Carbon::parse($item['attributes']['created_at']['date'])->format('d/m/Y') }}</span>
             </div>
-            <h2>{{ $item['title'] }}</h2>
+            <h2>{{ $item['attributes']['title'] }}</h2>
           </span>
         </a>
       </div>

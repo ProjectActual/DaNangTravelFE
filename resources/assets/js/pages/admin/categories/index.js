@@ -19,11 +19,11 @@ $(function () {
         var str = str +
         `<tr>
         <td>${index++}</td>
-        <td>${categories[value].name_category}</td>
-        <td>${categories[value].uri_category}</td>
-        <td>${categories[value].type_category}</td>
-        <td>${categories[value].description}</td>
-        <td>${categories[value].count_posts}</td>
+        <td>${categories[value]['attributes'].name_category}</td>
+        <td>${categories[value]['attributes'].uri_category}</td>
+        <td>${categories[value]['attributes'].type_category}</td>
+        <td>${categories[value]['attributes'].description}</td>
+        <td>${categories[value]['attributes'].count_posts}</td>
         <td class="text-center text-nowrap">
         <button class="btn btn-xs btn-primary btnSua" hash="${categories[value].id}">Sửa</button>
         <button class="btn btn-xs btn-danger btnXoa" hash="${categories[value].id}">Xóa</button>
@@ -135,10 +135,10 @@ $('body').on('click', '.btnSua', function () {
       'Authorization' : `Bearer ${Cookies.get('access_token')}`
     }
   }).then(res => {
-    $('#name_category_update').val(res.data.data.category.data.name_category);
-    $('#link_update').val(res.data.data.category.data.uri_category);
-    $('#type_category_update').val(res.data.data.category.data.type_category);
-    $('#description_update').val(res.data.data.category.data.description);
+    $('#name_category_update').val(res.data.data.category.data.attributes.name_category);
+    $('#link_update').val(res.data.data.category.data.attributes.uri_category);
+    $('#type_category_update').val(res.data.data.category.data.attributes.type_category);
+    $('#description_update').val(res.data.data.category.data.attributes.description);
     $('#updateModal').attr('hash', res.data.data.category.data.id);
 
     $('#myUpdate').modal('show');

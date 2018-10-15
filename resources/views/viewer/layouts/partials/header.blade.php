@@ -19,7 +19,7 @@
           </li>
           @foreach($data['data']['composerCategories']['data'] as $item)
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('viewer.posts.index', $item['uri_category']) }}">{{ $item['name_category'] }}</a>
+            <a class="nav-link" href="{{ route('viewer.posts.index', $item['attributes']['uri_category']) }}">{{ $item['attributes']['name_category'] }}</a>
           </li>
           @endforeach
           <li class="nav-item">
