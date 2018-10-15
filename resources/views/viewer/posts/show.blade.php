@@ -9,14 +9,13 @@
     <span class="mr-2">{{ \Carbon\Carbon::parse($post['data'][0]['attributes']['created_at']['date'])->format('d/m/Y') }} </span>
     <span class="ml-2"><span class="fa fa-eye"></span> {{ $post['data'][0]['attributes']['count_view'] }}</span>
   </div>
-
   <div class="post-content-body">
     {!! $post['data'][0]['attributes']['content'] !!}
   </div>
   <div class="pt-5">
     Tags:
     @forelse($post['data'][0]['attributes']['tag'] as $tag)
-      <a href="{{ route('viewer.tags.index', $tag['attributes']['uri_tag']) }}">#{{$tag['attributes']['tag']}} </a>
+      <a href="{{ route('viewer.tags.index', $tag['uri_tag']) }}">#{{$tag['tag']}} </a>
     @empty
        <p>Không có tag</p>
     @endforelse

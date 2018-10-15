@@ -28,7 +28,7 @@ $(function () {
       const categories = res.data.data.categories.data;
       var str = '<option>Chọn ...</option>';
       for(let index in categories) {
-        str = str + `<option value="${categories[index].id}">${categories[index].name_category}</option>`
+        str = str + `<option value="${categories[index].id}">${categories[index]['attributes'].name_category}</option>`
       }
       $('#danh_muc').html(str);
     })

@@ -1,4 +1,4 @@
-var pathname = (window.location.pathname == '/') ? '' : window.location.pathname;
+  var pathname = (window.location.pathname == '/') ? '' : window.location.pathname;
 
 // lam viec voi menu
 
@@ -12,7 +12,6 @@ $('.nav-item .nav-link').each(function (index) {
 })
 
 $('.nav-item .nav-link').each(function (index) {
-  console.log($(this).attr('href').indexOf($('#show-post-id').attr('uri_category')));
   if($(this).attr('href').indexOf($('#show-post-id').attr('uri_category')) !== -1){
     $(this).attr("class","nav-link active");
   }
