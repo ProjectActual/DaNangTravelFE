@@ -19,13 +19,13 @@ $(function () {
         var str = str +
             `<tr>
               <td class="text-center">${index++}</td>
-              <td>${tags[value].tag}</td>
-              <td class="text-right"><a class="posts_count" href="javascript:">${tags[value].count_posts}</a></td>
-              <td class="text-center text-nowrap">${convertDate(tags[value].created_at.date)}</td>
+              <td>${tags[value]['attributes'].tag}</td>
+              <td class="text-right"><a class="posts_count" href="javascript:">${tags[value]['attributes'].count_posts}</a></td>
+              <td class="text-center text-nowrap">${convertDate(tags[value]['attributes'].created_at.date)}</td>
               <td class="text-center text-nowrap">
               <button class="btn btn-xs btn-info" hash="${tags[value].id}">Xem trước</button>
               <button class="btn btn-xs btn-danger btnXoa" hash="${tags[value].id}">Xoá</button>
-              <button class="btn btn-xs btn-primary btnSua" content="${tags[value].tag}" hash="${tags[value].id}" data-toggle="modal" data-target="#myUpdate">Sửa</button>
+              <button class="btn btn-xs btn-primary btnSua" content="${tags[value]['attributes'].tag}" hash="${tags[value].id}" data-toggle="modal" data-target="#myUpdate">Sửa</button>
               </td>
             </tr>`;
       }

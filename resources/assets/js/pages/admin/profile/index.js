@@ -40,22 +40,22 @@ $(function () {
       }
     }).then(res => {
       const data = res.data.data.profile.data;
-      birthday.datepicker('setDate', data.birthday);
-      $('#full_name').html(data.full_name);
-      $('#phone_show').html(data.phone);
-      $('#gender_show').html((data.gender == 'MALE') ? 'Nam' : 'Nữ');
-      $('#birthday_show').html(data.birthday);
-      $('#posts_count').html(data.count_posts);
-      $('#role_name').html(data.roles[0].display_name);
-      $('.avatar_show').attr('src', data.avatar);
+      birthday.datepicker('setDate', data.attributes.birthday);
+      $('#full_name').html(data.attributes.full_name);
+      $('#phone_show').html(data.attributes.phone);
+      $('#gender_show').html((data.attributes.gender == 'MALE') ? 'Nam' : 'Nữ');
+      $('#birthday_show').html(data.attributes.birthday);
+      $('#posts_count').html(data.attributes.count_posts);
+      $('#role_name').html(data.attributes.roles[0].display_name);
+      $('.avatar_show').attr('src', data.attributes.avatar);
 
-      $('#first_name').val(data.first_name);
-      $('#last_name').val(data.last_name);
-      $('#phone').val(data.phone);
-      $('#birthday').val(data.birthday);
+      $('#first_name').val(data.attributes.first_name);
+      $('#last_name').val(data.attributes.last_name);
+      $('#phone').val(data.attributes.phone);
+      $('#birthday').val(data.attributes.birthday);
 
       $( ".gender" ).each(function( index ) {
-        $(this).val() == data.gender ? $(this).attr( 'checked', true ) : '';
+        $(this).val() == data.attributes.gender ? $(this).attr( 'checked', true ) : '';
       });
     }).catch(err => {
       displayErrors(err);
