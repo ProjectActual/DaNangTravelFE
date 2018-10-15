@@ -19,26 +19,26 @@ $(function () {
         var str = str +
             `<tr>
               <td>${index++}</td>
-              <td>${post[value].title}</td>
-              <td>anh</td>
-              <td>${post[value].uri_post}</td>`;
-        if(post[value].status == 'ACTIVE') {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success">${post[value].status} </a></td>`;
+              <td>${post[value]['attributes'].title}</td>
+              <td class="text-center"><img style="width: 200px" src="${post[value]['attributes'].avatar_post}" alt=""></td>
+              <td>${post[value]['attributes'].uri_post}</td>`;
+        if(post[value]['attributes'].status == 'ACTIVE') {
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success">${post[value]['attributes'].status} </a></td>`;
         } else {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger">${post[value].status} </a></td>`;
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger">${post[value]['attributes'].status} </a></td>`;
         }
-        if(post[value].is_slider == 'YES') {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success" id="is_slider" hash="${post[value].id}">${post[value].is_slider} </a></td>`;
+        if(post[value]['attributes'].is_slider == 'YES') {
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success" id="is_slider" hash="${post[value].id}">${post[value]['attributes'].is_slider} </a></td>`;
         } else {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger" id="is_slider" hash="${post[value].id}">${post[value].is_slider} </a></td>`;
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger" id="is_slider" hash="${post[value].id}">${post[value]['attributes'].is_slider} </a></td>`;
         }
-        if(post[value].is_hot == 'YES') {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success" id="is_hot" hash="${post[value].id}">${post[value].is_hot} </a></td>`;
+        if(post[value]['attributes'].is_hot == 'YES') {
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success" id="is_hot" hash="${post[value].id}">${post[value]['attributes'].is_hot} </a></td>`;
         } else {
-          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger" id="is_hot" hash="${post[value].id}">${post[value].is_hot} </a></td>`;
+          str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger" id="is_hot" hash="${post[value].id}">${post[value]['attributes'].is_hot} </a></td>`;
         }
         str = str +
-              `<td class="text-center text-nowrap">${convertDate(post[value].created_at.date)}</td>
+              `<td class="text-center text-nowrap">${convertDate(post[value]['attributes'].created_at.date)}</td>
               <td class="text-center text-nowrap">
               <button class="btn btn-xs btn-info" hash="${post[value].id}">Xem trước</button>
               <button class="btn btn-xs btn-danger btnXoa" hash="${post[value].id}">Xoá</button>
@@ -47,7 +47,7 @@ $(function () {
             </tr>`;
       }
       $('#table-body').html(str);
-      var pagination = res.data.data.posts.meta;
+      var pagination = res.data.data.posts;
       paginate(pagination, linkUrl);
 
     }).catch(err => {

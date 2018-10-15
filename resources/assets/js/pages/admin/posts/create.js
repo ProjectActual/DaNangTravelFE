@@ -28,7 +28,7 @@ $(function () {
       const categories = res.data.data.categories.data;
       var str = '<option>Chọn ...</option>';
       for(let index in categories) {
-        str = str + `<option value="${categories[index].id}">${categories[index].name_category}</option>`
+        str = str + `<option value="${categories[index].id}">${categories[index]['attributes'].name_category}</option>`
       }
       $('#danh_muc').html(str);
     })
@@ -129,7 +129,6 @@ $(function () {
       'title'         : $('#title').val(),
       'uri_post'      : $('#link').val(),
       'content'       : CKEDITOR.instances.content.getData(),
-      'status'        : $('#checkbox').prop('checked') ? 'ACTIVE' : 'INACTIVE',
       'tag'           : tags,
       'category_id'   : $('#danh_muc').val(),
       'avatar_post'   : avatar_post,
