@@ -28,11 +28,13 @@ class PostController extends Controller
 
     public function show(Request $request, $uri_category, $uri_post)
     {
-        $session_name = session()->get('unique_session_name');
+        $url                = "/api/posts/{$uri_category}/$uri_post";
 
-        $url                = "/api/posts/{$uri_category}/$uri_post?session_name=$session_name";
-
-        $response = $this->client->request('GET', "{$this->url($url)}");
+        $response = $this->client->request('GET', "{$this->url($url)}", [
+                'query' => [
+                    'session_name'     => session()->get('unique_session_name')
+                ],
+            ]);
         $data = json_decode((string) $response->getBody(), true);
 
         $post         = $data['post'];

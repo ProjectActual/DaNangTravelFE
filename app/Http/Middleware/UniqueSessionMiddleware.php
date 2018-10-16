@@ -16,7 +16,7 @@ class UniqueSessionMiddleware
     public function handle($request, Closure $next)
     {
         if (!session()->has('unique_session_name')) {
-            session()->put('unique_session_name', str_random(32));
+            session()->put('unique_session_name', str_random(64));
         }
 
         return $next($request);
