@@ -2,19 +2,20 @@
 @section('master.viewer.title', 'chi tiết')
 @section('master.viewer.body', 'viewer-posts-show')
 @section('master.viewer.content')
-<div class="col-md-12 col-lg-8 main-content" id="show-post-id" uri_category="{{ $post['data'][0]['attributes']['uri_category'] }}">
-  <h1 class="mb-4">{{ $post['data'][0]['attributes']['title'] }}</h1>
+
+<div class="col-md-12 col-lg-8 main-content" id="show-post-id" uri_category="{{ $post['data']['attributes']['uri_category'] }}">
+  <h1 class="mb-4">{{ $post['data']['attributes']['title'] }}</h1>
   <div class="post-meta">
-    <span class="category">{{ $post['data'][0]['attributes']['type_category'] }}</span>
-    <span class="mr-2">{{ \Carbon\Carbon::parse($post['data'][0]['attributes']['created_at']['date'])->format('d/m/Y') }} </span>
-    <span class="ml-2"><span class="fa fa-eye"></span> {{ $post['data'][0]['attributes']['count_view'] }}</span>
+    <span class="category">{{ $post['data']['attributes']['type_category'] }}</span>
+    <span class="mr-2">{{ \Carbon\Carbon::parse($post['data']['attributes']['created_at']['date'])->format('d/m/Y') }} </span>
+    <span class="ml-2"><span class="fa fa-eye"></span> {{ $post['data']['attributes']['count_view'] }}</span>
   </div>
   <div class="post-content-body">
-    {!! $post['data'][0]['attributes']['content'] !!}
+    {!! $post['data']['attributes']['content'] !!}
   </div>
   <div class="pt-5">
     Tags:
-    @forelse($post['data'][0]['attributes']['tag'] as $tag)
+    @forelse($post['data']['attributes']['tag'] as $tag)
       <a href="{{ route('viewer.tags.index', $tag['uri_tag']) }}">#{{$tag['tag']}} </a>
     @empty
        <p>Không có tag</p>
