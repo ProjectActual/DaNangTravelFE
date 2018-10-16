@@ -35,7 +35,7 @@
         @php
         $current_page = $data['posts']['meta']['pagination']['current_page'];
         $total_page   = $data['posts']['meta']['pagination']['total_pages'];
-        $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[PATH_INFO]";
+        $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REDIRECT_URL]";
         $prev         = ($current_page == 1) ? 'javascript:' : ($actual_link . '?page=' . ($current_page-1));
         $next         = ($current_page == $total_page) ? 'javascript:' : ($actual_link . '?page=' . ($current_page+1));
         @endphp

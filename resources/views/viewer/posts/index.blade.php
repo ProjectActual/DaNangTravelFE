@@ -50,7 +50,7 @@
           empty($_SERVER['QUERY_STRING']) ? '' : parse_str($_SERVER['QUERY_STRING'], $array_query); // array of query string
 
           $current_page = $data['data']['posts']['meta']['pagination']['current_page'];
-          $actual_link  = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PATH_INFO'];
+          $actual_link  = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REDIRECT_URL'];
 
           $first        = ($current_page == 1)
             ? 'javascript:'
