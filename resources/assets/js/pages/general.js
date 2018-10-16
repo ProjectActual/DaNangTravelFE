@@ -33,7 +33,7 @@ window.displayMessages = function (message, redirect='')
 
 window.url = function (uri)
 {
-  return `http://127.0.0.1:8000${uri}`;
+  return `http://danangtravel-api.com${uri}`;
 }
 
 window.convertToSlug = function (text)
