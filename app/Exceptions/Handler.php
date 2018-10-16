@@ -54,7 +54,7 @@ class Handler extends ExceptionHandler
 
             return view('errors.exception', compact('message'));
         }
-        dd($exception);
+
         if($exception->getStatusCode() == Response::HTTP_NOT_FOUND) {
             return redirect()->route('errors.not_found');
         }
