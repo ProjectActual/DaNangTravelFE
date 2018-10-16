@@ -20,7 +20,7 @@ class Controller extends BaseController
     public function __construct()
     {
         $this->client = new Client();
-        $this->url    = 'http://127.0.0.1:8000';
+        $this->url    = env('APP_URL_API');
     }
 
     public function url($uri)
