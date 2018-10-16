@@ -6,5 +6,11 @@ $(function () {
   require('./balita/index');
   require('./general');
 
-   $('#loading').hide();
+  $('#loading').hide();
+
+  if (/^\/feedbacks$/.test(pathname)) {
+    require('./feedbacks/send');
+    return;
+  }
+
 })

@@ -37,4 +37,8 @@ Route::group(['middleware' => ['authen', 'credential']], function () {
     Route::group(['prefix' => 'congtacvien', 'as' => 'ctv.'], function() {
         Route::get('/', 'CongTacVienController@index')->name('index');
     });
+
+    Route::group(['prefix' => 'feedbacks', 'as' => 'feedbacks.'], function() {
+        Route::get('/', 'FeedbackController@index')->name('index');
+    });
 });
