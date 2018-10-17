@@ -5,12 +5,16 @@ window.trimSlash = function (text)
 
 window.displayErrors  = function (err)
 {
+  if(isEmpty(err)) {
+    return console.log(err);
+  }
+
   var errors = err.response.data.errors;
   if(typeof errors == 'object') {
     for (var key in errors) {
       window.toastr.error(errors[key][0]);
     }
-  } else {
+  }else {
     swal('Oops...', err.response.data.message, 'error');
   }
 }
@@ -152,3 +156,11 @@ window.convertDate = function(date = '') {
 
   return today;
 };
+
+window.isEmpty = function (obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}

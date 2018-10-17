@@ -63,4 +63,10 @@ $(function () {
     require('./cong_tac_vien/index');
     return;
   }
+
+// cong tac vien
+  if (/^\/admin\/feedbacks$/.test(pathname)) {
+    require('./feedbacks/index');
+    return;
+  }
 });

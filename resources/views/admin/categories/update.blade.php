@@ -9,28 +9,28 @@
           <h4 class="modal-title">Cập nhật Danh Mục</h4>
         </div>
         <div class="modal-body">
-        <div class="form-group">
-          <label>Tên danh mục</label>
-          <input type="text" id="name_category_update" class="form-control" placeholder="tên danh mục ...">
-        </div>
-        <div class="form-group">
-          <label>Loại danh mục</label>
-          <input type="text" id="type_category_update" class="form-control" placeholder="tên loại danh mục ...">
-        </div>
-        <div class="form-group">
-          <label>Link bài viết</label>
-          <div class="input-group">
-            <input id="link_update" class="form-control" placeholder="Dữ liệu được sinh từ tiêu đề" disabled>
-            <span class="input-group-btn">
-              <button id="edit_link_update" type="button" class="btn btn-success">Chỉnh sửa link bài viết</button>
-              <button id="cancel_link_update" type="button" class="btn btn-default" style="display: none;">Huỷ bỏ</button>
-            </span>
+          <div class="form-group">
+            <label>Tên danh mục</label>
+            <input type="text" id="name_category_update" class="form-control" placeholder="tên danh mục ...">
           </div>
-        </div>
-        <div class="form-group">
-          <label>Mô tả ngắn</label>
-          <textarea id="description_update" class="form-control" placeholder="mô tả ..." rows="5"></textarea>
-        </div>
+          <div class="form-group">
+            <label>Loại danh mục</label>
+            <input type="text" id="type_category_update" class="form-control" placeholder="tên loại danh mục ...">
+          </div>
+          <div class="form-group">
+            <label>Link bài viết</label>
+            <div class="input-group">
+              <input id="link_update" class="form-control" placeholder="Dữ liệu được sinh từ tiêu đề" disabled>
+              <span class="input-group-btn">
+                <button id="edit_link_update" type="button" class="btn btn-success">Chỉnh sửa link bài viết</button>
+                <button id="cancel_link_update" type="button" class="btn btn-default" style="display: none;">Huỷ bỏ</button>
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Mô tả ngắn</label>
+            <textarea id="description_update" class="form-control" placeholder="mô tả ..." rows="5"></textarea>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-success" id="updateModal" data-dismiss="modal">Cập nhật</button>

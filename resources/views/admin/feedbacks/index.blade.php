@@ -1,7 +1,9 @@
 @extends('admin.layouts.master')
 @section('master.title', 'Feedback')
-@section('master.body', 'posts')
+@section('master.body', 'posts feedbacks')
 @section('master.content')
+
+@include('admin.feedbacks.show')
 
 <ol class="breadcrumb text-right">
   <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
@@ -27,13 +29,10 @@
           <thead>
             <tr>
               <th class="text-center text-nowrap">#</th>
+              <th class="text-center text-nowrap">Người gửi</th>
+              <th class="text-center text-nowrap">Email người gửi</th>
               <th class="text-center text-nowrap">Tiêu đề</th>
-              <th class="text-center text-nowrap">Ảnh</th>
-              <th class="text-center text-nowrap">Link</th>
-              <th class="text-center text-nowrap">Trạng thái</th>
-              <th class="text-center text-nowrap">Hiển thị slider</th>
-              <th class="text-center text-nowrap">Nổi bật</th>
-              <th class="text-center text-nowrap">Ngày tạo</th>
+              <th class="text-center text-nowrap">Ngày gửi</th>
               <th class="text-center text-nowrap">Hoạt động</th>
             </tr>
           </thead>
@@ -46,6 +45,7 @@
       </div>
     </div>
   </div>
+  @include('admin.feedbacks.send')
 </div>
 
 @endsection
