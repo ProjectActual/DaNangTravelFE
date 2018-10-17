@@ -33,8 +33,8 @@ $(function () {
         str = str +
         `<td class="text-center text-nowrap">${convertDate(ctv[value]['attributes'].created_at.date)}</td>
         <td class="text-center text-nowrap">
-        <button class="btn btn-xs btn-info btnDuyet" hash="${ctv[value]['attributes'].id}">Cập nhật</button>
-        <button class="btn btn-xs btn-danger btnXoa" hash="${ctv[value]['attributes'].id}">Xoá</button>
+        <button class="btn btn-xs btn-info btnDuyet" hash="${ctv[value].id}">Cập nhật</button>
+        <button class="btn btn-xs btn-danger btnXoa" hash="${ctv[value].id}">Xoá</button>
         </td>
         </tr>`;
       }
@@ -106,8 +106,6 @@ $('body').on('click', '.btnDuyet', function () {
 
     $('#myUpdate').modal('show');
   }).catch(err => {
-    console.log(err.response);
-    return
     displayErrors(err);
   });
 })
