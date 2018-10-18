@@ -35,6 +35,7 @@ $(function () {
         str = str +
         `<td class="text-center text-nowrap">${convertDate(ctv[value]['attributes'].created_at.date)}</td>
         <td class="text-center text-nowrap">
+        <button class="btn btn-xs btn-primary btnInfo" hash="${ctv[value].id}">Chi tiết</button>
         <button class="btn btn-xs btn-info btnDuyet" hash="${ctv[value].id}">Cập nhật</button>
         <button class="btn btn-xs btn-danger btnXoa" hash="${ctv[value].id}">Xoá</button>
         </td>
@@ -49,6 +50,29 @@ $(function () {
       displayErrors(err);
     })
   }
+
+  $('body').on('click', '.btnInfo', function () {
+    const hash = $(this).attr('hash');
+
+    axios.get(url(`/api/admin/congtacvien/${hash}`), {
+      headers: {
+        'Content-Type'  : 'application/json',
+        'Accept'        : 'application/json',
+        'Authorization' : `Bearer ${Cookies.get('access_token')}`
+      }
+    }).then(res => {
+      var data = res.data.data.congTacVien.data;
+      console.log(data);
+      $('.emailInfo').html(data.attributes.email);
+      $('.full_name').html(data.attributes.full_name);
+      $('.phone_show').html(data.attributes.phone);
+      $('.gender_show').html(data.attributes.gender);
+      $('.birthday_show').html(data.attributes.birthday);
+      $('.avatar_show').attr('src', data.attributes.avatar);
+
+      $('#modalInformation').modal('show');
+    })
+  });
 
   $('body').on('click', '.btnXoa', function () {
     const hash = $(this).attr('hash');
