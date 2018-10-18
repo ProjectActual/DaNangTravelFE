@@ -80,7 +80,7 @@
     <div class="col-sm-12 text-right">
       <div class="col-sm-12 form-button">
         <button type="submit" class="btn btn-info right" id="btnSubmit" hash="{{ $post['data']['post']['data']['id'] }}"><i class="fa fa-check"></i> Sửa bài viết</button>
-        <button type="button" class="btn btn-default btnCancel" id="btnCancel">Hủy bỏ</button>
+        <button type="button" class="btn btn-default" id="btnCancel">Hủy bỏ</button>
       </div>
     </div>
   </div>

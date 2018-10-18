@@ -7,12 +7,12 @@ $(function () {
   var link = '';
 
   CKEDITOR.replace('content', {
-    filebrowserBrowseUrl      : '/template/cktemplate/ckfinder/ckfinder.html',
-    filebrowserImageBrowseUrl : '/template/cktemplate/ckfinder/ckfinder.html?type=Images',
-    filebrowserFlashBrowseUrl : '/template/cktemplate/ckfinder/ckfinder.html?type=Flash',
-    filebrowserUploadUrl      : '/template/cktemplate/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-    filebrowserImageUploadUrl : '/template/cktemplate/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-    filebrowserFlashUploadUrl : '/template/cktemplate/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+    filebrowserBrowseUrl      : '/cktemplate/ckfinder/ckfinder.html',
+    filebrowserImageBrowseUrl : '/cktemplate/ckfinder/ckfinder.html?type=Images',
+    filebrowserFlashBrowseUrl : '/cktemplate/ckfinder/ckfinder.html?type=Flash',
+    filebrowserUploadUrl      : '/cktemplate/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+    filebrowserImageUploadUrl : '/cktemplate/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+    filebrowserFlashUploadUrl : '/cktemplate/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
     height: '600px',
   });
 

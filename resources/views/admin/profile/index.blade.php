@@ -43,7 +43,7 @@
         </li>
 
         <li href="javascript:" class="list-group-item">
-          <h4 class="list-group-item-heading">Vai tro</h4>
+          <h4 class="list-group-item-heading">Vai trò</h4>
           <p class="list-group-item-text text-right" id="role_name"></p>
         </li>
       </ul>
@@ -93,7 +93,7 @@
           </div>
           <div class="form-group col-md-12">
             <label>Số điện thoại</label>
-            <input id="phone" class="form-control" placeholder="Số điện thoại ...">
+            <input id="phone" class="form-control" placeholder="Số điện thoại +84 ...">
           </div>
           <div class="form-group col-md-12">
             <label>Giới tính</label>

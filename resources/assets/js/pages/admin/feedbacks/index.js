@@ -2,12 +2,6 @@ $(function () {
   'use strict';
 
   CKEDITOR.replace('contentTo', {
-    filebrowserBrowseUrl      : '/template/cktemplate/ckfinder/ckfinder.html',
-    filebrowserImageBrowseUrl : '/template/cktemplate/ckfinder/ckfinder.html?type=Images',
-    filebrowserFlashBrowseUrl : '/template/cktemplate/ckfinder/ckfinder.html?type=Flash',
-    filebrowserUploadUrl      : '/template/cktemplate/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-    filebrowserImageUploadUrl : '/template/cktemplate/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-    filebrowserFlashUploadUrl : '/template/cktemplate/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
     height: '300px',
     toolbarGroups: [
       { name: 'basicstyles'},
@@ -31,6 +25,9 @@ $(function () {
       var index = 1;
       var feedback = res.data.data.feedbacks.data;
       var str = '';
+      if($.isEmptyObject(res.data.data.feedbacks.data)) {
+        str = str + '<tr><td class="text-center" colspan="6">Chưa có dữ liệu nào</td></tr>';
+      }
       for(var value in feedback) {
         var str = str +
         `<tr>

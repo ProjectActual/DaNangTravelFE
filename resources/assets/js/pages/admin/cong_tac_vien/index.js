@@ -15,7 +15,9 @@ $(function () {
       var index = 1;
       var ctv = res.data.data.congTacVien.data;
       var str = '';
-
+      if($.isEmptyObject(res.data.data.congTacVien.data)) {
+        str = str + '<tr><td class="text-center" colspan="5">Chưa có dữ liệu nào</td></tr>';
+      }
       for(var value in ctv) {
         var str = str +
         `<tr>
@@ -43,6 +45,8 @@ $(function () {
       var pagination = res.data.data.congTacVien;
       paginate(pagination, linkUrl);
 
+    }).catch(err => {
+      displayErrors(err);
     })
   }
 
@@ -87,14 +91,14 @@ $('body').on('click', '.btnDuyet', function () {
     }
   }).then(res => {
     var str = '';
-    if(res.data.data.congTacVien.data.active == 'AUTHENTICATION') {
+    if(res.data.data.congTacVien.data.attributes.active == 'AUTHENTICATION') {
       $('#active').attr('disabled', true);
       str = str + `<option value="AUTHENTICATION">Chưa xác thực</option>`;
-    } else if(res.data.data.congTacVien.data.active == 'APPROVE') {
+    } else if(res.data.data.congTacVien.data.attributes.active == 'APPROVE') {
       $('#active').attr('disabled', false);
       str = str + `<option value="ACTIVE">Duyệt CTV</option>
       <option value="APPROVE">Không duyệt CTV</option>`;
-    } else if(res.data.data.congTacVien.data.active == 'ACTIVE') {
+    } else if(res.data.data.congTacVien.data.attributes.active == 'ACTIVE') {
       $('#active').attr('disabled', true);
       str = str + `<option value="LOCKED">Vô hiệu hóa</option>`;
     } else {
@@ -127,6 +131,7 @@ $('#updateModal').on('click', function () {
     }
   }).then(res => {
     loadData();
+    $('#reason').val('');
     displayMessages(res);
   }).catch(err => {
     displayErrors(err);
