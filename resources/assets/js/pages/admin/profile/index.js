@@ -138,8 +138,6 @@ $(function () {
       'avatar'    : avatar,
     };
 
-    console.log(payload);
-
     axios.put(url('/api/admin/user'), payload, {
       headers : {
         'Content-Type'  : 'application/json',

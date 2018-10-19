@@ -64,6 +64,11 @@ $(function () {
     return;
   }
 
+  if (/^\/admin\/congtacvien\/credential$/.test(pathname)) {
+    require('./cong_tac_vien/credential');
+    return;
+  }
+
 // cong tac vien
   if (/^\/admin\/feedbacks$/.test(pathname)) {
     require('./feedbacks/index');

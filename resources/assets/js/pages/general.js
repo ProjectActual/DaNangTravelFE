@@ -15,7 +15,15 @@ window.displayErrors  = function (err)
       window.toastr.error(errors[key][0]);
     }
   }else {
-    swal('Oops...', err.response.data.message, 'error');
+    swal({
+      title: "Oops...",
+      text: err.response.data.message,
+      type: "error"
+    }).then(function(){
+      if(err.response.data.type == 'credential') {
+        window.location.href = window.location.origin + '/admin/profile';
+      }
+    });
   }
 }
 

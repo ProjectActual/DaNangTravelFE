@@ -17,7 +17,7 @@ class CredentialMiddleware
     public function handle($request, Closure $next)
     {
         $client = new Client();
-        $url                = env('APP_URL_API') . "/api/admin/posts";
+        $url                = env('APP_URL_API') . "/api/admin/user";
 
         $response = $client->request('GET', $url, [
             'headers' => [
