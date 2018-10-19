@@ -38,6 +38,10 @@ Route::group(['middleware' => ['authen', 'credential']], function () {
     Route::group(['prefix' => 'feedbacks', 'as' => 'feedbacks.'], function() {
         Route::get('/', 'FeedbackController@index')->name('index');
     });
+
+    Route::group(['prefix' => 'statistics', 'as' => 'statistics.'], function() {
+        Route::get('/post', 'StatisticController@postStatistic')->name('post');
+    });
 });
 
 Route::group(['prefix' => 'congtacvien', 'as' => 'ctv.', 'middleware' => 'authen'], function() {
