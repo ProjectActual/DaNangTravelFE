@@ -2,30 +2,28 @@
 
 namespace App\Http\ViewComposers;
 
+use GuzzleHttp\Client;
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;
-use GuzzleHttp\Exception\ClientException;
 
 class ProfileComposer extends Controller
 {
     /**
-     * [compose description]
-     * @param  View   $view [description]
+     * get information user
+     * @param  View   $view
      * @return void
      */
     public function compose(View $view)
     {
-        $url     = '/api/admin/user';
-        $reponse = $this->client->request('GET', $this->url($url),[
+        $url      = $this->url('/api/admin/getUser');
+        $response = $this->client->request('GET', $url,[
             'headers' => [
                 'Accept'        => 'application/json',
                 'Authorization' => 'Bearer '.$_COOKIE['access_token'],
                 'Content-Type'  => 'application/json',
             ],
         ]);
-
-        $data    = json_decode((string) $reponse->getBody(), true);
-
+        $data    = json_decode((string) $response->getBody(), true);
         $view->with('data', $data);
     }
 }

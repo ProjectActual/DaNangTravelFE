@@ -15,6 +15,9 @@ $(function () {
       var index = 1;
       var post = res.data.data.posts.data;
       var str = '';
+      if($.isEmptyObject(res.data.data.posts.data)) {
+        str = str + '<tr><td class="text-center" colspan="9">Chưa có dữ liệu nào</td></tr>';
+      }
       for(var value in post) {
         var str = str +
             `<tr>
@@ -40,7 +43,6 @@ $(function () {
         str = str +
               `<td class="text-center text-nowrap">${convertDate(post[value]['attributes'].created_at.date)}</td>
               <td class="text-center text-nowrap">
-              <button class="btn btn-xs btn-info" hash="${post[value].id}">Xem trước</button>
               <button class="btn btn-xs btn-danger btnXoa" hash="${post[value].id}">Xoá</button>
               <button class="btn btn-xs btn-primary btnSua" hash="${post[value].id}">Sửa</button>
               </td>

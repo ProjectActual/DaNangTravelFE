@@ -15,6 +15,9 @@ $(function () {
       var index = 1;
       var categories = res.data.data.categories.data;
       var str = '';
+      if($.isEmptyObject(res.data.data.categories.data)) {
+        str = str + '<tr><td class="text-center" colspan="7">Chưa có dữ liệu nào</td></tr>';
+      }
       for(var value in categories) {
         var str = str +
         `<tr>
@@ -57,6 +60,7 @@ $(function () {
       loadData();
       $('#name_category').val('');
       $('#link').val('');
+      $('#type_category').val('');
       $('#description').val('');
     }).catch(err => {
       displayErrors(err);

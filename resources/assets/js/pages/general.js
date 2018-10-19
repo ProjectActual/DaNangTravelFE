@@ -5,13 +5,25 @@ window.trimSlash = function (text)
 
 window.displayErrors  = function (err)
 {
+  if(isEmpty(err)) {
+    return console.log(err);
+  }
+
   var errors = err.response.data.errors;
   if(typeof errors == 'object') {
     for (var key in errors) {
       window.toastr.error(errors[key][0]);
     }
-  } else {
-    swal('Oops...', err.response.data.message, 'error');
+  }else {
+    swal({
+      title: "Oops...",
+      text: err.response.data.message,
+      type: "error"
+    }).then(function(){
+      if(err.response.data.type == 'credential') {
+        window.location.href = window.location.origin + '/admin/profile';
+      }
+    });
   }
 }
 
@@ -152,3 +164,11 @@ window.convertDate = function(date = '') {
 
   return today;
 };
+
+window.isEmpty = function (obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}

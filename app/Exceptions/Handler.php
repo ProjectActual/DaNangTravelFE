@@ -49,9 +49,10 @@ class Handler extends ExceptionHandler
     {
         if($exception instanceof \GuzzleHttp\Exception\ClientException) {
             $errors = json_decode((string) $exception->getResponse()->getBody()->getContents());
-
+            if($errors->type == 'credential') {
+                return redirect()->route('admin.ctv.credential');
+            }
             $message = $errors->message;
-
             return view('errors.exception', compact('message'));
         }
 

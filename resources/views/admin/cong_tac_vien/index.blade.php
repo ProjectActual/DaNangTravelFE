@@ -4,6 +4,7 @@
 @section('master.content')
 
 @include('admin.cong_tac_vien.update')
+@include('admin.cong_tac_vien.information')
 
 <ol class="breadcrumb text-right">
   <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
