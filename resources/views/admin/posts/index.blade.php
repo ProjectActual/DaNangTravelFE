@@ -4,7 +4,7 @@
 @section('master.content')
 
 <ol class="breadcrumb text-right">
-  <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+  <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
   <li class="active">Bài Viết</li>
 </ol>
 <div class="container-posts">
