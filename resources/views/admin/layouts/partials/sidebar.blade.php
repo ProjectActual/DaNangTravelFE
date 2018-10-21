@@ -93,6 +93,19 @@
           <li><a href="{{ route('admin.feedbacks.index') }}" title="">Danh sách</a></li>
         </ul>
       </li>
+
+      <li class="treeview">
+        <a href="javascript:">
+          <i class="fa fa-link"></i>
+          <span>Thống kê</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{ route('admin.statistics.post') }}" title="">Danh sách</a></li>
+        </ul>
+      </li>
     </ul>
     <!-- /.sidebar-menu -->
   </section>

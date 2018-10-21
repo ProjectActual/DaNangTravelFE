@@ -54,4 +54,41 @@ $(function () {
   })
 
   $('#btnSearch').click();
+
+  google.GoogleCharts.load(drawChart);
+  google.GoogleCharts.load(drawChart, {'packages':['bar']});
+
+  // function drawChart() {
+
+  //   // Standard google charts functionality is available as GoogleCharts.api after load
+  //   const data = google.GoogleCharts.api.visualization.arrayToDataTable([
+  //     ['Chart thing', 'Chart amount'],
+  //     ['Lorem ipsum', 60],
+  //     ['Dolor sit', 22],
+  //     ['Sit amet', 18]
+  //     ]);
+  //   const pie_1_chart = new google.GoogleCharts.api.visualization.PieChart(document.getElementById('chart1'));
+  //   pie_1_chart.draw(data);
+  // }
+
+
+  function drawChart() {
+    const col_1_data = google.GoogleCharts.api.visualization.arrayToDataTable([
+        ["Element", "Density", { role: "style" } ],
+        ["Copper", 8.94, "#b87333"],
+        ["Silver", 10.49, "silver"],
+        ["Gold", 19.30, "gold"],
+        ["Platinum", 21.45, "color: #e5e4e2"]
+      ]);
+        var options = {
+          chart: {
+            title: 'Company Performance',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          }
+        };
+
+        var chart = new google.GoogleCharts.api.visualization.ColumnChart(document.getElementById('chart1'));
+
+        chart.draw(col_1_data, options);
+  }
 });

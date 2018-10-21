@@ -30,6 +30,7 @@
       <i class="fa fa-angle-up back-top"></i>
     </div>
   </div>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127584201-2"></script>
   <script src="/template/cktemplate/ckeditor/ckeditor.js"></script>
   <script src="/template/cktemplate/ckfinder/ckfinder.js"></script>
   <script src="{{ mix('bundled/viewer.js') }}"></script>

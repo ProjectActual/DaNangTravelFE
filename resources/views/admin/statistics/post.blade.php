@@ -44,6 +44,9 @@
       </div>
     </div>
   </div>
+  <div id="chart1">
+
+  </div>
 </div>
 
 @endsection

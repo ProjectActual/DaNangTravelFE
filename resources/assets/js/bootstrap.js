@@ -19,6 +19,8 @@ try {
 window.Cookies = require('js-cookie/src/js.cookie');
 window.swal = require('sweetalert2/dist/sweetalert2.all.min.js');
 window.toastr = require('toastr');
+window.google = require('google-charts/googleCharts.js');
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

@@ -2703,6 +2703,10 @@ globule@^1.0.0:
     lodash "~4.17.10"
     minimatch "~3.0.2"
 
+google-charts@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/google-charts/-/google-charts-1.5.0.tgz#acf1412a10991e8b2d6e5eb53619f8136dc73e05"
+
 graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"

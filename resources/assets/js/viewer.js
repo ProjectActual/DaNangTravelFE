@@ -6,3 +6,12 @@ require('./pages/general');
 require('./viewer/index');
 
 
+
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127584201-1');
+
+
