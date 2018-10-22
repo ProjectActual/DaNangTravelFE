@@ -14,11 +14,14 @@ try {
     require('dropify/src/js/dropify');
     require('bootstrap-tagsinput/src/bootstrap-tagsinput.js');
     require('bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js');
+    window.Chart = require('admin-lte/bower_components/chart.js/Chart.js');
 } catch (e) {}
 
 window.Cookies = require('js-cookie/src/js.cookie');
 window.swal = require('sweetalert2/dist/sweetalert2.all.min.js');
 window.toastr = require('toastr');
+window.google = require('google-charts/googleCharts.js');
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

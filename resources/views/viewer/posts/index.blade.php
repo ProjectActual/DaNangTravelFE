@@ -3,7 +3,7 @@
 @section('master.viewer.body', 'viewer-posts')
 @section('master.viewer.content')
 <div class="col-md-6">
-  <h2 class="mb-4">Category: Food</h2>
+  <h2 class="mb-4">Loại bài viết: {{ $data['data']['posts']['data'][0]['attributes']['type_category'] }}</h2>
 </div>
 @if(!empty($data['data']['posts']['data']))
 <div class="col-md-12 col-lg-8">

@@ -74,4 +74,16 @@ $(function () {
     require('./feedbacks/index');
     return;
   }
+
+// statistic
+  if (/^\/admin\/statistics\/post$/.test(pathname)) {
+    require('./statistic/post');
+    return;
+  }
+
+  // dashboard
+  if (/^\/admin\/dashboard$/.test(pathname)) {
+    require('./dashboard/index');
+    return;
+  }
 });

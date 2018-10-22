@@ -22,7 +22,7 @@
       Cookies.set('access_token', res.data.access_token);
       Cookies.set('refresh_token', res.data.refresh_token);
 
-      window.location.replace('/admin/posts');
+      window.location.replace('/admin/dashboard');
     }).catch(err => {
       displayErrors(err);
     })
