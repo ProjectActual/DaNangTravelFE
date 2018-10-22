@@ -103,7 +103,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ route('admin.statistics.post') }}" title="">Danh sách</a></li>
+          <li><a href="{{ route('admin.statistics.post') }}" title="">Bài viết/lượt xem</a></li>
         </ul>
       </li>
     </ul>

@@ -80,4 +80,10 @@ $(function () {
     require('./statistic/post');
     return;
   }
+
+  // dashboard
+  if (/^\/admin\/dashboard$/.test(pathname)) {
+    require('./dashboard/index');
+    return;
+  }
 });

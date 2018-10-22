@@ -10,7 +10,7 @@
 <div class="container-posts">
   <div class="row ">
     <h2 class="heading-2 col-sm-8">
-      Thống kê tổng bài viết theo tháng của cộng tác viên
+      Bài viết theo tháng của cộng tác viên
     </h2>
     <div class="col-sm-12 posts-header">
       <div class="input-group">
@@ -20,7 +20,14 @@
         </span>
       </div>
     </div>
-
+    <div class="col-sm-12 row">
+      <p class="col-sm-6">
+        Bài viết cao nhất: <span class="max" id="count"></span><span class="user" id="count_user"></span>
+      </p>
+      <p class="col-sm-6">
+        Tương tác cao nhất: <span class="max" id="sum"></span><span class="user" id="sum_user"></span>
+      </p>
+    </div>
     <div class="col-sm-12">
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
@@ -44,8 +51,8 @@
       </div>
     </div>
   </div>
-  <div id="chart1">
-
+  <div>
+    <canvas id="chart1" height="150"></canvas>
   </div>
 </div>
 

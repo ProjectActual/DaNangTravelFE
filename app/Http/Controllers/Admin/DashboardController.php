@@ -18,9 +18,7 @@ class DashboardController extends Controller
                     'Content-Type'  => 'application/json',
                 ],
             ]);
-
             $data = json_decode((string) $response->getBody(), true);
-
             return view('admin.dashboard', compact('data'));
         }catch(ClientException $e) {
             throw $e;

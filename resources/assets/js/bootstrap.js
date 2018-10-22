@@ -14,6 +14,7 @@ try {
     require('dropify/src/js/dropify');
     require('bootstrap-tagsinput/src/bootstrap-tagsinput.js');
     require('bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js');
+    window.Chart = require('admin-lte/bower_components/chart.js/Chart.js');
 } catch (e) {}
 
 window.Cookies = require('js-cookie/src/js.cookie');
