@@ -11,7 +11,16 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-        return view('admin.posts.index');
+        $reponse_categories = $this->client->request('GET', $this->url('/api/admin/categories'), [
+            'headers' => [
+                'Accept'        => 'application/json',
+                'Authorization' => 'Bearer '.$_COOKIE['access_token'],
+                'Content-Type'  => 'application/json',
+            ],
+        ]);
+
+        $categories = json_decode((string) $reponse_categories->getBody(), true);
+        return view('admin.posts.index', compact('categories'));
     }
 
 /**

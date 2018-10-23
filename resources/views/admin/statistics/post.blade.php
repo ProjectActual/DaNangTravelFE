@@ -9,7 +9,7 @@
 </ol>
 <div class="container-posts">
   <div class="row ">
-    <h2 class="heading-2 col-sm-8">
+    <h2 class="heading-2 col-sm-12">
       Bài viết theo tháng của cộng tác viên
     </h2>
     <div class="col-sm-12 posts-header">
@@ -39,7 +39,6 @@
               <th class="text-center text-nowrap">Ngày tham gia</th>
               <th class="text-center text-nowrap">Tổng bài viết</th>
               <th class="text-center text-nowrap">Lượt tương tác</th>
-              <th class="text-center text-nowrap">Hoạt động</th>
             </tr>
           </thead>
           <tbody id="table-body">

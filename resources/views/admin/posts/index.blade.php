@@ -9,16 +9,36 @@
 </ol>
 <div class="container-posts">
   <div class="row ">
-    <h2 class="heading-2 col-sm-8">
+    <h2 class="heading-2 col-sm-12">
       Quản Lý Bài Viết
     </h2>
-    <div class="col-sm-12 posts-header">
+    <div class="col-sm-7 posts-header">
       <div class="input-group">
         <input type="text" class="form-control" id="input_search" placeholder="Tìm kiếm"/>
         <span class="input-group-addon">
           <a href="javascript:" id="btnSearch"><i class="fa fa-search"></i></a>
         </span>
       </div>
+    </div>
+
+    <div class="col-sm-2">
+      <select id="sort" class="form-control">
+          <option class="weight" value=''>Sắp xếp theo ...</option>
+          <option value="title_asc">Tiêu đề (a-z)</option>
+          <option value="title_desc">Tiêu đề (z-a)</option>
+          <option value="created_asc">Ngày tạo (cũ)</option>
+          <option value="created_desc">Ngày tạo (mới)</option>
+          <option value="slider">Slider đang hoạt động</option>
+          <option value="hot">Bài viết đang Hot</option>
+      </select>
+    </div>
+    <div class="col-sm-3">
+      <select id="search-category" class="form-control">
+          <option class="weight" value=''>LỌC THEO TẤT CẢ DANH MỤC</option>
+        @foreach($categories['data']['categories']['data'] as $item)
+          <option value="{{ $item['id'] }}">LỌC THEO {{ $item['attributes']['name_category'] }}</option>
+        @endforeach
+      </select>
     </div>
 
     <div class="col-sm-12">
