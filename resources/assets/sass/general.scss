@@ -59,3 +59,10 @@ html, body.master {
   border: 3px solid;
   cursor: pointer;
 }
+
+  .ui-autocomplete {
+    max-height: 170px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+  }

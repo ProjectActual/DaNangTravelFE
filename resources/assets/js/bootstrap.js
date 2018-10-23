@@ -12,6 +12,7 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('dropify/src/js/dropify');
+    require('jquery-ui/ui/widgets/autocomplete.js');
     require('bootstrap-tagsinput/src/bootstrap-tagsinput.js');
     require('bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js');
     window.Chart = require('admin-lte/bower_components/chart.js/Chart.js');
