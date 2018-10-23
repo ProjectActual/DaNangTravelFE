@@ -32,9 +32,6 @@ $(function () {
             </tr>`;
       }
       $('#table-body').html(str);
-      var pagination = res.data.data.tags.meta
-
-      paginate(pagination, linkUrl);
     }).catch(err => {
       displayErrors(err);
     })

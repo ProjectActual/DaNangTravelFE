@@ -60,7 +60,7 @@
       <div class="form-group col-sm-12">
         <label>Tag</label>
         <div>
-          <input id="tag" class="form-control col-sm-12" placeholder="Nhập nội dung tiêu đề tại đây" value="{{ $tags }}" data-role="tagsinput">
+          <input id="tag" class="form-control col-sm-12" placeholder="Nhập tag tại đây" value="{{ $tags }}" data-role="tagsinput">
         </div>
       </div>
 

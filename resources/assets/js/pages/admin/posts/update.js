@@ -134,4 +134,28 @@ $(function () {
   $('body').on('click', '#btnCancel', function () {
     window.location.href = window.location.origin + '/admin/posts';
   })
+
+  function getAllTags () {
+    axios.get(url('/api/admin/tags'), {
+      headers: {
+        'Content-Type'  : 'application/json',
+        'Accept'        : 'application/json',
+        'Authorization' : `Bearer ${Cookies.get('access_token')}`
+      }
+    }).then(res => {
+      var tags = res.data.data.tags.data;
+      for(var value in tags) {
+        arrTags.push(tags[value]['attributes'].tag);
+      }
+    }).catch(err => {
+      displayErrors(err);
+    });
+  }
+
+  const arrTags = [];
+  getAllTags();
+
+  $('.bootstrap-tagsinput > :input').autocomplete({
+    source: arrTags
+  });
 });
