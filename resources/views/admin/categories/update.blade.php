@@ -18,11 +18,11 @@
             <input type="text" id="type_category_update" class="form-control" placeholder="tên loại danh mục ...">
           </div>
           <div class="form-group">
-            <label>Link bài viết</label>
+            <label>Link danh mục</label>
             <div class="input-group">
               <input id="link_update" class="form-control" placeholder="Dữ liệu được sinh từ tiêu đề" disabled>
               <span class="input-group-btn">
-                <button id="edit_link_update" type="button" class="btn btn-success">Chỉnh sửa link bài viết</button>
+                <button id="edit_link_update" type="button" class="btn btn-success">Chỉnh sửa link danh mục</button>
                 <button id="cancel_link_update" type="button" class="btn btn-default" style="display: none;">Huỷ bỏ</button>
               </span>
             </div>

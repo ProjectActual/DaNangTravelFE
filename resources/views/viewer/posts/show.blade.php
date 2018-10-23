@@ -16,38 +16,39 @@
   <div class="pt-5">
     Tags:
     @forelse($post['data']['attributes']['tag'] as $tag)
-      <a href="{{ route('viewer.tags.index', $tag['uri_tag']) }}">#{{$tag['tag']}} </a>
+    <a href="{{ route('viewer.tags.index', $tag['uri_tag']) }}">#{{$tag['tag']}} </a>
     @empty
-       <p>Không có tag</p>
+    <p>Không có tag</p>
     @endforelse
   </div>
 </div>
 @endsection
 @section('master.viewer.relationship')
-    <section class="py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="mb-3 ">Related Post</h2>
-          </div>
-        </div>
-        <div class="row">
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="mb-3 ">Related Post</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="owl-carousel owl-theme post-detail-slider">
           @foreach($relationPost['data'] as $item)
-          <div class="col-md-6 col-lg-3">
-            <a href="{{ route('viewer.posts.show', ['uri_category' => $item['attributes']['uri_category'], 'uri_post' => $item['attributes']['uri_post']]) }}" class="a-block d-flex align-items-center" style="background-image: url('{{ $item['attributes']['avatar_post'] }}'); ">
-              <div class="text">
-                <div class="post-meta">
-                  <span class="category">{{ $item['attributes']['type_category'] }}</span>
-                  <span class="mr-2">{{ \Carbon\Carbon::parse($item['attributes']['created_at']['date'])->format('d/m/Y') }} </span>
-                  <span class="ml-2"><span class="fa fa-eye"></span> {{ $item['attributes']['count_view'] }}</span>
-                </div>
-                <h5 class="show-title">{{ $item['attributes']['title'] }}</h5>
+          <a href="{{ route('viewer.posts.show', ['uri_category' => $item['attributes']['uri_category'], 'uri_post' => $item['attributes']['uri_post']]) }}" class="a-block d-flex align-items-center" style="background-image: url('{{ $item['attributes']['avatar_post'] }}'); ">
+            <div class="text">
+              <div class="post-meta">
+                <span class="category">{{ $item['attributes']['type_category'] }}</span>
+                <span class="ml-2"><span class="fa fa-eye"></span> {{ $item['attributes']['count_view'] }}</span>
               </div>
-            </a>
-          </div>
+              <h5 class="show-title">{{ $item['attributes']['title'] }}</h5>
+            </div>
+          </a>
           @endforeach
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
 @endsection
