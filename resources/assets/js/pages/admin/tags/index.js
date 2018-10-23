@@ -3,14 +3,15 @@ $(function () {
 
   loadData();
 
-  function loadData(linkUrl = url('/api/admin/tags'))
+  function loadData(linkUrl = url('/api/admin/tags'), params='')
   {
     axios.get(linkUrl, {
       headers: {
         'Content-Type'  : 'application/json',
         'Accept'        : 'application/json',
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
-      }
+      },
+      params
     }).then(res => {
       var index = 1;
       var tags = res.data.data.tags.data;
@@ -36,6 +37,37 @@ $(function () {
       displayErrors(err);
     })
   }
+  var search = '';
+  var sort   = '';
+  $('body').on('click', '#btnSearch', function (e) {
+    search = $('#input_search').val();
+    var params = {
+      search: search,
+      sort: sort
+    }
+
+    loadData(url('/api/admin/tags'), params);
+  });
+
+  $('body').on('change', '#sort', function (e) {
+    sort = $(this).val();
+    var params = {
+      search: search,
+      sort: sort
+    }
+
+    loadData(url('/api/admin/tags'), params);
+  });
+
+  $('body').on('click', '#btnSearch', function (e) {
+
+    search = $('#input_search').val();
+    var params = {
+      search: search
+    }
+
+    loadData(url('/api/admin/tags'), params);
+  });
 
   $('body').on('click', '.page-link', function(e) {
     e.preventDefault();
@@ -110,11 +142,4 @@ $(function () {
         displayErrors(err)
       })
   })
-
-  $('body').on('click', '#btnSearch', function (e) {
-
-    var search = $('#input_search').val();
-
-    loadData(url(`/api/admin/tags?search=${search}`));
-  });
 });

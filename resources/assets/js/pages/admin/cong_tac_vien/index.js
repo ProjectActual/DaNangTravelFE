@@ -3,14 +3,15 @@ $(function () {
 
   loadData();
 
-  function loadData(linkUrl = url('/api/admin/congtacvien'))
+  function loadData(linkUrl = url('/api/admin/congtacvien'), params='')
   {
     axios.get(linkUrl, {
       headers: {
         'Content-Type'  : 'application/json',
         'Accept'        : 'application/json',
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
-      }
+      },
+      params
     }).then(res => {
       var index = 1;
       var ctv = res.data.data.congTacVien.data;
@@ -50,6 +51,27 @@ $(function () {
       displayErrors(err);
     })
   }
+  var search = '';
+  var status = '';
+  $('body').on('click', '#btnSearch', function () {
+    search = $('#input_search').val();
+    var params = {
+      search: search,
+      status: status
+    }
+
+    loadData(url('/api/admin/congtacvien'), params);
+  });
+
+  $('body').on('change', '#status', function () {
+    status = $(this).val();
+    var params = {
+      search: search,
+      status: status
+    }
+
+    loadData(url('/api/admin/congtacvien'), params);
+  });
 
   $('body').on('click', '.btnInfo', function () {
     const hash = $(this).attr('hash');
@@ -170,12 +192,5 @@ $('#updateModal').on('click', function () {
 
     var url = $(this).attr('href');
     loadData(url);
-  });
-
-  $('body').on('click', '#btnSearch', function (e) {
-
-    var search = $('#input_search').val();
-
-    loadData(url(`/api/admin/congtacvien?search=${search}`));
   });
 });

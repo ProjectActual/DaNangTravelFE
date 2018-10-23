@@ -18,8 +18,6 @@ $(function () {
     }).then(res => {
       displayMessages(res, '/admin/login');
     }).catch(err => {
-      console.log(err);
-      return;
       displayErrors(err);
     })
   })

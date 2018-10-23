@@ -15,7 +15,7 @@
     <h2 class="heading-2 col-sm-8">
       Quản Lý Tag
     </h2>
-    <div class="col-sm-12 posts-header">
+    <div class="col-sm-9 posts-header">
       <div class="input-group">
         <input type="text" class="form-control" id="input_search" placeholder="Tìm kiếm"/>
         <span class="input-group-addon">
@@ -23,7 +23,15 @@
         </span>
       </div>
     </div>
-
+    <div class="col-sm-3">
+      <select id="sort" class="form-control">
+          <option class="weight" value=''>Sắp xếp theo ...</option>
+          <option value="tag_asc">Tên tag &#xf176;</option>
+          <option value="tag_desc">Tên tag &#xf175;</option>
+          <option value="count_posts_asc">tổng bài viết &#xf176;</option>
+          <option value="count_posts_desc">tổng bài viết &#xf175;</option>
+      </select>
+    </div>
     <div class="col-sm-12">
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
