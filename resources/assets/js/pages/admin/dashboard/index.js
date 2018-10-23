@@ -7,13 +7,14 @@ $(function () {
   }
   var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
   var areaChart       = new Chart(areaChartCanvas)
+
   var areaChartData = {
     labels  : data.dataLabel,
     datasets: [
     {
       label               : 'Electronics',
       fillColor           : 'rgba(241,3,19,0.8)',
-      strokeColor         : 'rgba(210, 214, 222, 0.8)',
+      strokeColor         : 'rgba(241,3,19,0.8)',
       pointColor          : 'rgba(241,3,19,0.8)',
       pointStrokeColor    : '#c1c7d1',
       pointHighlightFill  : '#fff',
@@ -48,11 +49,12 @@ $(function () {
     pointHitDetectionRadius : 20,
     datasetStroke           : true,
     datasetStrokeWidth      : 2,
-    datasetFill             : true,
+    datasetFill             : false,
     legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
     maintainAspectRatio     : true,
     responsive              : true
   }
 
+  // areaChartOptions.datasetFill = false
   areaChart.Line(areaChartData, areaChartOptions)
 })

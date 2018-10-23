@@ -25,7 +25,7 @@
                 <th class="text-center text-nowrap">Link</th>
                 <th class="text-center text-nowrap">Loại danh mục</th>
                 <th class="text-center text-nowrap">Mô tả</th>
-                <th class="text-center text-nowrap">Tổng bài viết</th>
+                <th class="text-center text-nowrap">Tổng danh mục</th>
                 <th class="text-center text-nowrap">Hoạt động</th>
               </tr>
             </thead>
@@ -49,11 +49,11 @@
           <input type="text" id="type_category" class="form-control" placeholder="tên loại danh mục ...">
         </div>
         <div class="form-group col-sm-12">
-          <label>Link bài viết</label>
+          <label>Link danh mục</label>
           <div class="input-group">
             <input id="link" class="form-control" placeholder="Dữ liệu được sinh từ tiêu đề" disabled>
             <span class="input-group-btn">
-              <button id="edit_link" type="button" class="btn btn-success">Chỉnh sửa link bài viết</button>
+              <button id="edit_link" type="button" class="btn btn-success">Chỉnh sửa link danh mục</button>
               <button id="cancel_link" type="button" class="btn btn-default" style="display: none;">Huỷ bỏ</button>
             </span>
           </div>

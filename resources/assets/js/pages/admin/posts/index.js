@@ -24,7 +24,7 @@ $(function () {
               <td>${index++}</td>
               <td>${post[value]['attributes'].title}</td>
               <td class="text-center"><img style="width: 200px" src="${post[value]['attributes'].avatar_post}" alt=""></td>
-              <td>${post[value]['attributes'].uri_post}</td>`;
+              <td><a target="_blank" href="${window.location.origin+'/posts/'+post[value]['attributes'].uri_category+'/'+post[value]['attributes'].uri_post}">${post[value]['attributes'].uri_post}</a></td>`;
         if(post[value]['attributes'].status == 'ACTIVE') {
           str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-success">${post[value]['attributes'].status} </a></td>`;
         } else {

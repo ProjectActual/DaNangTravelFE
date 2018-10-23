@@ -96,6 +96,9 @@ $(function () {
   });
 
   $('body').on('click', '#btnSubmit', function () {
+    if($('#edit_link').text() != 'Chỉnh sửa link bài viết') {
+      return window.toastr.error("Tác vụ link bài viết chưa được hoàn tác");
+    }
 
     const hash = $(this).attr('hash');
 
@@ -177,8 +180,8 @@ $(function () {
 
   const arrTags = [];
   getAllTags();
-
   $('.bootstrap-tagsinput > :input').autocomplete({
+    delay: 0,
     source: arrTags
   });
 });

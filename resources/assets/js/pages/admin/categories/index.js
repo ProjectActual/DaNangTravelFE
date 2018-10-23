@@ -23,7 +23,7 @@ $(function () {
         `<tr>
         <td>${index++}</td>
         <td>${categories[value]['attributes'].name_category}</td>
-        <td>${categories[value]['attributes'].uri_category}</td>
+        <td><a target="_blank" href="${window.location.origin+'/posts/'+categories[value]['attributes'].uri_category}">${categories[value]['attributes'].uri_category}</a></td>
         <td>${categories[value]['attributes'].type_category}</td>
         <td>${categories[value]['attributes'].description}</td>
         <td>${categories[value]['attributes'].count_posts}</td>
@@ -41,6 +41,9 @@ $(function () {
   }
 
   $('body').on('click','#btnAdd', function () {
+    if($('#edit_link').text() != 'Chỉnh sửa link danh mục') {
+      return window.toastr.error("Tác vụ link danh mục chưa được hoàn tác");
+    }
 
     const payload = {
       'name_category'  : $('#name_category').val(),
@@ -78,7 +81,7 @@ $(function () {
   $('#edit_link').on('click', function() {
     link = $('#link').val();
 
-    if ($(this).text() == 'Chỉnh sửa link bài viết') {
+    if ($(this).text() == 'Chỉnh sửa link danh mục') {
       $(this).html('Xong');
       $('#link').prop('disabled', false);
       $('#cancel_link').css('display', 'inline');
@@ -86,7 +89,7 @@ $(function () {
       var link = window.convertToSlug($('#link').val());
 
       $('#link').val(link);
-      $(this).html('Chỉnh sửa link bài viết');
+      $(this).html('Chỉnh sửa link danh mục');
 
       $('#link').prop('disabled', true);
       $('#cancel_link').css('display', 'none');
@@ -95,14 +98,14 @@ $(function () {
 
   $('#cancel_link').on('click', function () {
     $('#link').val(link);
-    if ($('#edit_link').text() == 'Chỉnh sửa link bài viết') {
+    if ($('#edit_link').text() == 'Chỉnh sửa link danh mục') {
       $('#edit_link').html('Xong');
       $('#link').prop('disabled', false);
       $('#cancel_link').css('display', 'inline');
     } else {
       var link = window.convertToSlug($('#name_category').val());
 
-      $('#edit_link').html('Chỉnh sửa link bài viết');
+      $('#edit_link').html('Chỉnh sửa link danh mục');
       $('#link').prop('disabled', true);
 
       $('#link').val(link);
@@ -152,6 +155,9 @@ $('body').on('click', '.btnSua', function () {
 })
 
 $('body').on('click', '#updateModal', function () {
+  if($('#edit_link_update').text() != 'Chỉnh sửa link danh mục') {
+    return window.toastr.error("Tác vụ link danh mục chưa được hoàn tác");
+  }
   const hash = $(this).attr('hash');
 
   const payload = {
@@ -186,7 +192,7 @@ $('body').on('click', '#updateModal', function () {
   $('#edit_link_update').on('click', function() {
     link_update = $('#link_update').val();
 
-    if ($(this).text() == 'Chỉnh sửa link bài viết') {
+    if ($(this).text() == 'Chỉnh sửa link danh mục') {
       $(this).html('Xong');
       $('#link_update').prop('disabled', false);
       $('#cancel_link_update').css('display', 'inline');
@@ -194,7 +200,7 @@ $('body').on('click', '#updateModal', function () {
       var link_update = window.convertToSlug($('#link_update').val());
 
       $('#link_update').val(link_update);
-      $(this).html('Chỉnh sửa link bài viết');
+      $(this).html('Chỉnh sửa link danh mục');
 
       $('#link_update').prop('disabled', true);
       $('#cancel_link_update').css('display', 'none');
@@ -203,14 +209,14 @@ $('body').on('click', '#updateModal', function () {
 
   $('#cancel_link_update').on('click', function () {
     $('#link_update').val(link_update);
-    if ($('#edit_link_update').text() == 'Chỉnh sửa link bài viết') {
+    if ($('#edit_link_update').text() == 'Chỉnh sửa link danh mục') {
       $('#edit_link_update').html('Xong');
       $('#link_update').prop('disabled', false);
       $('#cancel_link_update').css('display', 'inline');
     } else {
       var link_update = window.convertToSlug($('#name_category_update').val());
 
-      $('#edit_link_update').html('Chỉnh sửa link bài viết');
+      $('#edit_link_update').html('Chỉnh sửa link danh mục');
       $('#link_update').prop('disabled', true);
 
       $('#link_update').val(link_update);
@@ -235,7 +241,7 @@ $('body').on('click', '#updateModal', function () {
 
     swal({
       title: 'Bạn chắc chắn muốn xóa?',
-      text: 'Nếu bạn xóa danh mục này, tất cả bài viết nằm trong danh mục sẽ bị xóa tất cả!',
+      text: 'Nếu bạn xóa danh mục này, tất cả danh mục nằm trong danh mục sẽ bị xóa tất cả!',
       type: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Có, xóa nó!',

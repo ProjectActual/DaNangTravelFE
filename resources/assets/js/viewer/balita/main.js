@@ -64,6 +64,34 @@ $(function() {
     }
 	});
 
+  // post-detail-slider
+  $('.post-detail-slider').owlCarousel({
+    loop:true,
+    autoplay: true,
+    margin:5,
+    animateOut: 'fadeOut',
+    animateIn: 'fadeIn',
+    nav:true,
+    autoplayHoverPause: true,
+    items: 4,
+    dots: false,
+    navText : ["<span style='color:#fff' class='ion-chevron-left'></span>","<span style='color:#fff' class='ion-chevron-right'></span>"],
+    responsive:{
+      0:{
+        items:2,
+        nav:false
+      },
+      600:{
+        items:3,
+        nav:false
+      },
+      1000:{
+        items:4,
+        nav:true
+      }
+    }
+  });
+
 	// owl carousel
 	var majorCarousel = $('.js-carousel-1');
 	majorCarousel.owlCarousel({

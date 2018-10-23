@@ -22,7 +22,7 @@ $(function () {
         var str = str +
             `<tr>
               <td class="text-center">${index++}</td>
-              <td>${tags[value]['attributes'].tag}</td>
+              <td><a target="_blank" href="${window.location.origin+'/tags/'+tags[value]['attributes'].uri_tag}">${tags[value]['attributes'].tag}</a></td>
               <td class="text-right"><a class="posts_count" href="javascript:">${tags[value]['attributes'].count_posts}</a></td>
               <td class="text-center text-nowrap">${convertDate(tags[value]['attributes'].created_at.date)}</td>
               <td class="text-center text-nowrap">
