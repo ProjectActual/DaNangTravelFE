@@ -26,8 +26,8 @@
     <div class="col-sm-3">
       <select id="sort" class="form-control">
           <option class="weight" value=''>Sắp xếp theo ...</option>
-          <option value="tag_asc">Tên tag &#xf176;</option>
-          <option value="tag_desc">Tên tag &#xf175;</option>
+          <option value="tag_asc">Tên tag (A - Z)</option>
+          <option value="tag_desc">Tên tag (Z - A)</option>
           <option value="count_posts_asc">tổng bài viết &#xf176;</option>
           <option value="count_posts_desc">tổng bài viết &#xf175;</option>
       </select>

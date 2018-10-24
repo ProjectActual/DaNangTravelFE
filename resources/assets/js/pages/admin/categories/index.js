@@ -16,7 +16,7 @@ $(function () {
       var categories = res.data.data.categories.data;
       var str = '';
       if($.isEmptyObject(res.data.data.categories.data)) {
-        str = str + '<tr><td class="text-center" colspan="7">Chưa có dữ liệu nào</td></tr>';
+        str = str + '<tr><td class="text-center" colspan="8">Chưa có dữ liệu nào</td></tr>';
       }
       for(var value in categories) {
         var str = str +
@@ -26,8 +26,13 @@ $(function () {
         <td><a target="_blank" href="${window.location.origin+'/posts/'+categories[value]['attributes'].uri_category}">${categories[value]['attributes'].uri_category}</a></td>
         <td>${categories[value]['attributes'].type_category}</td>
         <td>${categories[value]['attributes'].description}</td>
-        <td>${categories[value]['attributes'].count_posts}</td>
-        <td class="text-center text-nowrap">
+        <td>${categories[value]['attributes'].count_posts}</td>`
+        if(categories[value]['attributes'].status == 'ACTIVE') {
+          str = str + `<td class="text-center"><a href="javascript:" hash="${categories[value].id}" status="INACTIVE" class="btn btn-xs btn-success btnStatus">Hoạt động</a></td>`;
+        } else {
+          str = str + `<td class="text-center"><a href="javascript:" hash="${categories[value].id}" status="ACTIVE" class="btn btn-xs btn-danger btnStatus">không hoạt động </a></td>`;
+        }
+        str = str + `<td class="text-center text-nowrap">
         <button class="btn btn-xs btn-primary btnSua" hash="${categories[value].id}">Sửa</button>
         <button class="btn btn-xs btn-danger btnXoa" hash="${categories[value].id}">Xóa</button>
         </td>
@@ -39,6 +44,26 @@ $(function () {
       displayErrors(err);
     })
   }
+
+  $('body').on('click', '.btnStatus', function () {
+    console.log(1);
+    const hash = $(this).attr('hash');
+    const payload = {
+      status: $(this).attr('status')
+    }
+    axios.put(url(`/api/admin/categories/approval/${hash}`), payload, {
+      headers: {
+        'Content-Type'  : 'application/json',
+        'Accept'        : 'application/json',
+        'Authorization' : `Bearer ${Cookies.get('access_token')}`
+      }
+    }).then(res => {
+      displayMessages(res);
+      loadData();
+    }).catch(err => {
+      displayErrors(err);
+    })
+  })
 
   $('body').on('click','#btnAdd', function () {
     if($('#edit_link').text() != 'Chỉnh sửa link danh mục') {
