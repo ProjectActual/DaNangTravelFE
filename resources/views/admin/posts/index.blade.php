@@ -26,6 +26,8 @@
           <option class="weight" value=''>Sắp xếp theo ...</option>
           <option value="title_asc">Tiêu đề (A - Z)</option>
           <option value="title_desc">Tiêu đề (Z - A)</option>
+          <option value="status_active">Bài viết ACTIVE</option>
+          <option value="status_inactive">Bài viết INACTIVE</option>
           <option value="created_asc">Ngày tạo &#xf176;</option>
           <option value="created_desc">Ngày tạo &#xf175;</option>
           <option value="slider">Slider đang hoạt động</option>
