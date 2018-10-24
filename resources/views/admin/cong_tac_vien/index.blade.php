@@ -12,10 +12,10 @@
 </ol>
 <div class="container-posts">
   <div class="row ">
-    <h2 class="heading-2 col-sm-8">
+    <h2 class="heading-2 col-sm-12">
       Quản Lý Cộng Tác Viên
     </h2>
-    <div class="col-sm-12 posts-header">
+    <div class="col-sm-9 posts-header">
       <div class="input-group">
         <input type="text" class="form-control" id="input_search" placeholder="Tìm kiếm"/>
         <span class="input-group-addon">
@@ -23,7 +23,15 @@
         </span>
       </div>
     </div>
-
+    <div class="col-sm-3">
+      <select id="status" class="form-control">
+          <option value=''>Lọc theo trạng thái ...</option>
+          <option value="AUTHENTICATION">chưa xác thực</option>
+          <option value="APPROVE">Đợi phê duyệt</option>
+          <option value="ACTIVE">Đang hoạt động</option>
+          <option value="LOCKED">Đã vô hiệu hóa</option>
+      </select>
+    </div>
     <div class="col-sm-12">
       <div class="table-responsive">
         <table class="table table-bordered table-hover">

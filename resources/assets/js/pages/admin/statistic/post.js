@@ -36,7 +36,7 @@ $(function () {
 
 
       if($.isEmptyObject(res.data.data.userStatistics.data)) {
-        str = str + '<tr><td class="text-center" colspan="7">Chưa có dữ liệu nào</td></tr>';
+        str = str + '<tr><td class="text-center" colspan="6">Chưa có dữ liệu nào</td></tr>';
         $('#count').html('');
         $('#count_user').html('');
 
@@ -68,11 +68,6 @@ $(function () {
             <td class="text-center text-nowrap">${convertDate(statistic[value]['attributes'].created_at.date)}</td>
             <td class="text-right">${statistic[value]['attributes'].count_posts} bài viết</td>
             <td class="text-right">${statistic[value]['attributes'].viewer_interactive} lượt</td>
-            <td class="text-center text-nowrap">
-            <button class="btn btn-xs btn-primary btnInfo" hash="${statistic[value].id}">Chi tiết</button>
-            <button class="btn btn-xs btn-info btnDuyet" hash="${statistic[value].id}">Cập nhật</button>
-            <button class="btn btn-xs btn-danger btnXoa" hash="${statistic[value].id}">Xoá</button>
-            </td>
             </tr>`;
           }
           $('#count').html(maxPost);

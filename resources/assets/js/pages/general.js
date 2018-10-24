@@ -85,7 +85,7 @@ window.nonAccentVietnamese = function (str)
 }
 
 
-window.paginate = function(data, linkUrl)
+window.paginate = function(data)
 {
   var meta = data.meta.pagination;
   var links = data.links;

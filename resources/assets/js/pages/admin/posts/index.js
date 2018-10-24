@@ -3,14 +3,15 @@ $(function () {
 
   loadData();
 
-  function loadData(linkUrl = url('/api/admin/posts'))
+  function loadData(linkUrl = url('/api/admin/posts'), params={})
   {
     axios.get(linkUrl, {
       headers: {
         'Content-Type'  : 'application/json',
         'Accept'        : 'application/json',
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
-      }
+      },
+      params
     }).then(res => {
       var index = 1;
       var post = res.data.data.posts.data;
@@ -50,12 +51,49 @@ $(function () {
       }
       $('#table-body').html(str);
       var pagination = res.data.data.posts;
-      paginate(pagination, linkUrl);
-
+      paginate(pagination);
     }).catch(err => {
       displayErrors(err);
     })
   }
+
+  var sort            = '';
+  var search_category = '';
+  var search          = '';
+  $('body').on('change', '#sort', function () {
+    sort = $(this).val();
+
+    const params = {
+      sort: sort,
+      search_category: search_category,
+      search: search
+    }
+
+    loadData(url(`/api/admin/posts`), params);
+  })
+
+  $('body').on('change', '#search-category', function () {
+    search_category = $(this).val();
+    const params = {
+      search_category: search_category,
+      sort: sort,
+      search: search
+    }
+
+    loadData(url(`/api/admin/posts`), params);
+  })
+
+  $('body').on('click', '#btnSearch', function () {
+    search = $('#input_search').val();
+
+    var params = {
+      search_category: search_category,
+      sort: sort,
+      search: search
+    }
+
+    loadData(url(`/api/admin/posts`), params);
+  });
 
   $('body').on('click', '.page-link', function(e) {
     e.preventDefault();
@@ -109,13 +147,6 @@ $(function () {
           )
       }
     })
-  });
-
-  $('body').on('click', '#btnSearch', function (e) {
-
-    var search = $('#input_search').val();
-
-    loadData(url(`/api/admin/posts?search=${search}`));
   });
 
   $('body').on('click', '#is_slider', function () {
