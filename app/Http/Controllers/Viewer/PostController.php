@@ -20,7 +20,6 @@ class PostController extends Controller
                     'search'   => $request->search,
                 ],
             ]);
-
         $data = json_decode((string) $response->getBody(), true);
 
         return view('viewer.posts.index', compact('data'));

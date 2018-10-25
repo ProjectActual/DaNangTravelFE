@@ -12,7 +12,7 @@
 <div class="container-profile">
   <div class="row">
     <div class="section profile-left col-sm-7">
-      <h2 class="heading-2 col-sm-8">
+      <h2 class="heading-2 col-sm-12">
         Quản Lý Danh Mục
       </h2>
       <div class="col-sm-12">
@@ -25,7 +25,8 @@
                 <th class="text-center text-nowrap">Link</th>
                 <th class="text-center text-nowrap">Loại danh mục</th>
                 <th class="text-center text-nowrap">Mô tả</th>
-                <th class="text-center text-nowrap">Tổng danh mục</th>
+                <th class="text-center text-nowrap">Tổng bài viết</th>
+                <th class="text-center text-nowrap">Tình trạng</th>
                 <th class="text-center text-nowrap">Hoạt động</th>
               </tr>
             </thead>
