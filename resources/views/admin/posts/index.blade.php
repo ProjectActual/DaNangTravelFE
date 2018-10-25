@@ -24,14 +24,14 @@
     <div class="col-sm-2">
       <select id="sort" class="form-control">
           <option class="weight" value=''>Sắp xếp theo ...</option>
-          <option value="title_asc">Tiêu đề (A - Z)</option>
-          <option value="title_desc">Tiêu đề (Z - A)</option>
-          <option value="status_active">Bài viết ACTIVE</option>
-          <option value="status_inactive">Bài viết INACTIVE</option>
-          <option value="created_asc">Ngày tạo &#xf176;</option>
-          <option value="created_desc">Ngày tạo &#xf175;</option>
-          <option value="slider">Slider đang hoạt động</option>
-          <option value="hot">Bài viết đang Hot</option>
+          <option value="title-asc">Tiêu đề (A - Z)</option>
+          <option value="title-desc">Tiêu đề (Z - A)</option>
+          <option value="status-asc">Bài viết ACTIVE</option>
+          <option value="status-desc">Bài viết INACTIVE</option>
+          <option value="created_at-asc">Ngày tạo &#xf176;</option>
+          <option value="created_at-desc">Ngày tạo &#xf175;</option>
+          <option value="is_slider-desc">Slider đang hoạt động</option>
+          <option value="is_hot-desc">Bài viết đang Hot</option>
       </select>
     </div>
     <div class="col-sm-3">
