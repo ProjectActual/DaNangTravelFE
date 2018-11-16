@@ -50,9 +50,9 @@
           <span class="info-box-text">TỔNG LƯỢT TƯƠNG TÁC</span>
           <span class="info-box-number">{{ empty($data['data']['postAll']['sum']) ? '0' : $data['data']['postAll']['sum'] }}</span>
         </div>
-        <!-- /.info-box-content -->
+        <!-- /.info-box-content-->
       </div>
-      <!-- /.info-box -->
+      <!-- /.info-box-->
     </div>
     <!-- /.col -->
     <div class="col-sm-6 col-xs-12">
