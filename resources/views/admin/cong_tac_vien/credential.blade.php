@@ -37,7 +37,6 @@
           </label>
         </div>
       </div>
-
       <div class="form-group col-md-12">
         <label>Ngày sinh</label>
         <div class="input-group date">
