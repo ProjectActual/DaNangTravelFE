@@ -52,7 +52,6 @@
           <input type="file" id="avatar" name="avatar" data-default-file="{{ $profile['attributes']['avatar'] }}">
         </div>
       </div>
-
       <div class="col-md-12 text-right">
         <div class="col-md-12 form-button">
           <button type="submit" class="btn btn-info right" hash="{{ $profile['id'] }}" id="btnSubmit"><i class="fa fa-check"></i> Cập nhật</button>
