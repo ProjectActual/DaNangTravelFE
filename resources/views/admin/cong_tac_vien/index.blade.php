@@ -11,7 +11,7 @@
   <li class="active">Cộng Tác Viên</li>
 </ol>
 <div class="container-posts">
-  <div class="row ">
+  <div class="row">
     <h2 class="heading-2 col-sm-12">
       Quản Lý Cộng Tác Viên
     </h2>
@@ -49,7 +49,6 @@
         </table>
       </div>
       <div class="row pagination-js">
-
       </div>
     </div>
   </div>
