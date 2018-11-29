@@ -47,6 +47,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        dd($exception);
         if($exception instanceof \GuzzleHttp\Exception\ClientException) {
             $errors = json_decode((string) $exception->getResponse()->getBody()->getContents());
             if($errors->type == 'credential') {
@@ -55,7 +56,6 @@ class Handler extends ExceptionHandler
             $message = $errors->message;
             return view('errors.exception', compact('message'));
         }
-
         if($exception->getStatusCode() == Response::HTTP_NOT_FOUND) {
             return redirect()->route('errors.not_found');
         }

@@ -13,9 +13,9 @@ $(function () {
       }
     }).then(res => {
       var index = 1;
-      var categories = res.data.data.categories.data;
+      var categories = res.data.data;
       var str = '';
-      if($.isEmptyObject(res.data.data.categories.data)) {
+      if($.isEmptyObject(res.data.data)) {
         str = str + '<tr><td class="text-center" colspan="8">Chưa có dữ liệu nào</td></tr>';
       }
       for(var value in categories) {

@@ -16,7 +16,7 @@
           <span class="text">
             <div class="post-meta">
               <span class="category">{{ $item['attributes']['type_category'] }}</span>
-              <span class="mr-2">{{ Carbon\Carbon::parse($item['attributes']['created_at']['date'])->format('d/m/Y') }} </span> &bullet;
+              <span class="mr-2">{{ Carbon\Carbon::parse($item['attributes']['created_at'])->format('d/m/Y') }} </span> &bullet;
               <span class="ml-2"><span class="fa fa-eye"></span> {{ $item['attributes']['count_view'] }}</span>
             </div>
             <h2>{{ $item['attributes']['title'] }}</h2>

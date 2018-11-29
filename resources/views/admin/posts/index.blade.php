@@ -37,7 +37,7 @@
     <div class="col-sm-3">
       <select id="search-category" class="form-control">
           <option class="weight" value=''>LỌC THEO TẤT CẢ DANH MỤC</option>
-        @foreach($categories['data']['categories']['data'] as $item)
+        @foreach($data['data'] as $item)
           <option value="{{ $item['id'] }}">LỌC THEO {{ $item['attributes']['name_category'] }}</option>
         @endforeach
       </select>
