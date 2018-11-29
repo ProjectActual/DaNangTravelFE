@@ -6,10 +6,10 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="{{ $data['data']['profile']['data']['attributes']['avatar'] }}" class="img-circle" alt="User Image">
+        <img src="{{ $data['data']['attributes']['avatar'] }}" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
-        <p>{{ $data['data']['profile']['data']['attributes']['full_name'] }}</p>
+        <p>{{ $data['data']['attributes']['full_name'] }}</p>
         <!-- Status -->
         <a href="javascript:"><i class="fa fa-circle text-success"></i> Online</a>
       </div>

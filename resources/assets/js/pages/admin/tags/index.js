@@ -14,9 +14,9 @@ $(function () {
       params
     }).then(res => {
       var index = 1;
-      var tags = res.data.data.tags.data;
+      var tags = res.data.data;
       var str = '';
-      if($.isEmptyObject(res.data.data.tags.data)) {
+      if($.isEmptyObject(res.data.data)) {
         str = str + '<tr><td class="text-center" colspan="5">Chưa có dữ liệu nào</td></tr>';
       }
       for(var value in tags) {
@@ -25,7 +25,7 @@ $(function () {
               <td class="text-center">${index++}</td>
               <td><a target="_blank" href="${window.location.origin+'/tags/'+tags[value]['attributes'].uri_tag}">${tags[value]['attributes'].tag}</a></td>
               <td class="text-right"><a class="posts_count" href="javascript:">${tags[value]['attributes'].count_posts}</a></td>
-              <td class="text-center text-nowrap">${convertDate(tags[value]['attributes'].created_at.date)}</td>
+              <td class="text-center text-nowrap">${convertDate(tags[value]['attributes'].created_at)}</td>
               <td class="text-center text-nowrap">
               <button class="btn btn-xs btn-danger btnXoa" hash="${tags[value].id}">Xoá</button>
               <button class="btn btn-xs btn-primary btnSua" content="${tags[value]['attributes'].tag}" hash="${tags[value].id}" data-toggle="modal" data-target="#myUpdate">Sửa</button>

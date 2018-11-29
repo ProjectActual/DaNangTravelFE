@@ -23,9 +23,9 @@ $(function () {
       }
     }).then(res => {
       var index = 1;
-      var feedback = res.data.data.feedbacks.data;
+      var feedback = res.data.data;
       var str = '';
-      if($.isEmptyObject(res.data.data.feedbacks.data)) {
+      if($.isEmptyObject(res.data.data)) {
         str = str + '<tr><td class="text-center" colspan="6">Chưa có dữ liệu nào</td></tr>';
       }
       for(var value in feedback) {
@@ -43,7 +43,7 @@ $(function () {
         </tr>`;
       }
       $('#table-body').html(str);
-      var pagination = res.data.data.feedbacks;
+      var pagination = res.data;
       paginate(pagination, linkUrl);
 
     }).catch(err => {

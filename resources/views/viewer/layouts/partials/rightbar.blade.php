@@ -7,7 +7,6 @@
       </div>
     </form>
   </div>
-
   <div class="sidebar-box">
     <div class="bio text-center">
       <img src="/images/avatar.jpg" alt="Image Placeholder" class="img-fluid">
@@ -32,14 +31,14 @@
     <h3 class="heading"><i class="fa fa-fire"></i> Địa Điểm Thú Vị</h3>
     <div class="post-entry-sidebar">
       <ul>
-        @foreach($data['data']['composerTravels']['data'] as $item)
+        @foreach($data['composerTravels']['data'] as $item)
         <li>
           <a href="{{ route('viewer.posts.show', ['uri_category' => $item['attributes']['uri_category'], 'uri_post' => $item['attributes']['uri_post']]) }}">
             <img src="{{ $item['attributes']['avatar_post'] }}" alt="Image placeholder" class="mr-4">
             <div class="text">
               <h4>{{ $item['attributes']['title'] }}</h4>
               <div class="post-meta">
-                <span class="mr-2">{{ Carbon\Carbon::parse($item['attributes']['created_at']['date'])->format('d/m/Y') }}</span>
+                <span class="mr-2">{{ Carbon\Carbon::parse($item['attributes']['created_at'])->format('d/m/Y') }}</span>
               </div>
             </div>
           </a>
@@ -49,19 +48,18 @@
     </div>
   </div>
 
-
   <div class="sidebar-box">
     <h3 class="heading"><i class="fa fa-fire"></i> Ẩm Thực Travel</h3>
     <div class="post-entry-sidebar">
       <ul>
-        @foreach($data['data']['composerFoods']['data'] as $item)
+        @foreach($data['composerFoods']['data'] as $item)
         <li>
           <a href="{{ route('viewer.posts.show', ['uri_category' => $item['attributes']['uri_category'], 'uri_post' => $item['attributes']['uri_post']]) }}">
             <img src="{{ $item['attributes']['avatar_post'] }}" alt="Image placeholder" class="mr-4">
             <div class="text">
               <h4>{{ $item['attributes']['title'] }}</h4>
               <div class="post-meta">
-                <span class="mr-2">{{ Carbon\Carbon::parse($item['attributes']['created_at']['date'])->format('d/m/Y') }}</span>
+                <span class="mr-2">{{ Carbon\Carbon::parse($item['attributes']['created_at'])->format('d/m/Y') }}</span>
               </div>
             </div>
           </a>
@@ -75,14 +73,14 @@
     <h3 class="heading"><i class="fa fa-fire"></i> Sự kiện nổi bật</h3>
     <div class="post-entry-sidebar">
       <ul>
-        @foreach($data['data']['composerEvents']['data'] as $item)
+        @foreach($data['composerEvents']['data'] as $item)
         <li>
           <a href="{{ route('viewer.posts.show', ['uri_category' => $item['attributes']['uri_category'], 'uri_post' => $item['attributes']['uri_post']]) }}">
             <img src="{{ $item['attributes']['avatar_post'] }}" alt="Image placeholder" class="mr-4">
             <div class="text">
               <h4>{{ $item['attributes']['title'] }}</h4>
               <div class="post-meta">
-                <span class="mr-2">{{ Carbon\Carbon::parse($item['attributes']['created_at']['date'])->format('d/m/Y') }}</span>
+                <span class="mr-2">{{ Carbon\Carbon::parse($item['attributes']['created_at'])->format('d/m/Y') }}</span>
               </div>
             </div>
           </a>
@@ -95,7 +93,7 @@
   <div class="sidebar-box">
     <h3 class="heading">Tags</h3>
     <ul class="tags">
-      @foreach($data['data']['composerTags']['data'] as $item)
+      @foreach($data['composerTags']['data'] as $item)
         <li><a href="{{ route('viewer.tags.index', $item['attributes']['uri_tag']) }}">{{ $item['attributes']['tag'] }}</a></li>
       @endforeach
     </ul>

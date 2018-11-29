@@ -23,7 +23,7 @@ class ProfileComposer extends Controller
                 'Content-Type'  => 'application/json',
             ],
         ]);
-        $data    = json_decode((string) $response->getBody(), true);
+        $data = json_decode((string) $response->getBody(), true);
         $view->with('data', $data);
     }
 }

@@ -14,9 +14,9 @@ $(function () {
       params
     }).then(res => {
       var index = 1;
-      var post = res.data.data.posts.data;
+      var post = res.data.data;
       var str = '';
-      if($.isEmptyObject(res.data.data.posts.data)) {
+      if($.isEmptyObject(res.data.data)) {
         str = str + '<tr><td class="text-center" colspan="9">Chưa có dữ liệu nào</td></tr>';
       }
       for(var value in post) {
@@ -42,7 +42,7 @@ $(function () {
           str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-danger" id="is_hot" hash="${post[value].id}">${post[value]['attributes'].is_hot} </a></td>`;
         }
         str = str +
-              `<td class="text-center text-nowrap">${convertDate(post[value]['attributes'].created_at.date)}</td>
+              `<td class="text-center text-nowrap">${convertDate(post[value]['attributes'].created_at)}</td>
               <td class="text-center text-nowrap">
               <button class="btn btn-xs btn-danger btnXoa" hash="${post[value].id}">Xoá</button>
               <button class="btn btn-xs btn-primary btnSua" hash="${post[value].id}">Sửa</button>
@@ -50,7 +50,7 @@ $(function () {
             </tr>`;
       }
       $('#table-body').html(str);
-      var pagination = res.data.data.posts;
+      var pagination = res.data;
       paginate(pagination);
     }).catch(err => {
       displayErrors(err);

@@ -19,8 +19,8 @@ class PostController extends Controller
             ],
         ]);
 
-        $categories = json_decode((string) $reponse_categories->getBody(), true);
-        return view('admin.posts.index', compact('categories'));
+        $data = json_decode((string) $reponse_categories->getBody(), true);
+        return view('admin.posts.index', compact('data'));
     }
 
 /**

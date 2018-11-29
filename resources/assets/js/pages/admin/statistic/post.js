@@ -29,13 +29,10 @@ $(function () {
       var userPost = '';
       var maxView = 0;
       var userView = '';
-
       var index = 1;
       var str = '';
-      var statistic = res.data.data.userStatistics.data;
-
-
-      if($.isEmptyObject(res.data.data.userStatistics.data)) {
+      var statistic = res.data.data;
+      if($.isEmptyObject(res.data.data)) {
         str = str + '<tr><td class="text-center" colspan="6">Chưa có dữ liệu nào</td></tr>';
         $('#count').html('');
         $('#count_user').html('');
@@ -65,7 +62,7 @@ $(function () {
             <td>${index++}</td>
             <td>${statistic[value]['attributes'].full_name}</td>
             <td>${statistic[value]['attributes'].email}</td>
-            <td class="text-center text-nowrap">${convertDate(statistic[value]['attributes'].created_at.date)}</td>
+            <td class="text-center text-nowrap">${convertDate(statistic[value]['attributes'].created_at)}</td>
             <td class="text-right">${statistic[value]['attributes'].count_posts} bài viết</td>
             <td class="text-right">${statistic[value]['attributes'].viewer_interactive} lượt</td>
             </tr>`;

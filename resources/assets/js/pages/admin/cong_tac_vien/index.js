@@ -14,9 +14,9 @@ $(function () {
       params
     }).then(res => {
       var index = 1;
-      var ctv = res.data.data.congTacVien.data;
+      var ctv = res.data.data;
       var str = '';
-      if($.isEmptyObject(res.data.data.congTacVien.data)) {
+      if($.isEmptyObject(res.data.data)) {
         str = str + '<tr><td class="text-center" colspan="5">Chưa có dữ liệu nào</td></tr>';
       }
       for(var value in ctv) {
@@ -34,7 +34,7 @@ $(function () {
           str = str + `<td class="text-center"><a href="javascript:" class="btn btn-xs btn-default">Đã vô hiệu hóa</a></td>`;
         }
         str = str +
-        `<td class="text-center text-nowrap">${convertDate(ctv[value]['attributes'].created_at.date)}</td>
+        `<td class="text-center text-nowrap">${convertDate(ctv[value]['attributes'].created_at)}</td>
         <td class="text-center text-nowrap">
         <button class="btn btn-xs btn-primary btnInfo" hash="${ctv[value].id}">Chi tiết</button>
         <button class="btn btn-xs btn-info btnDuyet" hash="${ctv[value].id}">Cập nhật</button>
@@ -44,7 +44,7 @@ $(function () {
       }
 
       $('#table-body').html(str);
-      var pagination = res.data.data.congTacVien;
+      var pagination = res.data;
       paginate(pagination, linkUrl);
 
     }).catch(err => {
@@ -83,7 +83,7 @@ $(function () {
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
       }
     }).then(res => {
-      var data = res.data.data.congTacVien.data;
+      var data = res.data.data;
       console.log(data);
       $('.emailInfo').html(data.attributes.email);
       $('.full_name').html(data.attributes.full_name);
@@ -137,14 +137,14 @@ $('body').on('click', '.btnDuyet', function () {
     }
   }).then(res => {
     var str = '';
-    if(res.data.data.congTacVien.data.attributes.active == 'AUTHENTICATION') {
+    if(res.data.data.attributes.active == 'AUTHENTICATION') {
       $('#active').attr('disabled', true);
       str = str + `<option value="AUTHENTICATION">Chưa xác thực</option>`;
-    } else if(res.data.data.congTacVien.data.attributes.active == 'APPROVE') {
+    } else if(res.data.data.attributes.active == 'APPROVE') {
       $('#active').attr('disabled', false);
       str = str + `<option value="ACTIVE">Duyệt CTV</option>
       <option value="APPROVE">Không duyệt CTV</option>`;
-    } else if(res.data.data.congTacVien.data.attributes.active == 'ACTIVE') {
+    } else if(res.data.data.attributes.active == 'ACTIVE') {
       $('#active').attr('disabled', true);
       str = str + `<option value="LOCKED">Vô hiệu hóa</option>`;
     } else {
@@ -152,7 +152,7 @@ $('body').on('click', '.btnDuyet', function () {
       str = str + `<option value="ACTIVE">Mở khóa tài khoản</option>`;
     }
     $('#active').html(str);
-    $('#updateModal').attr('hash', res.data.data.congTacVien.data.id)
+    $('#updateModal').attr('hash', res.data.data.id)
 
     $('#myUpdate').modal('show');
   }).catch(err => {
