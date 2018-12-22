@@ -20,7 +20,7 @@ class Controller extends BaseController
     public function __construct()
     {
         $this->client = new Client();
-        $this->url    = env('APP_URL_API');
+        $this->url    = env('APP_URL_API', 'http://danangtravel-api.ddns.net');
     }
 
     public function url($uri)

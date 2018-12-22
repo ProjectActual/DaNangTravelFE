@@ -25,7 +25,7 @@ $(function () {
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
       }
     }).then(res => {
-      const categories = res.data.data.categories.data;
+      const categories = res.data.data;
       var str = '<option>Chọn ...</option>';
       for(let index in categories) {
         str = str + `<option value="${categories[index].id}">${categories[index]['attributes'].name_category}</option>`
@@ -169,7 +169,7 @@ $(function () {
         'Authorization' : `Bearer ${Cookies.get('access_token')}`
       }
     }).then(res => {
-      var tags = res.data.data.tags.data;
+      var tags = res.data.data;
       for(var value in tags) {
         arrTags.push(tags[value]['attributes'].tag);
       }

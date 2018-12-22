@@ -167,11 +167,11 @@ $('body').on('click', '.btnSua', function () {
       'Authorization' : `Bearer ${Cookies.get('access_token')}`
     }
   }).then(res => {
-    $('#name_category_update').val(res.data.data.category.data.attributes.name_category);
-    $('#link_update').val(res.data.data.category.data.attributes.uri_category);
-    $('#type_category_update').val(res.data.data.category.data.attributes.type_category);
-    $('#description_update').val(res.data.data.category.data.attributes.description);
-    $('#updateModal').attr('hash', res.data.data.category.data.id);
+    $('#name_category_update').val(res.data.data.attributes.name_category);
+    $('#link_update').val(res.data.data.attributes.uri_category);
+    $('#type_category_update').val(res.data.data.attributes.type_category);
+    $('#description_update').val(res.data.data.attributes.description);
+    $('#updateModal').attr('hash', res.data.data.id);
 
     $('#myUpdate').modal('show');
   }).catch(err => {

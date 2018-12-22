@@ -17,7 +17,7 @@ class CredentialMiddleware
     public function handle($request, Closure $next)
     {
         $client = new Client();
-        $url                = env('APP_URL_API') . "/api/admin/user";
+        $url    = env('APP_URL_API', 'http://danangtravel-api.ddns.net') . "/api/admin/user";
 
         $response = $client->request('GET', $url, [
             'headers' => [
