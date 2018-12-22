@@ -1,0 +1,16 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300, 400,700');
+@import 'variables';
+@import '~bootstrap/scss/bootstrap';
+@import '~sweetalert2/src/sweetalert2';
+@import '~toastr/toastr';
+@import '~dropify/src/sass/dropify';
+@import '~owl.carousel/src/scss/owl.carousel';
+@import '~bootstrap-tagsinput/src/bootstrap-tagsinput.css';
+@import '~bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css';
+@import '~admin-lte/bower_components/font-awesome/scss/font-awesome';
+@import '~admin-lte/bower_components/Ionicons/scss/ionicons';
+
+@import './viewer/index';
+@import './general';

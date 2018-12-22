@@ -39,6 +39,12 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapCTVRoutes();
+
+        $this->mapAdminRoutes();
+
+        $this->mapViewerRoutes();
+
         //
     }
 
@@ -54,6 +60,31 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
+    }
+
+    protected function mapViewerRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace . '\Viewer')
+             ->name('viewer.')
+             ->group(base_path('routes/viewer.php'));
+    }
+
+    protected function mapCTVRoutes()
+    {
+        Route::middleware('web')
+            ->prefix('congtacvien')
+            ->namespace($this->namespace . '\CongTacVien')
+            ->name('cong_tac_vien.')
+            ->group(base_path('routes/congtacvien.php'));
+    }
+
+    protected function mapAdminRoutes()
+    {
+        Route::prefix('admin')
+            ->namespace($this->namespace . '\Admin')
+            ->name('admin.')
+            ->group(base_path('routes/admin.php'));
     }
 
     /**
